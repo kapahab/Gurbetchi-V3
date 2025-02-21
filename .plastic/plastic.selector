@@ -1,0 +1,4 @@
+repository "Gurbetchi V2/Gurbetchi V2@18967705763463@cloud"
+  path "/"
+    br "/main"
+    co "/main"
