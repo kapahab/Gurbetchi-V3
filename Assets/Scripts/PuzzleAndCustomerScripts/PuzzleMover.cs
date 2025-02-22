@@ -6,8 +6,8 @@ public class PuzzleMover : MonoBehaviour
     [SerializeField] int columnNum;
     [SerializeField] PuzzleLogic puzzleLogic;
     [SerializeField] PuzzleController puzzleController;
-    int moveRight = -2;
-    int moveLeft = 2;
+    float moveRight = -1.9f;
+    float moveLeft = 1.9f;
     int moveUp = 2;
     int moveDown = -2;
     float moveScaler;

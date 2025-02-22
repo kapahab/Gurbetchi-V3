@@ -22,7 +22,7 @@ public class ServeOrDelete : MonoBehaviour// old version of serveordelete, the o
     {
         
     }
-
+    /*
     void OnEnable()
     {
         EventManager.OnPlateServed += PlateServeChecker;
@@ -32,8 +32,8 @@ public class ServeOrDelete : MonoBehaviour// old version of serveordelete, the o
     {
         EventManager.OnPlateServed -= PlateServeChecker;
     }
-
-
+    */
+    /*
     void PlateServeChecker()
     {
 
@@ -131,4 +131,5 @@ public class ServeOrDelete : MonoBehaviour// old version of serveordelete, the o
             return true;
         }
     }
+    */
 }

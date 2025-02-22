@@ -55,13 +55,13 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             
             if (OrderChecker(orderMaker.totalOrderList, gameFlow.totalPlayerList))
             {
+                pointsCustomer.PointCalculator();
                 OrderFinished();
-                Debug.Log("Correct order!");
             }
             else
             {
+                gameFlow.totalPoints -= 500;
                 OrderFinished();
-                Debug.Log("Wrong order!");
             }
         }
 
@@ -120,7 +120,6 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         OrderManagerPuzzle.selectingOrders = true;
         OrderManagerPuzzle.foodOnCounter = false; //should delete food graphics as well
         OrderManagerPuzzle.isCustomerReadjusted = false;
-        pointsCustomer.PointCalculator();
         Destroy(this.gameObject);   
     }
 
@@ -144,11 +143,16 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
     void CombineList() 
     { //null check eklemek lazým!!!!
-        gameFlow.totalPlayerList.Add(gameFlow.carbList[0]);
-        gameFlow.totalPlayerList.Add(gameFlow.toppingList[0]);
-        gameFlow.totalPlayerList.Add(gameFlow.spiceList[0]);
-        gameFlow.totalPlayerList.Add(gameFlow.sauceList[0]);
-        gameFlow.totalPlayerList.Add(gameFlow.donerList[0]);
+        if (gameFlow.carbList.Count > 0)
+            gameFlow.totalPlayerList.Add(gameFlow.carbList[0]);
+        if (gameFlow.toppingList.Count > 0)
+            gameFlow.totalPlayerList.Add(gameFlow.toppingList[0]);
+        if (gameFlow.spiceList.Count > 0)
+            gameFlow.totalPlayerList.Add(gameFlow.spiceList[0]);
+        if (gameFlow.sauceList.Count > 0)
+            gameFlow.totalPlayerList.Add(gameFlow.sauceList[0]);
+        if (gameFlow.donerList.Count > 0)
+            gameFlow.totalPlayerList.Add(gameFlow.donerList[0]);
         
     }
 

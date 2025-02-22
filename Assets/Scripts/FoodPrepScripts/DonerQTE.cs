@@ -7,6 +7,7 @@ public class DonerQTE : MonoBehaviour
     [SerializeField] string keyStrokeStart;
     [SerializeField] string keyStrokeFinish;
     [SerializeField] GameObject[] donerCopy;
+    [SerializeField] FoodOnPlate foodOnPlate;
     private int DonerValue;
     public static bool donerCheck;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,14 +29,14 @@ public class DonerQTE : MonoBehaviour
                 if (DonerValue == 2)
                 {
                     gameFlow.donerList.Add("az_doner");
-                    FoodOnPlate.PutFoodOnPlate(donerCopy[0], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+                    foodOnPlate.PutFoodOnPlate(donerCopy[0], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
                 }
 
                 if (DonerValue == 4)
                 {
                     gameFlow.donerList.Remove("az_doner");
                     gameFlow.donerList.Add("orta_doner");
-                    FoodOnPlate.PutFoodOnPlate(donerCopy[1], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+                    foodOnPlate.PutFoodOnPlate(donerCopy[1], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
 
                 }
 
@@ -43,7 +44,7 @@ public class DonerQTE : MonoBehaviour
                 {
                     gameFlow.donerList.Remove("orta_doner");
                     gameFlow.donerList.Add("cok_doner");
-                    FoodOnPlate.PutFoodOnPlate(donerCopy[2], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+                    foodOnPlate.PutFoodOnPlate(donerCopy[2], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
 
                 }
             }
@@ -55,7 +56,7 @@ public class DonerQTE : MonoBehaviour
                 if (DonerValue == 2)
                 {
                     gameFlow.donerList.Add("az_doner");
-                    FoodOnPlate.PutFoodOnPlate(donerCopy[0], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+                    foodOnPlate.PutFoodOnPlate(donerCopy[0], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
 
                 }
 
@@ -63,7 +64,7 @@ public class DonerQTE : MonoBehaviour
                 {
                     gameFlow.donerList.Remove("az_doner");
                     gameFlow.donerList.Add("orta_doner");
-                    FoodOnPlate.PutFoodOnPlate(donerCopy[1], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+                    foodOnPlate.PutFoodOnPlate(donerCopy[1], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
 
                 }
 
@@ -71,7 +72,7 @@ public class DonerQTE : MonoBehaviour
                 {
                     gameFlow.donerList.Remove("orta_doner");
                     gameFlow.donerList.Add("cok_doner");
-                    FoodOnPlate.PutFoodOnPlate(donerCopy[2], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+                    foodOnPlate.PutFoodOnPlate(donerCopy[2], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
 
                 }
             }

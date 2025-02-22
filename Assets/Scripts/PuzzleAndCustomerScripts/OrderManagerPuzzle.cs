@@ -89,13 +89,13 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
                 if (Input.GetKeyDown(KeyCode.Space)) //bura basitleþtirilebilir, space'e basýldýðýnda condition checkler 2 taraftan da yapýlýyor
                     //sadece customer manager'dan yapýlabilir
                 {
-                    if (!orderManager.IsPuzzleSolved(activeOrder) && !foodOnCounter) 
+                    if (!orderManager.IsPuzzleSolved(activeOrder) && !foodOnCounter && !orderManager.isShopEmpty) 
                     {
                         onOrder = activeOrder;
                         Debug.Log("when pressed space on order: " + onOrder);
                         selectingOrders = false;
                     }
-                    else if (foodOnCounter) // this should call a function that deletes gameFlows totalplayer list
+                    else if (foodOnCounter && !orderManager.isShopEmpty)
                     {
                         onOrder = activeOrder;
                         Debug.Log("when pressed space on order: " + onOrder);
@@ -103,7 +103,7 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
                     }
                     else
                     {
-                        Debug.Log("Puzzle is already solved");
+                        Debug.Log("Puzzle is already solved or there is no customer");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))

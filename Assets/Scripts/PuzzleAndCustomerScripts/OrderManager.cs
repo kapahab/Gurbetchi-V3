@@ -12,6 +12,7 @@ public class OrderManager : MonoBehaviour
 
     float xOffset = 5f;
     int offsetMult; //should be controlled by ordercount
+    public bool isShopEmpty = true;
 
     [Header("Order Spawn Settings")]
     [Tooltip("Minimum time (in seconds) between customer orders.")]
@@ -23,6 +24,8 @@ public class OrderManager : MonoBehaviour
     [Tooltip("Enable or disable order generation.")]
     private bool isOrderSystemActive = false; // Internal flag to manage coroutine state
 
+    [SerializeField] Animator uiAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,15 @@ public class OrderManager : MonoBehaviour
         // Start checking for gameFlow.gameStart
         StartCoroutine(ManageOrderGeneration());
     }
+
+    private void Update()
+    {
+        if (instantiatedObjects.Count > 0)
+            isShopEmpty = false;
+        else isShopEmpty = true;
+
+    }
+
 
     IEnumerator ManageOrderGeneration()
     {
@@ -66,7 +78,7 @@ public class OrderManager : MonoBehaviour
                 SpawnOrder();
                 OrderManagerPuzzle.orderCount = instantiatedObjects.Count - 1;
                 SetID();
-               
+                uiAnim.Play("customer_ui", 0, 0);
             }
         }
     }
@@ -105,7 +117,9 @@ public class OrderManager : MonoBehaviour
 
     public bool IsPuzzleSolved(int index)
     {
-        return customerManager[index].isPuzzleSolved;
+        if (customerManager != null && customerManager.Count > index)
+            return customerManager[index].isPuzzleSolved;
+        else return true;
     }
 
     private void OnEnable()

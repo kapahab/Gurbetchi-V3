@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class SendFood : MonoBehaviour
 {
+    [SerializeField] FoodOnPlate foodOnPlate;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +35,7 @@ public class SendFood : MonoBehaviour
 
      void FoodDestroyer()
     {
-        foreach (GameObject copyClone in FoodOnPlate.copiedObjects) //listedeki her copyClone için copyClone silinir, yani tabaktaki
+        foreach (GameObject copyClone in foodOnPlate.copiedObjects) //listedeki her copyClone için copyClone silinir, yani tabaktaki
                                                                     //her þey silinir
         {
             Destroy(copyClone);
