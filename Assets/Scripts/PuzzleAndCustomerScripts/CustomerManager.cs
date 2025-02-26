@@ -14,7 +14,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     List<int> correctRow = new List<int> {};
     List<int> currentRow = new List<int> {};
     List<int> correctEnteredRow = new List<int> {};
-    int totalColumns = 5;
+    [SerializeField] int totalColumns = 5;
 
     [SerializeField] GameObject[] completedCarb;
     [SerializeField] GameObject[] completedTopping;
@@ -142,18 +142,20 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     }
 
     void CombineList() 
-    { //null check eklemek lazým!!!!
-        if (gameFlow.carbList.Count > 0)
-            gameFlow.totalPlayerList.Add(gameFlow.carbList[0]);
-        if (gameFlow.toppingList.Count > 0)
-            gameFlow.totalPlayerList.Add(gameFlow.toppingList[0]);
-        if (gameFlow.spiceList.Count > 0)
-            gameFlow.totalPlayerList.Add(gameFlow.spiceList[0]);
-        if (gameFlow.sauceList.Count > 0)
-            gameFlow.totalPlayerList.Add(gameFlow.sauceList[0]);
-        if (gameFlow.donerList.Count > 0)
-            gameFlow.totalPlayerList.Add(gameFlow.donerList[0]);
+    {
+        ListCombiner(gameFlow.carbList);
+        ListCombiner(gameFlow.toppingList);
+        ListCombiner(gameFlow.spiceList);
+        ListCombiner(gameFlow.sauceList);
+        ListCombiner(gameFlow.donerList);
         
+    }
+
+    void ListCombiner(List<string> foodLists)
+    {
+        if (foodLists.Count > 0)
+            for (int i = 0; i < foodLists.Count; i++)
+                gameFlow.totalPlayerList.Add(foodLists[i]);
     }
 
     private void IDReAdjuster() //nerede ve nasýl kullanýlýcaklarýný bul

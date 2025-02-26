@@ -53,19 +53,19 @@ public class EventManager : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("return"))
             {
                 Debug.Log("Plate served");
                 OnPlateServed();
                 OnScreenSwitchToCustomer(); //daha þýk bir çözüm belki olabilir(yemek yollanýrken ui kapanmasý için)
             }
-
+            /*
             if (Input.GetKeyDown("return"))
             {
                 Debug.Log("Order prepared");
                 OnOrderPrepared();
             }
-
+            */
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 OnScreenSwitchToCustomer();

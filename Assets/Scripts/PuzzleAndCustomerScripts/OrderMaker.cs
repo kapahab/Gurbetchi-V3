@@ -115,4 +115,24 @@ public class OrderMaker : MonoBehaviour
     {
         return Random.Range(0, list.Count);
     }
+
+
+
+    //test stuff
+
+    void GenericIngredientSelector(int amount, List<string> type, int columnNum) //eger correct ordersı düzgün bir sırayla return edebilirsem kullanılır ve generic edilir
+    {
+        HashSet<int> usedIndexes = new HashSet<int>();
+        for (int i = 0; i < amount; i++)
+        {
+            int toppingIndex;
+            do
+            {
+                toppingIndex = Random.Range(0, orderToppingList.Count);
+            } while (usedIndexes.Contains(toppingIndex)); // Ensure no duplicates
+
+            usedIndexes.Add(toppingIndex);
+            totalOrderList.Add(type[toppingIndex]);
+        }
+    }
 }
