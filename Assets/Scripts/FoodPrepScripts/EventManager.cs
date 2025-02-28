@@ -24,6 +24,10 @@ public class EventManager : MonoBehaviour
 
     public delegate void ScreenSwitchToCustomer();
     public static event ScreenSwitchToCustomer OnScreenSwitchToCustomer;
+
+
+    public delegate void FoodTrashed();
+    public static event FoodTrashed OnFoodTrashed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,6 +53,11 @@ public class EventManager : MonoBehaviour
             if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
             {
                 DonerChecker();
+            }
+
+            if (Input.GetKeyDown("escape"))
+            {
+                OnFoodTrashed();
             }
 
 

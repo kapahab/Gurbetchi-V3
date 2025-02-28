@@ -1,0 +1,673 @@
+fileFormatVersion: 2
+guid: e982dc9a6c99d6547a8ef9114a322cda
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8293889213977937037
+    second: text_with_keycaps_0
+  - first:
+      213: 7581914108690387835
+    second: text_with_keycaps_1
+  - first:
+      213: 7972762611700579878
+    second: text_with_keycaps_2
+  - first:
+      213: 6391742074230832168
+    second: text_with_keycaps_3
+  - first:
+      213: 8303626041638941403
+    second: text_with_keycaps_4
+  - first:
+      213: 1381082741222262158
+    second: text_with_keycaps_5
+  - first:
+      213: -5446326550649500898
+    second: text_with_keycaps_6
+  - first:
+      213: 7065681652090967222
+    second: text_with_keycaps_7
+  - first:
+      213: 3089537439768576555
+    second: text_with_keycaps_8
+  - first:
+      213: 2167713467860518949
+    second: text_with_keycaps_9
+  - first:
+      213: 4185891321282022834
+    second: text_with_keycaps_10
+  - first:
+      213: -8222924049640210021
+    second: text_with_keycaps_11
+  - first:
+      213: 6817548300813947213
+    second: text_with_keycaps_12
+  - first:
+      213: -8796291128318646901
+    second: text_with_keycaps_13
+  - first:
+      213: -6933900820852660306
+    second: text_with_keycaps_14
+  - first:
+      213: -9030216018493139740
+    second: text_with_keycaps_15
+  - first:
+      213: -3861629482687006384
+    second: text_with_keycaps_16
+  - first:
+      213: -9135006563831689937
+    second: text_with_keycaps_17
+  - first:
+      213: 728177852159894901
+    second: text_with_keycaps_18
+  - first:
+      213: -5578895103032186218
+    second: text_with_keycaps_19
+  - first:
+      213: 6206330912985750872
+    second: text_with_keycaps_20
+  - first:
+      213: -543016678792531794
+    second: text_with_keycaps_21
+  - first:
+      213: -5433301458581185368
+    second: text_with_keycaps_22
+  - first:
+      213: -2523596440515490799
+    second: text_with_keycaps_23
+  - first:
+      213: -3732823864256262446
+    second: text_with_keycaps_24
+  - first:
+      213: 8076117258927311915
+    second: text_with_keycaps_25
+  - first:
+      213: 8822415032759280221
+    second: text_with_keycaps_26
+  - first:
+      213: -7883801481149689735
+    second: text_with_keycaps_27
+  - first:
+      213: 1199688191451317357
+    second: text_with_keycaps_28
+  - first:
+      213: 8421845175931394508
+    second: text_with_keycaps_29
+  - first:
+      213: -754416243060279713
+    second: text_with_keycaps_30
+  - first:
+      213: 1645982486907585076
+    second: text_with_keycaps_31
+  - first:
+      213: 2605632033272554880
+    second: text_with_keycaps_32
+  - first:
+      213: -5471389392186155134
+    second: text_with_keycaps_33
+  - first:
+      213: 3004975381860634487
+    second: text_with_keycaps_34
+  - first:
+      213: 321221337519561970
+    second: text_with_keycaps_35
+  - first:
+      213: -8619586324997650270
+    second: text_with_keycaps_36
+  - first:
+      213: -8276739184127774701
+    second: text_with_keycaps_37
+  - first:
+      213: 1946460626114855121
+    second: text_with_keycaps_38
+  - first:
+      213: 6808058981361399409
+    second: text_with_keycaps_39
+  - first:
+      213: -3706164238657191269
+    second: text_with_keycaps_40
+  - first:
+      213: -5165883226727950328
+    second: text_with_keycaps_41
+  - first:
+      213: -6816294656065384781
+    second: text_with_keycaps_42
+  - first:
+      213: 8782031365264476285
+    second: text_with_keycaps_43
+  - first:
+      213: 2986174004019131497
+    second: text_with_keycaps_44
+  - first:
+      213: -3439025865179184251
+    second: text_with_keycaps_45
+  - first:
+      213: -4557413514858731745
+    second: text_with_keycaps_46
+  - first:
+      213: 3750794410347987448
+    second: text_with_keycaps_47
+  - first:
+      213: -942480283884186745
+    second: text_with_keycaps_48
+  - first:
+      213: 8302389058891708731
+    second: text_with_keycaps_49
+  - first:
+      213: 4643391493451410054
+    second: text_with_keycaps_50
+  - first:
+      213: -5233091128387670184
+    second: text_with_keycaps_51
+  - first:
+      213: -8054359365057907932
+    second: text_with_keycaps_52
+  - first:
+      213: 4438768155822676156
+    second: text_with_keycaps_53
+  - first:
+      213: -3274008745821990055
+    second: text_with_keycaps_54
+  - first:
+      213: -7149111462194340129
+    second: text_with_keycaps_55
+  - first:
+      213: 7275966335490902677
+    second: text_with_keycaps_56
+  - first:
+      213: -1889797660107783653
+    second: text_with_keycaps_57
+  - first:
+      213: -5679414692387228072
+    second: text_with_keycaps_58
+  - first:
+      213: 4656556557726581679
+    second: text_with_keycaps_59
+  - first:
+      213: 669337456378183881
+    second: text_with_keycaps_60
+  - first:
+      213: -5099001675402017616
+    second: text_with_keycaps_61
+  - first:
+      213: -789151233920922049
+    second: text_with_keycaps_62
+  - first:
+      213: 2276809103793374014
+    second: text_with_keycaps_63
+  - first:
+      213: -5276633532990556668
+    second: text_with_keycaps_64
+  - first:
+      213: 2604212363383775178
+    second: text_with_keycaps_65
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: text_with_keycaps_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 58
+        width: 46
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37bb66ae3bf26ec80800000000000000
+      internalID: -8293889213977937037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 45
+        width: 39
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73530e06be583960800000000000000
+      internalID: 7581914108690387835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 31
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6739fcc03d827c542baf1ec4bb5a2091
+      internalID: 7972762611700579878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 15
+        width: 34
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b03571c036bcb47a92d99be1bb9fc3
+      internalID: 6391742074230832168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 449f25911a03dfc48af12a64eaa41b33
+      internalID: 8303626041638941403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_5
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 8
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429468a52c5a4264dad5a5f1ab45a3a4
+      internalID: 1381082741222262158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_6
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 15
+        width: 32
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f517a012f9343d43bee765166c123db
+      internalID: -5446326550649500898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_7
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 2
+        width: 51
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde05dcb905b58946b7487dd9d856153
+      internalID: 7065681652090967222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_8
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 15
+        width: 34
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c513b208928ddb49abe39c15315f6bb
+      internalID: 3089537439768576555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_9
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 30
+        width: 49
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d77937c78a8ca438fd176d19e5adc9
+      internalID: 2167713467860518949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_10
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 43
+        width: 38
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076b8c304bc568f49b720ad4975c8575
+      internalID: 4185891321282022834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_11
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 57
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05857770e0e85d54e88d8156719f2d46
+      internalID: -8222924049640210021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_12
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 57
+        width: 44
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71353febde50384f9e1038f9ff3e344
+      internalID: 6817548300813947213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_13
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 42
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a943c234157fd9d4f8c11ee0bd9c7a74
+      internalID: -8796291128318646901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_with_keycaps_14
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 28
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ecc22323361c544b4e7a72e26f4564
+      internalID: -6933900820852660306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0a0929be6f63ca0438d61c81a8441afc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      text_with_keycaps_0: -8293889213977937037
+      text_with_keycaps_1: 7581914108690387835
+      text_with_keycaps_10: 4185891321282022834
+      text_with_keycaps_11: -8222924049640210021
+      text_with_keycaps_12: 6817548300813947213
+      text_with_keycaps_13: -8796291128318646901
+      text_with_keycaps_14: -6933900820852660306
+      text_with_keycaps_2: 7972762611700579878
+      text_with_keycaps_3: 6391742074230832168
+      text_with_keycaps_4: 8303626041638941403
+      text_with_keycaps_5: 1381082741222262158
+      text_with_keycaps_6: -5446326550649500898
+      text_with_keycaps_7: 7065681652090967222
+      text_with_keycaps_8: 3089537439768576555
+      text_with_keycaps_9: 2167713467860518949
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

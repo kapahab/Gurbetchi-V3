@@ -22,12 +22,14 @@ public class SendFood : MonoBehaviour
     {
         EventManager.OnPlateServed += FoodDestroyer;
         EventManager.OnPlateServed += SwitchScene;
+        EventManager.OnFoodTrashed += FoodDestroyer;
     }
 
     void OnDisable()
     {
         EventManager.OnPlateServed -= FoodDestroyer;
         EventManager.OnPlateServed -= SwitchScene;
+        EventManager.OnFoodTrashed -= FoodDestroyer;
     }
 
     

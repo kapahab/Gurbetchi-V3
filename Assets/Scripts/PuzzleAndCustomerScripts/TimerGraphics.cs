@@ -6,7 +6,7 @@ public class TimerGraphics : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] CustomerTimer customerTimer;
     [SerializeField] CustomerManager customerManager;
-    int offsetAmount = 550;
+    int offsetAmount = 300;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,19 +29,20 @@ public class TimerGraphics : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void TimerPosition()
+    void TimerPosition() // not needed
     {
-        timerText.transform.position = new Vector3(250+(customerManager.orderID * offsetAmount), 750, 0);
+/*
+        timerText.transform.position = new Vector3(225+(customerManager.orderID * offsetAmount), -200, 0);*/
     }
 
     void EnableTimerUI()
-    {
-        timerText.gameObject.SetActive(true);
+    {/*
+        timerText.gameObject.SetActive(true);*/
     }
 
     void DisableTimerUI()
-    {
-        timerText.gameObject.SetActive(false);
+    {/*
+        timerText.gameObject.SetActive(false);*/
     }
 
     private void OnEnable()
