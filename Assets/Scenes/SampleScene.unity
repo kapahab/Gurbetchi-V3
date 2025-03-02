@@ -1879,6 +1879,14 @@ PrefabInstance:
       propertyPath: uiAnim
       value: 
       objectReference: {fileID: 1474487249}
+    - target: {fileID: 6369787758363726638, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
+      propertyPath: maxOrderTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369787758363726638, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
+      propertyPath: minOrderTime
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8607301291591794490, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
       propertyPath: selector
       value: 

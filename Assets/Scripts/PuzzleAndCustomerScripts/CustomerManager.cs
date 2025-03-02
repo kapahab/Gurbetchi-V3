@@ -77,6 +77,8 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
         if (customerTimer.startTime < 0)
         {
+            if (puzzleController != null)
+                Destroy(puzzleController.gameObject);
             OrderFinished();
             gameFlow.totalPoints -= 500;
             Debug.Log("Order Timed Out!");

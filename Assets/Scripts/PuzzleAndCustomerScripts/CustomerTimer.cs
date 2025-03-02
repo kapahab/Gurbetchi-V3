@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CustomerTimer : MonoBehaviour
 {
-    public float startTime = 60f;
+    public float startTime = 90f;
     bool timerStarted = false;
     [SerializeField] TimerGraphics timerGraphics;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

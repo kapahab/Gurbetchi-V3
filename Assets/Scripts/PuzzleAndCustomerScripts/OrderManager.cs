@@ -16,10 +16,10 @@ public class OrderManager : MonoBehaviour
 
     [Header("Order Spawn Settings")]
     [Tooltip("Minimum time (in seconds) between customer orders.")]
-    [SerializeField] private float minOrderTime = 2.5f;
+    [SerializeField] private float minOrderTime = 30f;
 
     [Tooltip("Maximum time (in seconds) between customer orders.")]
-    [SerializeField] private float maxOrderTime = 5f;
+    [SerializeField] private float maxOrderTime = 45f;
 
     [Tooltip("Enable or disable order generation.")]
     private bool isOrderSystemActive = false; // Internal flag to manage coroutine state
