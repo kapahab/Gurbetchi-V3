@@ -90,6 +90,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         germanText.gameObject.SetActive(false);
         puzzleScreenInstance = Instantiate(puzzleScreenPrefab);
         puzzleController = puzzleScreenInstance.GetComponent<PuzzleController>();
+        totalColumns = orderMaker.correctOrders.Count;
         for (int i = 0; i < totalColumns; i++)
         {
             correctRow.Add(orderMaker.correctOrders[i]); // doðru sýralar ordermakerdan alýnýr

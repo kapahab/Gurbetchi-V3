@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using static OrderEventManager;
 using static OrderManagerPuzzle;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and some logic
 {
@@ -108,14 +110,22 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    OnScreenSwitchToIngredients();
-                    Camera.main.transform.position = new Vector3(0, 0, -10);
-                    gameFlow.screenSwitch = true;
+                    StartCoroutine(WaitAndSwitchScreen());
                 }
+
+
             }
         }
         
     }
 
+
+    IEnumerator WaitAndSwitchScreen()
+    {
+        yield return new WaitForSeconds(0.01f);
+        OnScreenSwitchToIngredients();
+        Camera.main.transform.position = new Vector3(0, 0, -10);
+        gameFlow.screenSwitch = true;
+    }
 
 }

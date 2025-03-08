@@ -25,7 +25,7 @@ public class PuzzleController : MonoBehaviour
     public delegate void ActivateOrder();
     public event ActivateOrder OnActivateOrder;
 
-    List<int> totalRows = new List<int> { 2, 4, 1, 1, 2 };
+    List<int> totalRows = new List<int> { 2, 4, 1, 1, 2 }; //reformat gerekli
     int totalColumns = 5; // bunlar birbirini tamamlayan listeler olabilir
     public List<int> currentRow; 
     public int currentColumn = 0;
@@ -57,13 +57,6 @@ public class PuzzleController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        /*
-        if (orderID == OrderManagerPuzzle.onOrder && !isInOrder)
-        {
-            OnActivateOrder();
-            Debug.Log("order being activated");
-        }
-        */
 
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -92,9 +85,9 @@ public class PuzzleController : MonoBehaviour
                 }
                 Debug.Log("when moved down row on column: " + currentColumn + "is: " + currentRow[currentColumn]);
             }
-
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
+        /*
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+           {
                 if (currentColumn < totalColumns)
                 {
 
@@ -104,9 +97,9 @@ public class PuzzleController : MonoBehaviour
                 }
                 Debug.Log("on column: " + currentColumn);
 
-            }
+           }
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if (currentColumn > 0)
                 {
@@ -117,37 +110,20 @@ public class PuzzleController : MonoBehaviour
                 }
                 Debug.Log("on column: " + currentColumn);
             }
-
-            if (Input.GetKeyDown(KeyCode.Space))
+        */
+        if (Input.GetKeyDown(KeyCode.Space))
             {
                 OnCheckColumn();
                 Debug.Log("checking column");
+
+                if (isColumnLocked[currentColumn])
+                {
+                      OnPuzzleRight();
+                      currentColumn++;
+                }
+        
             }
 
-        
-        /*
-        if (enteredOrder[0] == correctRow[0]) //testing...
-        {
-            Debug.Log("order is correct");
-            Destroy(transform.parent.gameObject);
-        }
-        */
     }
-
-    /*
-    void MakeCorrectRowTemp()
-    {
-        orderMaker.MakeOrder();
-        Debug.Log("first correct ingredient: " + orderMaker.correctOrders[0]);
-        Debug.Log("first correct ingredient: " + orderMaker.correctOrders[1]);
-        Debug.Log("total columns is " + totalColumns);
-
-        for (int i = 0; i < totalColumns; i++)
-        {
-            correctRow.Add(orderMaker.correctOrders[i]);
-        }
-    }
-    */
-    
 
 }

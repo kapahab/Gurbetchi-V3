@@ -50,7 +50,7 @@ public class OrderMaker : MonoBehaviour
     public void MakeOrder()
     {
         totalOrderList.Clear();// use total order list to send the order to serveordelete
-
+        /*
 
         totalOrderList.Add(orderCarbList[carbValue = ValueMaker(orderCarbList)]);
 
@@ -77,9 +77,17 @@ public class OrderMaker : MonoBehaviour
             Debug.Log("list after " + i + " order randomly selected: " + totalOrderList[i]);
         }
 
-
-
-
+        */
+        GenericIngredientSelector(1, orderCarbList);
+        GenericIngredientSelector(3, orderToppingList);
+        GenericIngredientSelector(1, orderSpiceList);
+        GenericIngredientSelector(2, orderSauceList);
+        GenericIngredientSelector(1, orderDonerList);
+        for (int i = 0; i < totalOrderList.Count; i++)
+        {
+            Debug.Log("list after " + i + " order randomly selected: " + totalOrderList[i]);
+            Debug.Log("correct orders: " + correctOrders[i]);
+        }
     }
 
     private void AddToppingsByDifficulty()
@@ -120,19 +128,39 @@ public class OrderMaker : MonoBehaviour
 
     //test stuff
 
-    void GenericIngredientSelector(int amount, List<string> type, int columnNum) //eger correct ordersı düzgün bir sırayla return edebilirsem kullanılır ve generic edilir
+    void GenericIngredientSelector(int amount, List<string> type) //eger correct ordersı düzgün bir sırayla return edebilirsem kullanılır ve generic edilir
     {
         HashSet<int> usedIndexes = new HashSet<int>();
         for (int i = 0; i < amount; i++)
         {
             int toppingIndex;
+            string stringValue;
             do
             {
-                toppingIndex = Random.Range(0, orderToppingList.Count);
-            } while (usedIndexes.Contains(toppingIndex)); // Ensure no duplicates
+                toppingIndex = Random.Range(0, type.Count);
+                stringValue = type[toppingIndex];
+            } while (usedIndexes.Contains(toppingIndex) && totalOrderList.Contains(stringValue)); // Ensure no duplicates
 
-            usedIndexes.Add(toppingIndex);
-            totalOrderList.Add(type[toppingIndex]);
+            correctOrders.Add(toppingIndex);
+            totalOrderList.Add(stringValue);
         }
+
+
+
+        new List<int>(usedIndexes); // add to total order list in MakeOrder to ensure the total order list has correct placement
+
+        //totalorderlist.AddRange(GenericIngredientSelector(amountofcarb = RandomRange, orderCarbList));
+        //totalorderlist.AddRange(GenericIngredientSelector(amountoftopping = RandomRange, orderToppingList));
+        //totalorderlist.AddRange(GenericIngredientSelector(amountofspice = RandomRange, orderSpiceList));
+        //totalorderlist.AddRange(GenericIngredientSelector(amountofsauce = RandomRange, orderSauceList));
+        //totalorderlist.AddRange(GenericIngredientSelector(amountofdoner = RandomRange, orderDonerList));
+        // columnnum= totalorderlist.count
+        //(in puzzlegraphicgeneration) instantiate carb horizontal amountofcarb times
+        //(in puzzlegraphicgeneration) instantiate topping vertical amountoftopping times
+        //(in puzzlegraphicgeneration) instantiate spice horizontal amountofspice times
+        //(in puzzlegraphicgeneration) instantiate sauce horizontal amountofsauce times
+        //(in puzzlegraphicgeneration) instantiate doner horizontal amountofdoner times
+        //assign columnnum to columns
+        //assign correctrow info from list in this function
     }
 }

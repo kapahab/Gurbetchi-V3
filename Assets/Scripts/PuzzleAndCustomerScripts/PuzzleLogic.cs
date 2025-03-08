@@ -63,7 +63,6 @@ public class PuzzleLogic : MonoBehaviour
             puzzleController.correctEnteredRow.Add(puzzleController.currentRow[puzzleController.currentColumn]);
             if (PuzzleChecker())
                 DeactivatePuzzle();
-        
         }
         else
         {

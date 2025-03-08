@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class EventManager : MonoBehaviour
 {
@@ -62,24 +63,16 @@ public class EventManager : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown("return"))
+            if (Input.GetKeyDown("space"))
             {
                 Debug.Log("Plate served");
-                OnPlateServed();
-                OnScreenSwitchToCustomer(); //daha þýk bir çözüm belki olabilir(yemek yollanýrken ui kapanmasý için)
+                StartCoroutine(WaitAndSwitch());
+             
             }
-            /*
-            if (Input.GetKeyDown("return"))
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Debug.Log("Order prepared");
-                OnOrderPrepared();
-            }
-            */
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                OnScreenSwitchToCustomer();
-                Camera.main.transform.position = new Vector3(-30, 0, -10);
-                gameFlow.screenSwitch = false;
+                StartCoroutine(WaitAndSwitchScreen()); 
             }
         }
         
@@ -101,6 +94,22 @@ public class EventManager : MonoBehaviour
             darkenOthers.DarkenObjects();
             inDonerMinigame = true;
         }
+    }
+
+    IEnumerator WaitAndSwitch()
+    {
+        yield return new WaitForSeconds(0.01f);
+        OnPlateServed();
+        OnScreenSwitchToCustomer();
+    }
+
+    IEnumerator WaitAndSwitchScreen()
+    {
+        yield return new WaitForSeconds(0.01f);
+        OnScreenSwitchToCustomer();
+        Camera.main.transform.position = new Vector3(-30, 0, -10);
+        gameFlow.screenSwitch = false;
+        Debug.Log("Screen switched to customer");
     }
 }
 
