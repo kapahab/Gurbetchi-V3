@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderID: 0
   isInOrder: 0
-  puzzleScreenPrefab: {fileID: 8774814308243274718, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+  puzzleScreenPrefab: {fileID: 27353193920077559, guid: 36f0f3f4a86f4534ba98b9a9466c86b2, type: 3}
   germanText: {fileID: 1438715271878807502}
   orderMaker: {fileID: 7549328014516978184}
   customerTimer: {fileID: 2567784774193906441}
@@ -1899,6 +1899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalOrderList: []
   correctOrders: 
+  amountOfIngredients: 
 --- !u!114 &6873440629864342470
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 2944598072049634657}
   - component: {fileID: 8708909383109103297}
   - component: {fileID: 8576959463267227797}
+  - component: {fileID: 4633961217177595715}
   m_Layer: 5
   m_Name: donerVertical
   m_TagString: Untagged
@@ -155,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   columnNumber: 0
+  rowType: 
 --- !u!114 &8576959463267227797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +171,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
+--- !u!114 &4633961217177595715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823685792945092276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711a2be195f0f00498a1b21a574f92d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePiece: {fileID: 0}
+  columnNum: 0
+  puzzleLogic: {fileID: 0}
+  puzzleController: {fileID: 0}
 --- !u!1 &7114034253069057496
 GameObject:
   m_ObjectHideFlags: 0

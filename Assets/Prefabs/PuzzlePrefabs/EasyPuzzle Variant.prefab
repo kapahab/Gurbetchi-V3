@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8766057160222106921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3187382453971360148, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: puzzleSelector
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.979496
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.660564
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0025992915
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239871645087726261, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976822491016401430, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: puzzleScreen
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774814308243274718, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_Name
+      value: EasyPuzzle Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3557200085290825534, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 264730794742003734, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7425234758628217815}
+    - targetCorrespondingSourceObject: {fileID: 264730794742003734, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3674610938347165327}
+  m_SourcePrefab: {fileID: 100100000, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+--- !u!114 &4347944088078734887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5039609993062494990, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+  m_PrefabInstance: {fileID: 8766057160222106921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794344574282292543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dbc601d93c1254e8e96a12a92a092f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7187529768326976847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1880383363490132070, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+  m_PrefabInstance: {fileID: 8766057160222106921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8794344574282292543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 264730794742003734, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+  m_PrefabInstance: {fileID: 8766057160222106921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7425234758628217815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794344574282292543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc5fc71df844b742866421688e04cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleSelector: {fileID: 7187529768326976847}
+  puzzleController: {fileID: 4347944088078734887}
+--- !u!114 &3674610938347165327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794344574282292543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ff65572f8b32b4ca06ef018e207cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleController: {fileID: 4347944088078734887}
+  puzzleScreen: {fileID: 0}
+  germanText: {fileID: 0}
+  completedCarb: []
+  completedTopping: []
+  completedSpice: []
+  completedSauce: []
+  completedDoner: []

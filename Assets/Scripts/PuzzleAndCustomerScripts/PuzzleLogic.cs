@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PuzzleLogic : MonoBehaviour
 {
-    [SerializeField] PuzzleController puzzleController;
+    [SerializeField] PuzzleControllerV2 puzzleController;
     [SerializeField] GameObject puzzleScreen;
     [SerializeField] GameObject germanText;
     [SerializeField] GameObject[] completedCarb;
@@ -28,14 +28,14 @@ public class PuzzleLogic : MonoBehaviour
     
     private void OnEnable()
     {
-        puzzleController.OnCheckColumn += CheckColumn;
+        PuzzleControllerV2.OnCheckColumn += CheckColumn;
         //puzzleController.OnActivateOrder += OrderActivation;
     }
 
 
     void OnDisable()
     {
-        puzzleController.OnCheckColumn -= CheckColumn;
+        PuzzleControllerV2.OnCheckColumn -= CheckColumn;
         //puzzleController.OnActivateOrder -= OrderActivation;
     }
 

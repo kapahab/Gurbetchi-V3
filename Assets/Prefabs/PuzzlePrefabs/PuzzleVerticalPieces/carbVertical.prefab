@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5772677126278701622}
   - component: {fileID: 1911889016533833679}
   - component: {fileID: 1362245409009478468}
+  - component: {fileID: 6426752314017290450}
   m_Layer: 5
   m_Name: carbVertical
   m_TagString: Untagged
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   columnNumber: 0
+  rowType: 
 --- !u!114 &1362245409009478468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +246,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
+--- !u!114 &6426752314017290450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188613460197232735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711a2be195f0f00498a1b21a574f92d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePiece: {fileID: 0}
+  columnNum: 0
+  puzzleLogic: {fileID: 0}
+  puzzleController: {fileID: 0}
 --- !u!1 &6353400091426958354
 GameObject:
   m_ObjectHideFlags: 0

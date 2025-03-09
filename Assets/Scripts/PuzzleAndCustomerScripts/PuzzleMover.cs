@@ -5,11 +5,11 @@ public class PuzzleMover : MonoBehaviour
     [SerializeField] GameObject puzzlePiece;
     [SerializeField] int columnNum;
     [SerializeField] PuzzleLogic puzzleLogic;
-    [SerializeField] PuzzleController puzzleController;
-    float moveRight = -1.9f;
-    float moveLeft = 1.9f;
-    int moveUp = 2;
-    int moveDown = -2;
+    [SerializeField] PuzzleControllerV2 puzzleController;
+    float moveRight = -125;
+    float moveLeft = 125;
+    int moveUp = 115;
+    int moveDown = -115;
     float moveScaler;
     int currentColumn = 0;
 
@@ -27,46 +27,43 @@ public class PuzzleMover : MonoBehaviour
 
     private void OnEnable()
     {
-        puzzleController.OnPuzzleUp += MoveUp;
-        puzzleController.OnPuzzleDown += MoveDown;
-        puzzleController.OnPuzzleLeft += MoveLeft;
-        puzzleController.OnPuzzleRight += MoveRight;
+        PuzzleControllerV2.OnPuzzleUp += MoveUp;
+        PuzzleControllerV2.OnPuzzleDown += MoveDown;
+        PuzzleControllerV2.OnPuzzleLeft += MoveLeft;
+        PuzzleControllerV2.OnPuzzleRight += MoveRight;
     }
 
 
     void OnDisable()
     {
-        puzzleController.OnPuzzleUp -= MoveUp;
-        puzzleController.OnPuzzleDown -= MoveDown;
-        puzzleController.OnPuzzleLeft -= MoveLeft;
-        puzzleController.OnPuzzleRight -= MoveRight;
+        PuzzleControllerV2.OnPuzzleUp -= MoveUp;
+        PuzzleControllerV2.OnPuzzleDown -= MoveDown;
+        PuzzleControllerV2.OnPuzzleLeft -= MoveLeft;
+        PuzzleControllerV2.OnPuzzleRight -= MoveRight;
     }
 
 
     public void MoveDown()
     {
-        if(puzzleController.currentColumn == columnNum)
-        {
-            puzzlePiece.transform.localPosition += new Vector3(0, moveDown, 0);
-        }
+
+        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, moveDown);
+
     }
 
     public void MoveUp()
     {
-        if (puzzleController.currentColumn == columnNum)
-        {
-            puzzlePiece.transform.localPosition += new Vector3(0, moveUp, 0);
-        }
+
+        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, moveUp);
+
     }
 
     public void MoveRight()
     {
-        puzzlePiece.transform.localPosition += new Vector3(moveRight, 0, 0);
-        currentColumn++;
+        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(moveRight, 0);
     }
 
     public void MoveLeft()
     {
-        puzzlePiece.transform.localPosition += new Vector3(moveLeft, 0, 0);
+        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(moveLeft, 0);
     }
 }

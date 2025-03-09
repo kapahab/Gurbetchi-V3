@@ -25,6 +25,12 @@ public class OrderMaker : MonoBehaviour
     List<int> toppingIndexes = new List<int>();
     public List<int> correctOrders = new List<int>();
 
+    public List<int> amountOfIngredients = new List<int>();
+    int amountOfCarb;
+    int amountOfTopping;
+    int amountOfSpice;
+    int amountOfSauce;
+    int amountOfDoner;
 
 
     void Start()
@@ -78,11 +84,12 @@ public class OrderMaker : MonoBehaviour
         }
 
         */
-        GenericIngredientSelector(1, orderCarbList);
-        GenericIngredientSelector(3, orderToppingList);
-        GenericIngredientSelector(1, orderSpiceList);
-        GenericIngredientSelector(2, orderSauceList);
-        GenericIngredientSelector(1, orderDonerList);
+        GenericIngredientSelector(amountOfCarb = 1, orderCarbList);
+        GenericIngredientSelector(amountOfTopping = 3, orderToppingList);
+        GenericIngredientSelector(amountOfSpice = 1, orderSpiceList);
+        GenericIngredientSelector(amountOfSauce = 2, orderSauceList);
+        GenericIngredientSelector(amountOfDoner = 1, orderDonerList);
+        PuzzleListMaker();
         for (int i = 0; i < totalOrderList.Count; i++)
         {
             Debug.Log("list after " + i + " order randomly selected: " + totalOrderList[i]);
@@ -149,18 +156,33 @@ public class OrderMaker : MonoBehaviour
 
         new List<int>(usedIndexes); // add to total order list in MakeOrder to ensure the total order list has correct placement
 
-        //totalorderlist.AddRange(GenericIngredientSelector(amountofcarb = RandomRange, orderCarbList));
-        //totalorderlist.AddRange(GenericIngredientSelector(amountoftopping = RandomRange, orderToppingList));
-        //totalorderlist.AddRange(GenericIngredientSelector(amountofspice = RandomRange, orderSpiceList));
-        //totalorderlist.AddRange(GenericIngredientSelector(amountofsauce = RandomRange, orderSauceList));
-        //totalorderlist.AddRange(GenericIngredientSelector(amountofdoner = RandomRange, orderDonerList));
-        // columnnum= totalorderlist.count
-        //(in puzzlegraphicgeneration) instantiate carb horizontal amountofcarb times
-        //(in puzzlegraphicgeneration) instantiate topping vertical amountoftopping times
-        //(in puzzlegraphicgeneration) instantiate spice horizontal amountofspice times
-        //(in puzzlegraphicgeneration) instantiate sauce horizontal amountofsauce times
-        //(in puzzlegraphicgeneration) instantiate doner horizontal amountofdoner times
-        //assign columnnum to columns
-        //assign correctrow info from list in this function
+    }
+
+    void PuzzleListMaker()
+    {
+        for (int i = 0; i < amountOfCarb; i++)
+        {
+            amountOfIngredients.Add(0);
+        }
+
+        for (int i = 0; i < amountOfTopping; i++)
+        {
+            amountOfIngredients.Add(1);
+        }
+
+        for (int i = 0; i < amountOfSpice; i++)
+        {
+            amountOfIngredients.Add(2);
+        }
+
+        for (int i = 0; i < amountOfSauce; i++)
+        {
+            amountOfIngredients.Add(3);
+        }
+
+        for (int i = 0; i < amountOfDoner; i++)
+        {
+            amountOfIngredients.Add(4);
+        }
     }
 }

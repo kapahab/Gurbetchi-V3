@@ -1,16 +1,17 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleColor : MonoBehaviour
 {
     [SerializeField] GameObject puzzleSelector;
     int closenessIndex;
-    [SerializeField] PuzzleController puzzleController;
+    [SerializeField] PuzzleControllerV2 puzzleController;
     int currentColumn;
     List<int> correctRow;
     List<int> currentRow;
-
+    Image selectorImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created*/
     //abstract yapmak için: current row, correct row, game object
     void Start()
@@ -22,13 +23,15 @@ public class PuzzleColor : MonoBehaviour
         Debug.Log("correct row: " + correctRow[currentColumn]);
         Debug.Log("current row: " + currentRow[currentColumn]);
         closenessIndex = Mathf.Abs(correctRow[currentColumn] - currentRow[currentColumn]);
+        selectorImage = puzzleSelector.GetComponent<Image>();
+        selectorImage.material.color = Color.white; 
         if (closenessIndex == 0)
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(0, 1, 0);
+            selectorImage.color = new Color(0, 1, 0);
         }
         else
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(closenessIndex / 1.5f, 0, 0);
+            selectorImage.color = new Color(closenessIndex / 1.5f, 0, 0);
         }
     }
 
@@ -40,19 +43,19 @@ public class PuzzleColor : MonoBehaviour
     
     private void OnEnable()
     {
-        puzzleController.OnPuzzleUp += PuzzleIndicatorUp;
-        puzzleController.OnPuzzleDown += PuzzleIndicatorDown;
-        puzzleController.OnPuzzleLeft += PuzzleIndicatorLeft;
-        puzzleController.OnPuzzleRight += PuzzleIndicatorRight;
+        PuzzleControllerV2.OnPuzzleUp += PuzzleIndicatorUp;
+        PuzzleControllerV2.OnPuzzleDown += PuzzleIndicatorDown;
+        PuzzleControllerV2.OnPuzzleLeft += PuzzleIndicatorLeft;
+        PuzzleControllerV2.OnPuzzleRight += PuzzleIndicatorRight;
     }
 
 
     void OnDisable()
     {
-        puzzleController.OnPuzzleUp -= PuzzleIndicatorUp;
-        puzzleController.OnPuzzleDown -= PuzzleIndicatorDown;
-        puzzleController.OnPuzzleLeft -= PuzzleIndicatorLeft;
-        puzzleController.OnPuzzleRight -= PuzzleIndicatorRight;
+        PuzzleControllerV2.OnPuzzleUp -= PuzzleIndicatorUp;
+        PuzzleControllerV2.OnPuzzleDown -= PuzzleIndicatorDown;
+        PuzzleControllerV2.OnPuzzleLeft -= PuzzleIndicatorLeft;
+        PuzzleControllerV2.OnPuzzleRight -= PuzzleIndicatorRight;
     }
     
     public void PuzzleIndicatorLeft()
@@ -64,11 +67,11 @@ public class PuzzleColor : MonoBehaviour
         closenessIndex = Mathf.Abs(correctRow[currentColumn - 1] - currentRow[currentColumn-1]);
         if (closenessIndex == 0)
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(0, 1, 0);
+            selectorImage.color = new Color(0, 1, 0);
         }
         else
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(closenessIndex / 1.5f, 0, 0);
+            selectorImage.color = new Color(closenessIndex / 1.5f, 0, 0);
         }
     }
 
@@ -81,11 +84,11 @@ public class PuzzleColor : MonoBehaviour
         closenessIndex = Mathf.Abs(correctRow[currentColumn + 1] - currentRow[currentColumn + 1]);
         if (closenessIndex == 0)
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(0, 1, 0);
+            selectorImage.color = new Color(0, 1, 0);
         }
         else
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(closenessIndex / 1.5f, 0, 0);
+            selectorImage.color = new Color(closenessIndex / 1.5f, 0, 0);
         }
     }
 
@@ -98,11 +101,11 @@ public class PuzzleColor : MonoBehaviour
         closenessIndex = Mathf.Abs(correctRow[currentColumn] - currentRow[currentColumn] - 1);
         if (closenessIndex == 0)
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(0, 1, 0);
+            selectorImage.color = new Color(0, 1, 0);
         }
         else
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(closenessIndex / 1.5f, 0, 0);
+            selectorImage.color = new Color(closenessIndex / 1.5f, 0, 0);
         }
     }
 
@@ -115,11 +118,11 @@ public class PuzzleColor : MonoBehaviour
         closenessIndex = Mathf.Abs(correctRow[currentColumn] - currentRow[currentColumn] + 1);
         if (closenessIndex == 0)
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(0, 1, 0);
+            selectorImage.color = new Color(0, 1, 0);
         }
         else
         {
-            puzzleSelector.GetComponent<SpriteRenderer>().material.color = new Color(closenessIndex / 1.5f, 0, 0);
+            selectorImage.color = new Color(closenessIndex / 1.5f, 0, 0);
         }
     }
 }

@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4369220858389247286}
   - component: {fileID: 7465484798350584760}
   - component: {fileID: 4257678186713878308}
+  - component: {fileID: 7443569381372108530}
   m_Layer: 5
   m_Name: spiceVertical
   m_TagString: Untagged
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   columnNumber: 0
+  rowType: 
 --- !u!114 &4257678186713878308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +170,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
+--- !u!114 &7443569381372108530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643842204225205900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711a2be195f0f00498a1b21a574f92d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePiece: {fileID: 0}
+  columnNum: 0
+  puzzleLogic: {fileID: 0}
+  puzzleController: {fileID: 0}
 --- !u!1 &9148439021595346559
 GameObject:
   m_ObjectHideFlags: 0

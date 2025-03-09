@@ -22,13 +22,12 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     [SerializeField] GameObject[] completedSauce;
     [SerializeField] GameObject[] completedDoner;
 
-    PuzzleController puzzleController;
+    PuzzleControllerV2 puzzleController;
 
     public bool isPuzzleSolved = false;
 
     [SerializeField]CustomerPositioner customerPositioner;
     [SerializeField]PointsCustomer pointsCustomer;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -89,8 +88,13 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     {
         germanText.gameObject.SetActive(false);
         puzzleScreenInstance = Instantiate(puzzleScreenPrefab);
-        puzzleController = puzzleScreenInstance.GetComponent<PuzzleController>();
+        puzzleController = puzzleScreenInstance.GetComponentInChildren<PuzzleControllerV2>();
+        if (puzzleController == null)
+            Debug.Log("puzzle controller is null");
+
         totalColumns = orderMaker.correctOrders.Count;
+        puzzleController.totalColumns = totalColumns;
+        puzzleController.rowTypeNumber = orderMaker.amountOfIngredients;
         for (int i = 0; i < totalColumns; i++)
         {
             correctRow.Add(orderMaker.correctOrders[i]); // doðru sýralar ordermakerdan alýnýr
@@ -98,8 +102,9 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             Debug.Log("correct row: " + correctRow[i]);
 
         }
-        Debug.Log("correct row: " + puzzleScreenInstance.GetComponent<PuzzleController>().correctRow[0]);
+        //Debug.Log("correct row: " + puzzleScreenInstance.GetComponent<PuzzleController>().correctRow[0]);
         isInOrder = true;
+        puzzleController.PuzzleSpawner();
     }
 
     void OrderFinished()
