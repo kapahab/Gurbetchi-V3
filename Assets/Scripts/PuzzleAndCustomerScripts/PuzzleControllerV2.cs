@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
@@ -27,7 +28,7 @@ public class PuzzleControllerV2 : MonoBehaviour
     public delegate void ActivateOrder();
     public static event ActivateOrder OnActivateOrder;
 
-    List<int> totalRows = new List<int> { 2, 4, 1, 1, 2 }; //reformat gerekli
+    List<int> totalRows = new List<int>(); //reformat gerekli
     public int totalColumns; // bunlar birbirini tamamlayan listeler olabilir
     public List<int> currentRow = new List<int>();
     public int currentColumn = 0;
@@ -66,7 +67,8 @@ public class PuzzleControllerV2 : MonoBehaviour
             PuzzleVerticalCounter newColumnInfo = instantiatedPuzzleColumns[i].GetComponent<PuzzleVerticalCounter>();
             columnInfo.Add(newColumnInfo);
             columnInfo[i].columnNumber = i;
-            StartYPos(i);
+            currentRow.Add(CurrentRowCalculator(i));
+            totalRows.Add(columnInfo[i].transform.childCount);
         }
 
 
@@ -74,18 +76,33 @@ public class PuzzleControllerV2 : MonoBehaviour
 
         for (int i = 0; i < totalColumns; i++)
         {
+            StartCoroutine(DelayedStartYPos(i));
+            StartYPos(i);
             isColumnLocked.Add(false);
         }
+
     }
 
-
+    IEnumerator DelayedStartYPos(int i)
+    {
+        yield return new WaitForEndOfFrame(); // Wait until UI updates
+        StartYPos(i);
+    }
 
     void StartYPos(int i)
     {
-        int yOffsetDown = (columnInfo[i].transform.childCount - 1) / 2;
-        instantiatedPuzzleColumns[i].GetComponent<RectTransform>().anchoredPosition += new Vector2(0, - (yOffsetDown * displacementY));
-        currentRow.Add(yOffsetDown);
+
+        RectTransform rect = instantiatedPuzzleColumns[i].GetComponent<RectTransform>();
+        int yOffsetDown = CurrentRowCalculator(i);
+        Debug.Log("offset: " + yOffsetDown * displacementY);
+        rect.anchoredPosition += new Vector2(0, (yOffsetDown * displacementY));
     }
+
+    private int CurrentRowCalculator(int i)
+    {
+        return (columnInfo[i].transform.childCount - 1) / 2;
+    }
+
 
     // Update is called once per frame
     public void Update()
@@ -94,7 +111,7 @@ public class PuzzleControllerV2 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if ((currentRow[currentColumn] > 0) && (columnInfo[currentColumn].columnNumber == currentColumn))
+            if ((currentRow[currentColumn] > 0))
             {
                 if (!isColumnLocked[currentColumn])
                 {
@@ -108,7 +125,7 @@ public class PuzzleControllerV2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
 
-            if (currentRow[currentColumn] < totalRows[currentColumn] && (columnInfo[currentColumn].columnNumber == currentColumn))
+            if (currentRow[currentColumn] < totalRows[currentColumn])
             {
                 if (!isColumnLocked[currentColumn])
                 {

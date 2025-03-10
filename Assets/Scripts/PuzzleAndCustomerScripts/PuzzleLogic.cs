@@ -42,7 +42,7 @@ public class PuzzleLogic : MonoBehaviour
     private void DeactivatePuzzle()
     {
         //sadece puzzle prefabi yapmak için bura düzenlenmelidir
-        Destroy(puzzleController.gameObject);
+        Destroy(puzzleController.transform.root.gameObject);
 
     }
 
@@ -61,6 +61,7 @@ public class PuzzleLogic : MonoBehaviour
         {
             puzzleController.isColumnLocked[puzzleController.currentColumn] = true;
             puzzleController.correctEnteredRow.Add(puzzleController.currentRow[puzzleController.currentColumn]);
+            Debug.Log("the column " + puzzleController.currentColumn + "is " + puzzleController.isColumnLocked[puzzleController.currentColumn]);
             if (PuzzleChecker())
                 DeactivatePuzzle();
         }
@@ -72,6 +73,7 @@ public class PuzzleLogic : MonoBehaviour
 
     private bool PuzzleChecker()
     {
+        Debug.Log("PuzzleChecker called");
         for (int i = 0; i < puzzleController.isColumnLocked.Count; i++)
         {
             if (puzzleController.isColumnLocked[i] == false)

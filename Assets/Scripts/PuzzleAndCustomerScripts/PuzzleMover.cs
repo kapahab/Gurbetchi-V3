@@ -5,7 +5,8 @@ public class PuzzleMover : MonoBehaviour
     [SerializeField] GameObject puzzlePiece;
     [SerializeField] int columnNum;
     [SerializeField] PuzzleLogic puzzleLogic;
-    [SerializeField] PuzzleControllerV2 puzzleController;
+    PuzzleControllerV2 puzzleController;
+    PuzzleVerticalCounter puzzleRowCounter;
     float moveRight = -125;
     float moveLeft = 125;
     int moveUp = 115;
@@ -17,6 +18,9 @@ public class PuzzleMover : MonoBehaviour
     void Start()
     {
         moveScaler = 0.6295f;
+
+        puzzleController = this.GetComponentInParent<PuzzleControllerV2>();
+        puzzleRowCounter = this.GetComponent<PuzzleVerticalCounter>();
     }
 
     // Update is called once per frame
@@ -45,25 +49,32 @@ public class PuzzleMover : MonoBehaviour
 
     public void MoveDown()
     {
+        if (puzzleController.currentColumn == puzzleRowCounter.columnNumber)
+        {
+            this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(0, moveDown);
 
-        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, moveDown);
+
+        }
 
     }
 
     public void MoveUp()
     {
-
-        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, moveUp);
+        
+        if (puzzleController.currentColumn == puzzleRowCounter.columnNumber)
+        {
+            this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(0, moveUp);
+        }
 
     }
 
     public void MoveRight()
     {
-        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(moveRight, 0);
+        this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(moveRight, 0);
     }
 
     public void MoveLeft()
     {
-        this.GetComponent<RectTransform>().anchoredPosition += new Vector2(moveLeft, 0);
+        this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(moveLeft, 0);
     }
 }

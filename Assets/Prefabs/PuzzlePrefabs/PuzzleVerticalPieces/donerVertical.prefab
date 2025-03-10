@@ -186,7 +186,6 @@ MonoBehaviour:
   puzzlePiece: {fileID: 0}
   columnNum: 0
   puzzleLogic: {fileID: 0}
-  puzzleController: {fileID: 0}
 --- !u!1 &7114034253069057496
 GameObject:
   m_ObjectHideFlags: 0
