@@ -94,7 +94,6 @@ public class PuzzleControllerV2 : MonoBehaviour
 
         RectTransform rect = instantiatedPuzzleColumns[i].GetComponent<RectTransform>();
         int yOffsetDown = CurrentRowCalculator(i);
-        Debug.Log("offset: " + yOffsetDown * displacementY);
         rect.anchoredPosition += new Vector2(0, (yOffsetDown * displacementY));
     }
 
