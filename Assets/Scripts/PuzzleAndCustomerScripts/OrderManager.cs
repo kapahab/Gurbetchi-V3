@@ -131,5 +131,8 @@ public class OrderManager : MonoBehaviour
     {
         OrderManagerPuzzle.OnCustomerDeleted -= ReAdjustList;
     }
+
+
+
 }
 

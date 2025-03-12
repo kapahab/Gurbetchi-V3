@@ -68,7 +68,7 @@ public class PuzzleControllerV2 : MonoBehaviour
             columnInfo.Add(newColumnInfo);
             columnInfo[i].columnNumber = i;
             currentRow.Add(CurrentRowCalculator(i));
-            totalRows.Add(columnInfo[i].transform.childCount);
+            totalRows.Add(columnInfo[i].transform.childCount - 1);
         }
 
 
@@ -134,7 +134,7 @@ public class PuzzleControllerV2 : MonoBehaviour
             }
             Debug.Log("when moved down row on column: " + currentColumn + "is: " + currentRow[currentColumn]);
         }
-        
+        /*
         if (Input.GetKeyDown(KeyCode.RightArrow))
            {
                 if (currentColumn < totalColumns)
@@ -159,7 +159,7 @@ public class PuzzleControllerV2 : MonoBehaviour
                 }
                 Debug.Log("on column: " + currentColumn);
             }
-        
+        */
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnCheckColumn();

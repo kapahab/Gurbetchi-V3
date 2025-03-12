@@ -32,6 +32,12 @@ public class OrderMaker : MonoBehaviour
     int amountOfSauce;
     int amountOfDoner;
 
+    public List<int> correctCarbIndex = new List<int>();
+    public List<int> correctToppingIndex = new List<int>();
+    public List<int> correctSpiceIndex = new List<int>();
+    public List<int> correctSauceIndex = new List<int>();
+    public List<int> correctDonerIndex = new List<int>();
+
 
     void Start()
     {
@@ -84,76 +90,41 @@ public class OrderMaker : MonoBehaviour
         }
 
         */
-        GenericIngredientSelector(amountOfCarb = 1, orderCarbList);
-        GenericIngredientSelector(amountOfTopping = 3, orderToppingList);
-        GenericIngredientSelector(amountOfSpice = 1, orderSpiceList);
-        GenericIngredientSelector(amountOfSauce = 2, orderSauceList);
-        GenericIngredientSelector(amountOfDoner = 1, orderDonerList);
-        PuzzleListMaker();
+        GenericIngredientSelector(amountOfCarb = 1, orderCarbList, correctCarbIndex);
+        GenericIngredientSelector(amountOfTopping = 3, orderToppingList, correctToppingIndex);
+        GenericIngredientSelector(amountOfSpice = 1, orderSpiceList, correctSpiceIndex);
+        GenericIngredientSelector(amountOfSauce = 2, orderSauceList, correctSauceIndex);
+        GenericIngredientSelector(amountOfDoner = 1, orderDonerList, correctDonerIndex);
+        PuzzleListMaker();/*
         for (int i = 0; i < totalOrderList.Count; i++)
         {
             Debug.Log("list after " + i + " order randomly selected: " + totalOrderList[i]);
             Debug.Log("correct orders: " + correctOrders[i]);
-        }
-    }
-
-    private void AddToppingsByDifficulty()
-    {
-        int difficulty = 0; // Assumes gameDifficulty exists in gameFlow
-        HashSet<int> usedIndexes = new HashSet<int>();
-        int toppingCount = difficulty + 1; // Example logic: 1 topping for easy, 2 for medium, 3 for hard
-        for (int i = 0; i < toppingCount; i++)
-        {
-            int toppingIndex;
-            do
-            {
-                toppingIndex = Random.Range(0, orderToppingList.Count);
-            } while (usedIndexes.Contains(toppingIndex)); // Ensure no duplicates
-
-            usedIndexes.Add(toppingIndex);
-            totalOrderList.Add(orderToppingList[toppingIndex]);
-        }
-
-
-        for (int i = 0; i < new List<int>(usedIndexes).Count; i++)
-        {
-            Debug.Log("Topping " + i + ": " + orderToppingList[new List<int>(usedIndexes)[i]]);
-        }
-
-        List <int> CopyIndexes = new List<int>(usedIndexes);
-        toppingIndexes = CopyIndexes;
-
-
-    }
-
-    private int ValueMaker(List<string> list)
-    {
-        return Random.Range(0, list.Count);
+        }*/
     }
 
 
 
-    //test stuff
 
-    void GenericIngredientSelector(int amount, List<string> type) //eger correct ordersı düzgün bir sırayla return edebilirsem kullanılır ve generic edilir
+    void GenericIngredientSelector(int amount, List<string> type , List<int> correctTypeIndex) //eger correct ordersı düzgün bir sırayla return edebilirsem kullanılır ve generic edilir
     {
         HashSet<int> usedIndexes = new HashSet<int>();
         for (int i = 0; i < amount; i++)
         {
-            int toppingIndex;
+            int index;
             string stringValue;
             do
             {
-                toppingIndex = Random.Range(0, type.Count);
-                stringValue = type[toppingIndex];
-            } while (usedIndexes.Contains(toppingIndex) && totalOrderList.Contains(stringValue)); // Ensure no duplicates
+                index = Random.Range(0, type.Count);
+                stringValue = type[index];
 
-            correctOrders.Add(toppingIndex);
+            } while (usedIndexes.Contains(index) || totalOrderList.Contains(stringValue)); // Ensure no duplicates
+
+            usedIndexes.Add(index);
+            correctOrders.Add(index);
             totalOrderList.Add(stringValue);
+            correctTypeIndex.Add(index);
         }
-
-
-
         new List<int>(usedIndexes); // add to total order list in MakeOrder to ensure the total order list has correct placement
 
     }

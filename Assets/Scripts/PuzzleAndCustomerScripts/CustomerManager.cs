@@ -29,10 +29,13 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     [SerializeField]CustomerPositioner customerPositioner;
     [SerializeField]PointsCustomer pointsCustomer;
 
+
+    CorrectOrderSpawner correctOrderSpawner;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         orderMaker.MakeOrder();
+        correctOrderSpawner = GetComponentInChildren<CorrectOrderSpawner>();
         //orderID = OrderManagerPuzzle.orderCount;
     }
 
@@ -78,7 +81,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         {
             if (puzzleController != null)
                 Destroy(puzzleController.gameObject);
-            OrderFinished();
+            OrderTimedOut();
             gameFlow.totalPoints -= 500;
             Debug.Log("Order Timed Out!");
         }
@@ -131,17 +134,36 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         Destroy(this.gameObject);   
     }
 
+
+    void OrderTimedOut()
+    {
+        if (OrderManagerPuzzle.onOrder != 0) //bura çok yanlýþ!!! customer kadar -- oluyo, bunu tek instanceý olan bir classa geçir.
+            //çok yorgunum sonra yapýcam
+        {
+            OrderManagerPuzzle.onOrder--; // and order selector grapics to left
+            OrderManagerPuzzle.activeOrder--;
+        }
+
+        if (OrderManagerPuzzle.orderCount != 0)
+            OrderManagerPuzzle.orderCount--;
+
+
+        OrderManagerPuzzle.deletedOrder = orderID;
+
+        Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
+        Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);
+        OrderManagerPuzzle.isCustomerReadjusted = false;
+        Destroy(this.gameObject);
+    }
+
     void PuzzleFinished()
     {
         if (!isInOrder) return;  // Prevent multiple calls if already processed
         Debug.Log("when puzzle finished orderID: " + orderID);
         Debug.Log("when puzzle finished onOrder: " + OrderManagerPuzzle.onOrder);
         Debug.Log("PuzzleFinished called");
-        completedCarb[correctRow[0]].SetActive(true);
-        completedTopping[correctRow[1]].SetActive(true);
-        completedSpice[correctRow[2]].SetActive(true);
-        completedSauce[correctRow[3]].SetActive(true);
-        completedDoner[correctRow[4]].SetActive(true);
+
+        correctOrderSpawner.InstantiateCorrectOrders();
 
         isInOrder = false;
         OrderManagerPuzzle.selectingOrders = true;
@@ -174,6 +196,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         if (orderID > OrderManagerPuzzle.deletedOrder)
         {
             orderID--;
+            
             Debug.Log("orderID after: " + orderID);
             customerPositioner.PositionReAdjuster(); // bu kýsma kesinlikle daha iyi bir çözüm bulunmal
         } 
@@ -208,10 +231,12 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             {
                 if (orderList[i] != playerList[i])
                 {
+                    Debug.Log("Order is incorrect");
                     return false;
 
                 }
             }
+            Debug.Log("Order is correct");
             return true;
         }
     }

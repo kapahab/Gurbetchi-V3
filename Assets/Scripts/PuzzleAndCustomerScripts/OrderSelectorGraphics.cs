@@ -36,8 +36,11 @@ public class OrderSelectorGraphics : MonoBehaviour
 
     void SelectorAfterDeletion()
     {
-        if (OrderManagerPuzzle.deletedOrder != 0)
+        if (OrderManagerPuzzle.activeOrder > OrderManagerPuzzle.deletedOrder)
+        {
             MoveSelectorLeft();
+        }
+
     }
 
     private void OnEnable()

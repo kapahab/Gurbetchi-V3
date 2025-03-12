@@ -41,19 +41,8 @@ public class PuzzleLogic : MonoBehaviour
 
     private void DeactivatePuzzle()
     {
-        //sadece puzzle prefabi yapmak için bura düzenlenmelidir
         Destroy(puzzleController.transform.root.gameObject);
-
     }
-
-    /*
-    private void OrderActivation()
-    {
-        puzzleScreen.SetActive(true);
-        germanText.SetActive(false);
-        puzzleController.isInOrder = true;
-    }
-    */
 
     private void CheckColumn()
     {
