@@ -115,6 +115,44 @@ public class OrderManager : MonoBehaviour
         customerManager.RemoveAt(OrderManagerPuzzle.deletedOrder);
     }
 
+
+    private void CustomerManagerReAdjust()
+    {
+
+        OrderSelectorGraphics orderSelectorGraphics = GetComponent<OrderSelectorGraphics>();
+
+        if (OrderManagerPuzzle.activeOrder != 0)
+        {
+            orderSelectorGraphics.MoveSelectorLeft();
+            OrderManagerPuzzle.activeOrder--;
+
+        }
+
+
+        if (OrderManagerPuzzle.onOrder != 0)
+        {
+            OrderManagerPuzzle.onOrder--; // and order selector grapics to left
+        }
+
+
+        if (OrderManagerPuzzle.orderCount != 0)
+            OrderManagerPuzzle.orderCount--;
+
+
+        for (int i = 0; i< customerManager.Count; i++)
+        {
+            if (customerManager[i].orderID > OrderManagerPuzzle.deletedOrder)
+            {
+                customerManager[i].orderID--;
+                customerManager[i].GetComponent<CustomerPositioner>().PositionReAdjuster();
+            }
+
+        }
+
+
+    }
+
+
     public bool IsPuzzleSolved(int index)
     {
         if (customerManager != null && customerManager.Count > index)
@@ -125,11 +163,14 @@ public class OrderManager : MonoBehaviour
     private void OnEnable()
     {
         OrderManagerPuzzle.OnCustomerDeleted += ReAdjustList;
+        OrderManagerPuzzle.OnCustomerDeleted += CustomerManagerReAdjust;
     }
 
     private void OnDisable()
     {
         OrderManagerPuzzle.OnCustomerDeleted -= ReAdjustList;
+        OrderManagerPuzzle.OnCustomerDeleted -= CustomerManagerReAdjust;
+
     }
 
 

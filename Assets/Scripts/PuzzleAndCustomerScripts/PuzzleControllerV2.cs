@@ -118,7 +118,6 @@ public class PuzzleControllerV2 : MonoBehaviour
                     currentRow[currentColumn]--;
                 }
             }
-            Debug.Log("when moved up row on column: " + currentColumn + "is: " + currentRow[currentColumn]);
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -132,7 +131,6 @@ public class PuzzleControllerV2 : MonoBehaviour
                     currentRow[currentColumn]++;
                 }
             }
-            Debug.Log("when moved down row on column: " + currentColumn + "is: " + currentRow[currentColumn]);
         }
         /*
         if (Input.GetKeyDown(KeyCode.RightArrow))

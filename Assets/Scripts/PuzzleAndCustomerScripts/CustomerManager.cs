@@ -113,6 +113,8 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     void OrderFinished()
     {
 
+
+
         if (OrderManagerPuzzle.onOrder != 0)
         {
             OrderManagerPuzzle.onOrder--; // and order selector grapics to left
@@ -124,6 +126,8 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         
 
         OrderManagerPuzzle.deletedOrder = orderID;
+
+        if (OrderManagerPuzzle.deletedOrder == OrderManagerPuzzle.onOrder)
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
         Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);
@@ -137,22 +141,35 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
     void OrderTimedOut()
     {
-        if (OrderManagerPuzzle.onOrder != 0) //bura çok yanlýþ!!! customer kadar -- oluyo, bunu tek instanceý olan bir classa geçir.
-            //çok yorgunum sonra yapýcam
+
+        
+
+        if (orderID == OrderManagerPuzzle.onOrder)
+        {
+            OrderManagerPuzzle.selectingOrders = true;
+            Debug.Log("should be kicked out of puzzle screen");
+        }
+        /*
+        if (OrderManagerPuzzle.onOrder != 0)
         {
             OrderManagerPuzzle.onOrder--; // and order selector grapics to left
             OrderManagerPuzzle.activeOrder--;
         }
 
+
         if (OrderManagerPuzzle.orderCount != 0)
             OrderManagerPuzzle.orderCount--;
 
-
+        */
         OrderManagerPuzzle.deletedOrder = orderID;
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
         Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);
         OrderManagerPuzzle.isCustomerReadjusted = false;
+
+        if (puzzleController != null)
+            Destroy(puzzleController.transform.root.gameObject);
+
         Destroy(this.gameObject);
     }
 
@@ -187,9 +204,13 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             for (int i = 0; i < foodLists.Count; i++)
                 gameFlow.totalPlayerList.Add(foodLists[i]);
     }
-
+    /*
     private void IDReAdjuster() //nerede ve nasýl kullanýlýcaklarýný bul
     {
+
+
+
+
         Debug.Log("ID readjuster called");
         Debug.Log("orderID before: " + orderID);
         Debug.Log("deleted order: " + OrderManagerPuzzle.deletedOrder);
@@ -202,7 +223,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         } 
 
     }
-
+    
     private void OnEnable()
     {
         OrderManagerPuzzle.OnCustomerDeleted += IDReAdjuster;
@@ -212,7 +233,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     {
         OrderManagerPuzzle.OnCustomerDeleted -= IDReAdjuster;
     }
-
+    */
     bool OrderChecker(List<string> orderList, List<string> playerList) 
     {
         Debug.Log("Entered order checker");

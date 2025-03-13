@@ -1,12 +1,20 @@
 using UnityEngine;
 using static PuzzleController;
+using DG.Tweening;
+using System.Collections;
+
+
 
 public class OrderSelectorGraphics : MonoBehaviour
 {
     [SerializeField] GameObject selector;
+    Transform selectorTransform;
+    public float moveTime = 0.1f;
+    bool enableMove = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        selectorTransform = selector.GetComponent<Transform>();
         selector.SetActive(true);
     }
     
@@ -20,13 +28,19 @@ public class OrderSelectorGraphics : MonoBehaviour
 
     void MoveSelectorRight()
     {
-        selector.GetComponent<Transform>().position += new Vector3(5, 0, 0);
+
+        selectorTransform.transform.DOMoveX(selectorTransform.position.x + 5, moveTime).SetEase(Ease.OutBounce);
+
     }
 
-    void MoveSelectorLeft()
+    public void MoveSelectorLeft()
     {
-        selector.GetComponent<Transform>().position += new Vector3(-5, 0, 0);
+
+        selectorTransform.transform.DOMoveX(selectorTransform.position.x - 5, moveTime).SetEase(Ease.OutBounce);
+
+        
     }
+
 
 
     void ActivateSelector()
@@ -36,7 +50,7 @@ public class OrderSelectorGraphics : MonoBehaviour
 
     void SelectorAfterDeletion()
     {
-        if (OrderManagerPuzzle.activeOrder > OrderManagerPuzzle.deletedOrder)
+        if (OrderManagerPuzzle.activeOrder != 0) 
         {
             MoveSelectorLeft();
         }
@@ -47,7 +61,7 @@ public class OrderSelectorGraphics : MonoBehaviour
     {
         OrderManagerPuzzle.OnPuzzleRightArrow += MoveSelectorRight;
         OrderManagerPuzzle.OnPuzzleLeftArrow += MoveSelectorLeft;
-        OrderManagerPuzzle.OnCustomerDeleted += SelectorAfterDeletion;
+        //OrderManagerPuzzle.OnCustomerDeleted += SelectorAfterDeletion;
         //OrderManagerPuzzle.OnMakeCustomer += ActivateSelector;
     }
 
@@ -55,7 +69,7 @@ public class OrderSelectorGraphics : MonoBehaviour
     {
         OrderManagerPuzzle.OnPuzzleRightArrow -= MoveSelectorRight;
         OrderManagerPuzzle.OnPuzzleLeftArrow -= MoveSelectorLeft;
-        OrderManagerPuzzle.OnCustomerDeleted -= SelectorAfterDeletion;
+        //OrderManagerPuzzle.OnCustomerDeleted -= SelectorAfterDeletion;
         //OrderManagerPuzzle.OnMakeCustomer -= ActivateSelector;
     }
 }
