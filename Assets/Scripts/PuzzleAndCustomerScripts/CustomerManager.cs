@@ -113,7 +113,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     void OrderFinished()
     {
 
-
+        /*
 
         if (OrderManagerPuzzle.onOrder != 0)
         {
@@ -124,10 +124,9 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         if (OrderManagerPuzzle.orderCount != 0)
             OrderManagerPuzzle.orderCount--;
         
-
+        */
         OrderManagerPuzzle.deletedOrder = orderID;
 
-        if (OrderManagerPuzzle.deletedOrder == OrderManagerPuzzle.onOrder)
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
         Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);

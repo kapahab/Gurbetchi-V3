@@ -47,7 +47,7 @@ public class OrderManager : MonoBehaviour
     {
         while (true) // Keep this running indefinitely
         {
-            if (!isOrderSystemActive && OrderManagerPuzzle.orderCount < 2)
+            if (!isOrderSystemActive && OrderManagerPuzzle.orderCount < 2 && gameFlow.gameStart)
             {
                 // Start the order system when the game starts
                 isOrderSystemActive = true;
@@ -72,7 +72,7 @@ public class OrderManager : MonoBehaviour
             float waitTime = Random.Range(minOrderTime, maxOrderTime);
             yield return new WaitForSeconds(waitTime);
 
-            if (isOrderSystemActive && OrderManagerPuzzle.orderCount < 2) // Double-check the flag before generating an order
+            if (isOrderSystemActive && OrderManagerPuzzle.orderCount < 2) // buraya day timer ekle ve day timer 60 olduðunda order generation durdur
             {
                 offsetMult = OrderManagerPuzzle.orderCount;
                 SpawnOrder();

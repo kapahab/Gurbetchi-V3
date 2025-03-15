@@ -29,14 +29,14 @@ public class OrderSelectorGraphics : MonoBehaviour
     void MoveSelectorRight()
     {
 
-        selectorTransform.transform.DOMoveX(selectorTransform.position.x + 5, moveTime).SetEase(Ease.OutBounce);
+        selectorTransform.transform.DOBlendableMoveBy(new Vector3(5,0,0), moveTime).SetEase(Ease.OutBounce);
 
     }
 
     public void MoveSelectorLeft()
     {
 
-        selectorTransform.transform.DOMoveX(selectorTransform.position.x - 5, moveTime).SetEase(Ease.OutBounce);
+        selectorTransform.transform.DOBlendableMoveBy(new Vector3(-5, 0, 0), moveTime).SetEase(Ease.OutBounce);
 
         
     }

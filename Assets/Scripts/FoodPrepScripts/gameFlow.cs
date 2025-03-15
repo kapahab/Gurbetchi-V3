@@ -33,6 +33,9 @@ public class gameFlow : MonoBehaviour
     private OrderGraphics newOrderGraphics;
 
     public static bool screenSwitch = true; //true = food prepare, false = puzzle and customer
+
+    public static bool gameActive = false;
+    public static int dayCount = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

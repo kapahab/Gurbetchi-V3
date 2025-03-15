@@ -53,70 +53,72 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
     // Update is called once per frame
     void Update()
     {
-        if (gameFlow.foodSent) // buranýn kameralý setupa geçmesi lazým
+        if (gameFlow.gameStart)
         {
-            OnFoodSent();
-            gameFlow.foodSent = false;
-            foodOnCounter = true;
-        }
-
-        if (!isCustomerReadjusted)
-        {
-            OnCustomerDeleted();
-            isCustomerReadjusted = true;
-        }
-
-        if(!gameFlow.screenSwitch)
-        {
-            if (selectingOrders)
+            if (gameFlow.foodSent) // buranýn kameralý setupa geçmesi lazým
             {
+                OnFoodSent();
+                gameFlow.foodSent = false;
+                foodOnCounter = true;
+            }
 
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    if (activeOrder < orderCount)
-                    {
-                        OnPuzzleRightArrow();
-                        activeOrder++;
-                    }
-                }
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    if (activeOrder > 0)
-                    {
-                        OnPuzzleLeftArrow();
-                        activeOrder--;
-                    }
-                }
+            if (!isCustomerReadjusted)
+            {
+                OnCustomerDeleted();
+                isCustomerReadjusted = true;
+            }
 
-                if (Input.GetKeyDown(KeyCode.Space)) //bura basitleþtirilebilir, space'e basýldýðýnda condition checkler 2 taraftan da yapýlýyor
-                    //sadece customer manager'dan yapýlabilir
+            if (!gameFlow.screenSwitch)
+            {
+                if (selectingOrders)
                 {
-                    if (!orderManager.IsPuzzleSolved(activeOrder) && !foodOnCounter && !orderManager.isShopEmpty) 
+
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
                     {
-                        onOrder = activeOrder;
-                        Debug.Log("when pressed space on order: " + onOrder);
-                        selectingOrders = false;
+                        if (activeOrder < orderCount)
+                        {
+                            OnPuzzleRightArrow();
+                            activeOrder++;
+                        }
                     }
-                    else if (foodOnCounter && !orderManager.isShopEmpty)
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
                     {
-                        onOrder = activeOrder;
-                        Debug.Log("when pressed space on order: " + onOrder);
-                        selectingOrders = false;
+                        if (activeOrder > 0)
+                        {
+                            OnPuzzleLeftArrow();
+                            activeOrder--;
+                        }
                     }
-                    else
+
+                    if (Input.GetKeyDown(KeyCode.Space)) //bura basitleþtirilebilir, space'e basýldýðýnda condition checkler 2 taraftan da yapýlýyor
+                                                         //sadece customer manager'dan yapýlabilir
                     {
-                        Debug.Log("Puzzle is already solved or there is no customer");
+                        if (!orderManager.IsPuzzleSolved(activeOrder) && !foodOnCounter && !orderManager.isShopEmpty)
+                        {
+                            onOrder = activeOrder;
+                            Debug.Log("when pressed space on order: " + onOrder);
+                            selectingOrders = false;
+                        }
+                        else if (foodOnCounter && !orderManager.isShopEmpty)
+                        {
+                            onOrder = activeOrder;
+                            Debug.Log("when pressed space on order: " + onOrder);
+                            selectingOrders = false;
+                        }
+                        else
+                        {
+                            Debug.Log("Puzzle is already solved or there is no customer");
+                        }
                     }
-                }
-                if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    StartCoroutine(WaitAndSwitchScreen());
-                }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        StartCoroutine(WaitAndSwitchScreen());
+                    }
 
 
+                }
             }
         }
-        
     }
 
 

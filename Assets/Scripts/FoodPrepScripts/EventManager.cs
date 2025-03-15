@@ -39,43 +39,45 @@ public class EventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameFlow.screenSwitch)
+        if (gameFlow.gameStart)
         {
-            foreach (string keyName in gameFlow.allKeyBindingsUsed)
+            if (gameFlow.screenSwitch)
             {
-                if (Input.GetKeyDown(keyName) && !inDonerMinigame)
+                foreach (string keyName in gameFlow.allKeyBindingsUsed)
                 {
-                    Debug.Log("Regular input");
-                    if (OnRegularInput != null)
-                        OnRegularInput();
+                    if (Input.GetKeyDown(keyName) && !inDonerMinigame)
+                    {
+                        Debug.Log("Regular input");
+                        if (OnRegularInput != null)
+                            OnRegularInput();
+                    }
+                }
+
+                if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
+                {
+                    DonerChecker();
+                }
+
+                if (Input.GetKeyDown("escape"))
+                {
+                    OnFoodTrashed();
+                }
+
+
+
+                if (Input.GetKeyDown("space"))
+                {
+                    Debug.Log("Plate served");
+                    StartCoroutine(WaitAndSwitch());
+
+                }
+
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    StartCoroutine(WaitAndSwitchScreen());
                 }
             }
-
-            if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
-            {
-                DonerChecker();
-            }
-
-            if (Input.GetKeyDown("escape"))
-            {
-                OnFoodTrashed();
-            }
-
-
-
-            if (Input.GetKeyDown("space"))
-            {
-                Debug.Log("Plate served");
-                StartCoroutine(WaitAndSwitch());
-             
-            }
-
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                StartCoroutine(WaitAndSwitchScreen()); 
-            }
         }
-        
     }
 
     private void DonerChecker()
