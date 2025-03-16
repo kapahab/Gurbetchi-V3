@@ -20,63 +20,27 @@ public class DonerQTE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (donerCheck) //&& ingredientChoose.diffInputIngredientCheck)
+        if (donerCheck) 
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Debug.Log("Left Arrow is pressed");
                 DonerValue += 1;
                 if (DonerValue == 2)
                 {
-                    gameFlow.donerList.Add("az_doner");
-                    foodOnPlate.PutFoodOnPlate(donerCopy[0], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+                    DonerAdder(0);
                 }
 
                 if (DonerValue == 4)
                 {
-                    gameFlow.donerList.Remove("az_doner");
-                    gameFlow.donerList.Add("orta_doner");
-                    foodOnPlate.PutFoodOnPlate(donerCopy[1], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
-
+                    DonerAdder(1);
                 }
 
                 if (DonerValue == 6)
                 {
-                    gameFlow.donerList.Remove("orta_doner");
-                    gameFlow.donerList.Add("cok_doner");
-                    foodOnPlate.PutFoodOnPlate(donerCopy[2], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
-
+                    DonerAdder(2);
                 }
             }
-
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                Debug.Log("Right Arrow is pressed");
-                DonerValue += 1;
-                if (DonerValue == 2)
-                {
-                    gameFlow.donerList.Add("az_doner");
-                    foodOnPlate.PutFoodOnPlate(donerCopy[0], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
-
-                }
-
-                if (DonerValue == 4)
-                {
-                    gameFlow.donerList.Remove("az_doner");
-                    gameFlow.donerList.Add("orta_doner");
-                    foodOnPlate.PutFoodOnPlate(donerCopy[1], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
-
-                }
-
-                if (DonerValue == 6)
-                {
-                    gameFlow.donerList.Remove("orta_doner");
-                    gameFlow.donerList.Add("cok_doner");
-                    foodOnPlate.PutFoodOnPlate(donerCopy[2], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
-
-                }
-            }
-
         }
     }
 
@@ -84,13 +48,16 @@ public class DonerQTE : MonoBehaviour
     {
         EventManager.OnDonerEnter += DonerMinigameEnter;
         EventManager.OnDonerExit += DonerMinigameExit;
+        EventManager.OnPlateServed += ResetDonerCounter;
+        EventManager.OnFoodTrashed += ResetDonerCounter;
     }
 
     private void OnDisable()
     {
         EventManager.OnDonerEnter -= DonerMinigameEnter;
         EventManager.OnDonerExit -= DonerMinigameExit;
-
+        EventManager.OnPlateServed -= ResetDonerCounter;
+        EventManager.OnFoodTrashed -= ResetDonerCounter;
     }
 
     void DonerMinigameEnter()
@@ -98,6 +65,11 @@ public class DonerQTE : MonoBehaviour
         donerCheck = true;
     }
 
+
+    void ResetDonerCounter()
+    {
+        DonerValue = 0;
+    }
 
     void DonerMinigameExit()
     {
@@ -111,7 +83,30 @@ public class DonerQTE : MonoBehaviour
         }
         Debug.Log("plate value after doner is " + gameFlow.plateValue);
         donerCheck = false;
-        DonerValue = 0;
+    }
+
+    void DonerAdder(int donerIndex)
+    {
+        string doner = "";
+
+        if (gameFlow.donerList.Count != 0)
+            gameFlow.donerList.Clear();
+        
+        switch (donerIndex)
+        {
+            case 0:
+                doner = "az_doner";
+                break;
+            case 1:
+                doner = "orta_doner";
+                break;
+            case 2:
+                doner = "cok_doner";
+                break;
+        }
+
+        gameFlow.donerList.Add(doner);
+        foodOnPlate.PutFoodOnPlate(donerCopy[donerIndex], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
     }
 
 }

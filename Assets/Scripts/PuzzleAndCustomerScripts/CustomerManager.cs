@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,12 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
 
     CorrectOrderSpawner correctOrderSpawner;
+
+    [SerializeField] SpriteRenderer customerSpriteRenderer;
+    [SerializeField] Sprite correctOrderCustomer;
+    [SerializeField] Sprite incorrectOrderCustomer;
+
+    bool isProcessingOrder = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -57,13 +64,22 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             
             if (OrderChecker(orderMaker.totalOrderList, gameFlow.totalPlayerList))
             {
-                pointsCustomer.PointCalculator();
-                OrderFinished();
+                if (!isProcessingOrder)
+                {
+                    isProcessingOrder = true;
+                    pointsCustomer.PointCalculator();
+                    StartCoroutine(OrderFinished(true));
+                }
+
             }
             else
             {
-                gameFlow.totalPoints -= 500;
-                OrderFinished();
+                if (!isProcessingOrder)
+                {
+                    isProcessingOrder = true;
+                    gameFlow.totalPoints -= 500;
+                    StartCoroutine(OrderFinished(false));
+                }
             }
         }
 
@@ -79,11 +95,16 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
         if (customerTimer.startTime < 0)
         {
-            if (puzzleController != null)
-                Destroy(puzzleController.gameObject);
-            OrderTimedOut();
-            gameFlow.totalPoints -= 500;
-            Debug.Log("Order Timed Out!");
+            if (!isProcessingOrder)
+            {
+                isProcessingOrder = true;
+                if (puzzleController != null)
+                    Destroy(puzzleController.gameObject);
+                StartCoroutine(OrderTimedOut(false));
+                gameFlow.totalPoints -= 500;
+                Debug.Log("Order Timed Out!");
+            }
+
         }
     }
 
@@ -110,21 +131,18 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         puzzleController.PuzzleSpawner();
     }
 
-    void OrderFinished()
+
+    IEnumerator OrderFinished(bool isOrderTrue)
     {
+        if (isOrderTrue)
+            customerSpriteRenderer.sprite = correctOrderCustomer;
+        else
+            customerSpriteRenderer.sprite = incorrectOrderCustomer;
+        germanText.SetActive(false);
+        if (isPuzzleSolved)
+            correctOrderSpawner.gameObject.SetActive(false);
 
-        /*
-
-        if (OrderManagerPuzzle.onOrder != 0)
-        {
-            OrderManagerPuzzle.onOrder--; // and order selector grapics to left
-            OrderManagerPuzzle.activeOrder--;
-        }
-
-        if (OrderManagerPuzzle.orderCount != 0)
-            OrderManagerPuzzle.orderCount--;
-        
-        */
+        yield return new WaitForSeconds(2f);
         OrderManagerPuzzle.deletedOrder = orderID;
 
 
@@ -134,32 +152,30 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         OrderManagerPuzzle.selectingOrders = true;
         OrderManagerPuzzle.foodOnCounter = false; //should delete food graphics as well
         OrderManagerPuzzle.isCustomerReadjusted = false;
-        Destroy(this.gameObject);   
+        Destroy(this.gameObject);
     }
 
 
-    void OrderTimedOut()
+    IEnumerator OrderTimedOut(bool isOrderTrue)
     {
+        if (isOrderTrue)
+            customerSpriteRenderer.sprite = correctOrderCustomer;
+        else
+            customerSpriteRenderer.sprite = incorrectOrderCustomer;
+        germanText.SetActive(false);
+        if (isPuzzleSolved)
+            correctOrderSpawner.gameObject.SetActive(false);
 
-        
+
+        yield return new WaitForSeconds(2f);
+
 
         if (orderID == OrderManagerPuzzle.onOrder)
         {
             OrderManagerPuzzle.selectingOrders = true;
             Debug.Log("should be kicked out of puzzle screen");
         }
-        /*
-        if (OrderManagerPuzzle.onOrder != 0)
-        {
-            OrderManagerPuzzle.onOrder--; // and order selector grapics to left
-            OrderManagerPuzzle.activeOrder--;
-        }
 
-
-        if (OrderManagerPuzzle.orderCount != 0)
-            OrderManagerPuzzle.orderCount--;
-
-        */
         OrderManagerPuzzle.deletedOrder = orderID;
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);

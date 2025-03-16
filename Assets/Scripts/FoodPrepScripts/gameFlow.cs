@@ -36,6 +36,7 @@ public class gameFlow : MonoBehaviour
 
     public static bool gameActive = false;
     public static int dayCount = 1;
+    public static float dayRemainingTime = 60f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

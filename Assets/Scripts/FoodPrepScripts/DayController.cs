@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Experimental.GlobalIllumination;
 
 
 public class DayController : MonoBehaviour
@@ -10,7 +11,8 @@ public class DayController : MonoBehaviour
     [SerializeField] Image dayEndBlackScreen;
     [SerializeField] TextMeshProUGUI[] dayEndText;
     [SerializeField] TextMeshProUGUI dayCounterOnScreen;
-    public float fadeTime = 2f;
+    public float fadeTime = 1f;
+    public float holdTime = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,31 +27,60 @@ public class DayController : MonoBehaviour
 
     public void EndDay()
     {
-        FadeInScreen(fadeTime);
-        StartCoroutine(Waiter(fadeTime));
-        FadeOutScreen(fadeTime);
+        DayText();
+        Fade(fadeTime, holdTime);
+        
     }
 
 
-    void FadeInScreen(float fadeInTime)
+    void Fade(float fadeTime, float holdTime = 0f, TweenCallback onComplete = null)
     {
-        dayEndBlackScreen.DOFade(255f, fadeInTime);
-        for (int i = 0; i < dayEndText.Length; i++)
-        {
-            dayEndText[i].DOFade(255f, fadeInTime);
-        }
-        StartCoroutine(Waiter(fadeInTime));
-    }
+        // sekans: siyah ekraný aç, bekle, yazýlarý aç, bekle, yazýlarý kapat, bekle, siyah ekraný kapat
+        //4x fade, 3x wait
 
 
-    void FadeOutScreen(float fadeOutTime)
-    {
-        dayEndBlackScreen.DOFade(0f, fadeOutTime);
+        Sequence fadeSequence = DOTween.Sequence();
+
+        fadeSequence.Append(dayEndBlackScreen.DOFade(1f, fadeTime));
+
+
+        if (holdTime > 0f)
+        {
+            fadeSequence.AppendInterval(holdTime);
+        }
+
+
         for (int i = 0; i < dayEndText.Length; i++)
         {
-            dayEndText[i].DOFade(0f, fadeOutTime);
+            fadeSequence.Join(dayEndText[i].DOFade(1f, fadeTime));
         }
-        StartCoroutine(Waiter(fadeOutTime));
+
+        if (holdTime > 0f)
+        {
+            fadeSequence.AppendInterval(holdTime);
+        }
+
+
+        for (int i = 0; i < dayEndText.Length; i++)
+        {
+            fadeSequence.Join(dayEndText[i].DOFade(0f, fadeTime));
+        }
+
+        if (holdTime > 0f)
+        {
+            fadeSequence.AppendInterval(holdTime);
+        }
+
+
+
+        fadeSequence.Append(dayEndBlackScreen.DOFade(0f, fadeTime));
+
+ 
+
+        if (onComplete != null)
+        {
+            fadeSequence.AppendCallback(onComplete);
+        }
     }
 
     IEnumerator Waiter(float waitTime)

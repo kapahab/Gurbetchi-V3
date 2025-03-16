@@ -53,7 +53,7 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
     // Update is called once per frame
     void Update()
     {
-        if (gameFlow.gameStart)
+        if (gameFlow.gameActive)
         {
             if (gameFlow.foodSent) // buranýn kameralý setupa geçmesi lazým
             {

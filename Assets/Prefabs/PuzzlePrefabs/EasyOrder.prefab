@@ -705,6 +705,9 @@ MonoBehaviour:
   isPuzzleSolved: 0
   customerPositioner: {fileID: 6873440629864342470}
   pointsCustomer: {fileID: 1399770408929819743}
+  customerSpriteRenderer: {fileID: 2429378678158328227}
+  correctOrderCustomer: {fileID: 1951368024140705850, guid: 3160ae2c2e73ea14baf68c0022673217, type: 3}
+  incorrectOrderCustomer: {fileID: 2890038892761893669, guid: 3160ae2c2e73ea14baf68c0022673217, type: 3}
 --- !u!114 &7549328014516978184
 MonoBehaviour:
   m_ObjectHideFlags: 0

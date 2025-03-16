@@ -4,7 +4,7 @@ using UnityEngine;
 public class FoodOnPlate : MonoBehaviour
 {
     public List<GameObject> copiedObjects = new List<GameObject>();
-    int layerOrder = 0;
+    int layerOrder = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,7 +29,7 @@ public class FoodOnPlate : MonoBehaviour
 
     void ResetLayerOrder()
     {
-        layerOrder = 0;
+        layerOrder = 1;
     }
 
     private void OnEnable()

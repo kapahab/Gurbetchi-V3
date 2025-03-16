@@ -61,39 +61,12 @@ public class OrderMaker : MonoBehaviour
 
     public void MakeOrder()
     {
-        totalOrderList.Clear();// use total order list to send the order to serveordelete
-        /*
-
-        totalOrderList.Add(orderCarbList[carbValue = ValueMaker(orderCarbList)]);
-
-        totalOrderList.Add(orderSpiceList[spiceValue = ValueMaker(orderSpiceList)]);
-
-        totalOrderList.Add(orderSauceList[sauceValue = ValueMaker(orderSauceList)]);
-
-        totalOrderList.Add(orderDonerList[donerValue = ValueMaker(orderDonerList)]);
-
-        AddToppingsByDifficulty();
-
-        correctOrders.Add(carbValue);
-        correctOrders.Add(toppingIndexes[0]);
-        correctOrders.Add(spiceValue);
-        correctOrders.Add(sauceValue);
-        correctOrders.Add(donerValue);
-
-
-        Debug.Log("active order on order maker: " + gameFlow.activeOrder);
-        Debug.Log("current total orders: " + gameFlow.orderCounter.Count);
-
-        for (int i = 0; i < totalOrderList.Count; i++)
-        {
-            Debug.Log("list after " + i + " order randomly selected: " + totalOrderList[i]);
-        }
-
-        */
+        totalOrderList.Clear();
+        correctOrders.Clear();
         GenericIngredientSelector(amountOfCarb = 1, orderCarbList, correctCarbIndex);
-        GenericIngredientSelector(amountOfTopping = 3, orderToppingList, correctToppingIndex);
-        GenericIngredientSelector(amountOfSpice = 1, orderSpiceList, correctSpiceIndex);
-        GenericIngredientSelector(amountOfSauce = 2, orderSauceList, correctSauceIndex);
+        GenericIngredientSelector(amountOfTopping = SetDifficultyForTheDay(5), orderToppingList, correctToppingIndex);
+        GenericIngredientSelector(amountOfSpice = SetDifficultyForTheDay(2), orderSpiceList, correctSpiceIndex);
+        GenericIngredientSelector(amountOfSauce = SetDifficultyForTheDay(2), orderSauceList, correctSauceIndex);
         GenericIngredientSelector(amountOfDoner = 1, orderDonerList, correctDonerIndex);
         PuzzleListMaker();/*
         for (int i = 0; i < totalOrderList.Count; i++)
@@ -155,5 +128,38 @@ public class OrderMaker : MonoBehaviour
         {
             amountOfIngredients.Add(4);
         }
+    }
+
+    int SetDifficultyForTheDay(int max)
+    {
+        int day = gameFlow.dayCount;
+
+        // Base min ingredient count, ensuring it scales but still allows 0
+        int min = Mathf.Clamp(Mathf.RoundToInt((day * 0.2f) * max * 0.5f), 0, max);
+
+        // Set an upper bound that starts low and scales over time
+        int scaledMax = Mathf.Clamp(Mathf.RoundToInt(max * (0.4f + (day * 0.05f))), 1, max);
+
+        // Randomly pick an ingredient count in the adjusted range
+        int ingredientCount = Random.Range(0, scaledMax + 1);
+
+        // Ensure early days bias toward lower values
+        if (day <= 3)
+        {
+            if (Random.value < 0.6f) // 60% chance to bias toward lower half
+            {
+                ingredientCount = Random.Range(0, Mathf.CeilToInt(scaledMax * 0.5f) + 1);
+            }
+        }
+
+        // Add a slight weight to avoid too many 0s after Day 5
+        if (day > 5 && ingredientCount == 0 && Random.value < 0.3f)
+        {
+            ingredientCount = Random.Range(1, scaledMax + 1);
+        }
+
+        Debug.Log($"Day {day} - Min: {min}, Scaled Max: {scaledMax}, Chosen: {ingredientCount}");
+
+        return ingredientCount;
     }
 }
