@@ -29,6 +29,9 @@ public class EventManager : MonoBehaviour
 
     public delegate void FoodTrashed();
     public static event FoodTrashed OnFoodTrashed;
+
+    public delegate void PauseButtonPressed();
+    public static event PauseButtonPressed OnPauseButtonPressed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,7 +61,7 @@ public class EventManager : MonoBehaviour
                     DonerChecker();
                 }
 
-                if (Input.GetKeyDown("escape"))
+                if (Input.GetKeyDown("x"))
                 {
                     OnFoodTrashed();
                 }
@@ -76,6 +79,27 @@ public class EventManager : MonoBehaviour
                 {
                     StartCoroutine(WaitAndSwitchScreen());
                 }
+            }
+        }
+
+
+        if (Input.GetKeyDown("escape"))
+        {
+            if (!gameFlow.isGamePaused)
+            {
+
+                OnPauseButtonPressed();
+                gameFlow.gameActive = false;
+                gameFlow.isGamePaused = true;
+                Debug.Log("Game paused");
+
+            }
+            else
+            {
+                OnPauseButtonPressed();
+                gameFlow.gameActive = true;
+                gameFlow.isGamePaused = false;
+                Debug.Log("Game resumed");
             }
         }
     }
