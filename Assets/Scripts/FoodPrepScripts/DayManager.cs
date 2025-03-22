@@ -14,11 +14,14 @@ public class DayManager : MonoBehaviour
 
     DayController dayController;
 
-    [SerializeField] TextMeshProUGUI timeText; 
- 
+    [SerializeField] TextMeshProUGUI timeText;
+
+    WinLoseCondition winLoseCondition;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        winLoseCondition = GetComponent<WinLoseCondition>();
         dayController = GetComponent<DayController>();
         DayTimeActivator(false);
 
@@ -33,25 +36,29 @@ public class DayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dayStarted)
+        if (!dayStarted)
         {
-            if (gameFlow.dayRemainingTime > 0f)
-            {
-                gameFlow.dayRemainingTime -= Time.deltaTime;
-                DayTimeUpdater();
-            }
-            else
-            {
-                gameFlow.dayRemainingTime = 0f;
-                DayTimeUpdater();
-            }
-
-            if (gameFlow.dayRemainingTime <= 0f && orderManager.isShopEmpty) 
-            {
-                gameFlow.dayRemainingTime = 60f;
-                EndDay();
-            }
+            return;
         }
+
+        if (gameFlow.dayRemainingTime > 0f)
+        {
+            gameFlow.dayRemainingTime -= Time.deltaTime;
+            DayTimeUpdater();
+        }
+        else
+        {
+            gameFlow.dayRemainingTime = 0f;
+            DayTimeUpdater();
+        }
+
+        if (gameFlow.dayRemainingTime <= 0f && orderManager.isShopEmpty)
+        {
+            gameFlow.dayRemainingTime = 60f;
+            winLoseCondition.EndDayPointChecker();
+            EndDay();
+        }
+
     }
 
 
@@ -79,12 +86,22 @@ public class DayManager : MonoBehaviour
 
     void EndDay()
     {
-        DayTimeActivator(false);
-        dayStarted = false;
-        gameFlow.gameActive = false;
-        gameFlow.dayCount++;
-        dayController.EndDay();
-        StartCoroutine(StartDayDelayer((dayController.fadeTime * 4) + (dayController.holdTime * 3)));
+        if (!winLoseCondition.hasLost)
+        {
+            DayTimeActivator(false);
+            dayStarted = false;
+            gameFlow.gameActive = false;
+            gameFlow.dayCount++;
+            dayController.EndDay();
+            StartCoroutine(StartDayDelayer((dayController.fadeTime * 4) + (dayController.holdTime * 3)));
+        }
+        else
+        {
+            //LoseCondition
+            DayTimeActivator(false);
+            dayStarted = false;
+            gameFlow.gameActive = false;
+        }
     }
 
 

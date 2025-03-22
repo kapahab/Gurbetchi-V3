@@ -77,7 +77,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
                 if (!isProcessingOrder)
                 {
                     isProcessingOrder = true;
-                    gameFlow.totalPoints -= 500;
+                    gameFlow.totalPoints -= 250;
                     StartCoroutine(OrderFinished(false));
                 }
             }
@@ -142,8 +142,12 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         if (isPuzzleSolved)
             correctOrderSpawner.gameObject.SetActive(false);
 
+
+        customerTimer.timerStarted = false;
+
+
         yield return new WaitForSeconds(2f);
-        OrderManagerPuzzle.deletedOrder = orderID;
+
 
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
@@ -151,7 +155,12 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         isInOrder = false;
         OrderManagerPuzzle.selectingOrders = true;
         OrderManagerPuzzle.foodOnCounter = false; //should delete food graphics as well
+        OrderManagerPuzzle.deletedOrder = orderID;
         OrderManagerPuzzle.isCustomerReadjusted = false;
+
+
+
+
         Destroy(this.gameObject);
     }
 
@@ -167,6 +176,9 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             correctOrderSpawner.gameObject.SetActive(false);
 
 
+        customerTimer.timerStarted = false;
+        customerTimer.startTime = 0f;
+
         yield return new WaitForSeconds(2f);
 
 
@@ -180,10 +192,13 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
         Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);
-        OrderManagerPuzzle.isCustomerReadjusted = false;
 
         if (puzzleController != null)
             Destroy(puzzleController.transform.root.gameObject);
+
+        OrderManagerPuzzle.isCustomerReadjusted = false;
+
+
 
         Destroy(this.gameObject);
     }

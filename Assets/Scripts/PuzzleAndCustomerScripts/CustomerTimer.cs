@@ -4,7 +4,7 @@ using UnityEngine;
 public class CustomerTimer : MonoBehaviour
 {
     public float startTime = 90f;
-    bool timerStarted = false;
+    public bool timerStarted = false;
     [SerializeField] TimerGraphics timerGraphics;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

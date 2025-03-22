@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core;
 using UnityEngine;
 
 public class PuzzleMover : MonoBehaviour
@@ -56,7 +57,8 @@ public class PuzzleMover : MonoBehaviour
         if (puzzleController.currentColumn == puzzleRowCounter.columnNumber)
         {
             //this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(0, moveDown);
-            puzzleRectTransform.DOAnchorPosY(puzzleRectTransform.anchoredPosition.y + moveDown, 0.1f, false);
+            //puzzleRectTransform.DOAnchorPosY(puzzleRectTransform.anchoredPosition.y + moveDown, 0.1f, false);
+            DOBlendableAnchorMoveBy(puzzleRectTransform, new Vector2(0, moveDown), 0.1f, false);
 
         }
 
@@ -68,7 +70,8 @@ public class PuzzleMover : MonoBehaviour
         if (puzzleController.currentColumn == puzzleRowCounter.columnNumber)
         {
             //this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(0, moveUp);
-            puzzleRectTransform.DOAnchorPosY(puzzleRectTransform.anchoredPosition.y + moveUp, 0.1f, false);
+            //puzzleRectTransform.DOAnchorPosY(puzzleRectTransform.anchoredPosition.y + moveUp, 0.1f, false);
+            DOBlendableAnchorMoveBy(puzzleRectTransform, new Vector2(0 ,moveUp), 0.1f, false);
         }
 
     }
@@ -76,14 +79,30 @@ public class PuzzleMover : MonoBehaviour
     public void MoveRight()
     {
         //this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(moveRight, 0);
-        puzzleRectTransform.DOAnchorPosX(puzzleRectTransform.anchoredPosition.x + moveRight, 0.1f, false);
+        //puzzleRectTransform.DOAnchorPosX(puzzleRectTransform.anchoredPosition.x + moveRight, 0.1f, false);
+        DOBlendableAnchorMoveBy(puzzleRectTransform, new Vector2(moveRight, 0), 0.1f, false);
+
 
     }
 
     public void MoveLeft()
     {
         //this.GetComponentInChildren<RectTransform>().anchoredPosition += new Vector2(moveLeft, 0);
-        puzzleRectTransform.DOAnchorPosX( (puzzleRectTransform.anchoredPosition.x + moveLeft), 0.1f, false);
+        //puzzleRectTransform.DOAnchorPosX( (puzzleRectTransform.anchoredPosition.x + moveLeft), 0.1f, false);
+        DOBlendableAnchorMoveBy(puzzleRectTransform, new Vector2(moveLeft, 0), 0.1f, false);
 
+
+    }
+    
+    Tweener DOBlendableAnchorMoveBy(RectTransform target, Vector2 byValue, float duration, bool snapping = false)
+    {
+        Vector2 to = Vector2.zero;
+        return DOTween.To(() => to, delegate (Vector2 x)
+        {
+            Vector2 vector = x - to;
+            to = x;
+            target.anchoredPosition += vector;
+        }, byValue, duration).Blendable().SetOptions(snapping)
+            .SetTarget(target);
     }
 }
