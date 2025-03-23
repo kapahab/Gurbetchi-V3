@@ -65,7 +65,7 @@ public class EventManager : MonoBehaviour
 
                 if (Input.GetKeyDown("x"))
                 {
-                    if (gameFlow.carbList.Count != 0 && gameFlow.toppingList.Count != 0 && gameFlow.sauceList.Count != 0 && gameFlow.spiceList.Count != 0 && gameFlow.donerList.Count != 0)
+                    if (gameFlow.carbList.Count != 0 || gameFlow.toppingList.Count != 0 || gameFlow.sauceList.Count != 0 || gameFlow.spiceList.Count != 0 || gameFlow.donerList.Count != 0)
                         OnFoodTrashed();
                 }
 

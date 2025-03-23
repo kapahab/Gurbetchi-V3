@@ -18,5 +18,6 @@ public class SceneResetter : MonoBehaviour
     {
         gameFlow.totalPlayerList.Clear();
         gameFlow.totalPoints = 0;
+        gameFlow.dayCount = 1;
     }
 }

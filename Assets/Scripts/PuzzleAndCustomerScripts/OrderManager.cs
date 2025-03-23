@@ -13,6 +13,8 @@ public class OrderManager : MonoBehaviour
     float xOffset = 5f;
     int offsetMult; //should be controlled by ordercount
     public bool isShopEmpty = true;
+    public bool firstOrder = true;
+
 
     [Header("Order Spawn Settings")]
     [Tooltip("Minimum time (in seconds) between customer orders.")]
@@ -70,10 +72,14 @@ public class OrderManager : MonoBehaviour
         {
             // Wait for a random time between minOrderTime and maxOrderTime
             float waitTime = Random.Range(minOrderTime, maxOrderTime);
+            if (firstOrder)
+                waitTime = 5f;
             yield return new WaitForSeconds(waitTime);
+
 
             if (isOrderSystemActive && OrderManagerPuzzle.orderCount < 2 && gameFlow.dayRemainingTime > 0 && gameFlow.gameActive) // buraya day timer ekle ve day timer 60 olduðunda order generation durdur
             {
+                firstOrder = false;
                 offsetMult = OrderManagerPuzzle.orderCount;
                 SpawnOrder();
                 OrderManagerPuzzle.orderCount = instantiatedObjects.Count - 1;

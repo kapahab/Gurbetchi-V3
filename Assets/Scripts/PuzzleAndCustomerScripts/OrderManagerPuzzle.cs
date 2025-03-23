@@ -59,7 +59,8 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
             {
                 OnFoodSent();
                 gameFlow.foodSent = false;
-                foodOnCounter = true;
+                if (gameFlow.carbList.Count != 0 || gameFlow.toppingList.Count != 0 || gameFlow.sauceList.Count != 0 || gameFlow.spiceList.Count != 0 || gameFlow.donerList.Count != 0)
+                    foodOnCounter = true;
             }
 
             if (!isCustomerReadjusted)
