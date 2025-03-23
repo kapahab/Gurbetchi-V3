@@ -46,6 +46,7 @@ public class SendFood : MonoBehaviour
 
     void SwitchScene()
     {
+        //buraya bir if kosulu eklenmeli ama ne olduðunu bi türlü bulamadým
         gameFlow.foodSent = true;
         Camera.main.transform.position = new Vector3(-30, 0, -10); //bu iki line sürekli kopyalanýp olamaz, düzgün bir metod bul
         gameFlow.screenSwitch = false; // camera switchi ayrý class yapýp, space'e basýldýðýnda çaðrýlabilir

@@ -26,6 +26,13 @@ public class CustomerTimer : MonoBehaviour
             //delete order tarzý bir þey
         }
     }
-    
+
+    public void ClockStopped()
+    {
+        startTime = 0f;
+        timerStarted = false;
+        timerGraphics.UpdateTimer();
+    }
+
 
 }

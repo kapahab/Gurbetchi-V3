@@ -2603,11 +2603,11 @@ PrefabInstance:
       objectReference: {fileID: 1474487249}
     - target: {fileID: 6369787758363726638, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
       propertyPath: maxOrderTime
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6369787758363726638, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
       propertyPath: minOrderTime
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8607301291591794490, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
       propertyPath: selector
@@ -6028,6 +6028,7 @@ GameObject:
   - component: {fileID: 1137654651}
   - component: {fileID: 1137654653}
   - component: {fileID: 1137654654}
+  - component: {fileID: 1137654655}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -6221,6 +6222,7 @@ MonoBehaviour:
   - {fileID: 1831633460}
   - {fileID: 854069751}
   dayCounterOnScreen: {fileID: 1831633460}
+  dayParent: {fileID: 1454269971}
   fadeTime: 2
   holdTime: 0.5
 --- !u!114 &1137654652
@@ -6263,7 +6265,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loseScreen: {fileID: 1283731454}
+  sceneResetter: {fileID: 1137654655}
   hasLost: 0
+--- !u!114 &1137654655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137654633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e294bacc2c1ec4b41a6aa2de2574300a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1198153559
 GameObject:
   m_ObjectHideFlags: 0
@@ -7585,7 +7600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1454269972
 MonoBehaviour:
   m_ObjectHideFlags: 0

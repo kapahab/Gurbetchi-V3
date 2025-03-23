@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class WinLoseCondition : MonoBehaviour //ayrica kaybetme ekrani buton fonksiyonlari icerir
 {
     [SerializeField] GameObject loseScreen;
+    [SerializeField] SceneResetter sceneResetter;
     public bool hasLost = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,6 +50,7 @@ public class WinLoseCondition : MonoBehaviour //ayrica kaybetme ekrani buton fon
 
     public void RetryButton()
     {
+        sceneResetter.ResetScene();
         SceneManager.LoadScene("SampleScene");
     }
 

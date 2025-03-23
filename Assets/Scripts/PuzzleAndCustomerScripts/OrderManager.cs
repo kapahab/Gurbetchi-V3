@@ -121,15 +121,14 @@ public class OrderManager : MonoBehaviour
 
         OrderSelectorGraphics orderSelectorGraphics = GetComponent<OrderSelectorGraphics>();
 
-        if (OrderManagerPuzzle.activeOrder != 0)
+
+        if ((OrderManagerPuzzle.activeOrder >= OrderManagerPuzzle.deletedOrder) && OrderManagerPuzzle.activeOrder != 0)
         {
             orderSelectorGraphics.MoveSelectorLeft();
             OrderManagerPuzzle.activeOrder--;
-
         }
 
-
-        if (OrderManagerPuzzle.onOrder != 0)
+        if ((OrderManagerPuzzle.onOrder >= OrderManagerPuzzle.deletedOrder) && OrderManagerPuzzle.onOrder != 0)
         {
             OrderManagerPuzzle.onOrder--; // and order selector grapics to left
         }
@@ -148,6 +147,7 @@ public class OrderManager : MonoBehaviour
             }
 
         }
+
 
 
     }

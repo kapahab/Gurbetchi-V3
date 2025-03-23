@@ -32,11 +32,13 @@ public class EventManager : MonoBehaviour
 
     public delegate void PauseButtonPressed();
     public static event PauseButtonPressed OnPauseButtonPressed;
+
+    FoodOnPlate foodOnPlate;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         darkenOthers = GetComponent<ScrappyInputGraphics>();
-
+        foodOnPlate = GetComponent<FoodOnPlate>();
     }
 
     // Update is called once per frame
@@ -63,7 +65,8 @@ public class EventManager : MonoBehaviour
 
                 if (Input.GetKeyDown("x"))
                 {
-                    OnFoodTrashed();
+                    if (gameFlow.carbList.Count != 0 && gameFlow.toppingList.Count != 0 && gameFlow.sauceList.Count != 0 && gameFlow.spiceList.Count != 0 && gameFlow.donerList.Count != 0)
+                        OnFoodTrashed();
                 }
 
 

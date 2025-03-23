@@ -11,12 +11,13 @@ public class DayController : MonoBehaviour
     [SerializeField] Image dayEndBlackScreen;
     [SerializeField] TextMeshProUGUI[] dayEndText;
     [SerializeField] TextMeshProUGUI dayCounterOnScreen;
+    [SerializeField] GameObject dayParent;
     public float fadeTime = 1f;
     public float holdTime = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        dayParent.SetActive(true);
     }
 
     // Update is called once per frame

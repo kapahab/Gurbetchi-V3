@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderID: 0
-  isInOrder: 0
+  isInPuzzle: 0
   puzzleScreenPrefab: {fileID: 27353193920077559, guid: 36f0f3f4a86f4534ba98b9a9466c86b2, type: 3}
   germanText: {fileID: 1438715271878807502}
   orderMaker: {fileID: 7549328014516978184}
@@ -754,6 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 60
+  timerStarted: 0
   timerGraphics: {fileID: 1841079078098011606}
 --- !u!114 &1841079078098011606
 MonoBehaviour:

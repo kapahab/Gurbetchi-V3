@@ -21,6 +21,7 @@ public class DayManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         winLoseCondition = GetComponent<WinLoseCondition>();
         dayController = GetComponent<DayController>();
         DayTimeActivator(false);

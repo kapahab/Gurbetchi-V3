@@ -93,13 +93,7 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
                     if (Input.GetKeyDown(KeyCode.Space)) //bura basitleþtirilebilir, space'e basýldýðýnda condition checkler 2 taraftan da yapýlýyor
                                                          //sadece customer manager'dan yapýlabilir
                     {
-                        if (!orderManager.IsPuzzleSolved(activeOrder) && !foodOnCounter && !orderManager.isShopEmpty)
-                        {
-                            onOrder = activeOrder;
-                            Debug.Log("when pressed space on order: " + onOrder);
-                            selectingOrders = false;
-                        }
-                        else if (foodOnCounter && !orderManager.isShopEmpty)
+                        if (!orderManager.isShopEmpty && (!orderManager.IsPuzzleSolved(activeOrder) || foodOnCounter))
                         {
                             onOrder = activeOrder;
                             Debug.Log("when pressed space on order: " + onOrder);

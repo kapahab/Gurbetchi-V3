@@ -6,7 +6,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 {
     bool isLoggerActive = true;
     public int orderID;
-    public bool isInOrder = false;
+    public bool isInPuzzle = false;
     [SerializeField] GameObject puzzleScreenPrefab;
     [SerializeField] GameObject germanText;
     GameObject puzzleScreenInstance;
@@ -50,49 +50,6 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     void Update()
     {
 
-        if (orderID == OrderManagerPuzzle.onOrder && !isInOrder && !OrderManagerPuzzle.selectingOrders && !OrderManagerPuzzle.foodOnCounter && !isPuzzleSolved)
-        {
-            //OnActivateOrder(); // burasý büyük ihtimalle buglý
-            Debug.Log("orderID on customer manager " + orderID);
-            GetPuzzleScreen();
-            Debug.Log("order being activated");
-        }
-
-        if (orderID == OrderManagerPuzzle.onOrder && !isInOrder && !OrderManagerPuzzle.selectingOrders && OrderManagerPuzzle.foodOnCounter)
-        {
-            CombineList();
-            
-            if (OrderChecker(orderMaker.totalOrderList, gameFlow.totalPlayerList))
-            {
-                if (!isProcessingOrder)
-                {
-                    isProcessingOrder = true;
-                    pointsCustomer.PointCalculator();
-                    StartCoroutine(OrderFinished(true));
-                }
-
-            }
-            else
-            {
-                if (!isProcessingOrder)
-                {
-                    isProcessingOrder = true;
-                    gameFlow.totalPoints -= 250;
-                    StartCoroutine(OrderFinished(false));
-                }
-            }
-        }
-
-
-        if (isInOrder)
-        {
-            if (puzzleScreenInstance == null)
-            {
-                PuzzleFinished();
-            }
-        }
-
-
         if (customerTimer.startTime < 0)
         {
             if (!isProcessingOrder)
@@ -101,11 +58,51 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
                 if (puzzleController != null)
                     Destroy(puzzleController.gameObject);
                 StartCoroutine(OrderTimedOut(false));
-                gameFlow.totalPoints -= 500;
+                gameFlow.totalPoints -= 250;
                 Debug.Log("Order Timed Out!");
             }
 
         }
+
+        if (orderID != OrderManagerPuzzle.onOrder || OrderManagerPuzzle.selectingOrders)
+            return;
+
+        if (!isInPuzzle)
+        {
+            if (!isPuzzleSolved && !OrderManagerPuzzle.foodOnCounter)
+            {
+                //OnActivateOrder(); // burasý büyük ihtimalle buglý
+                Debug.Log("orderID on customer manager " + orderID);
+                GetPuzzleScreen();
+                Debug.Log("order being activated");
+            }
+
+            if (OrderManagerPuzzle.foodOnCounter & !isProcessingOrder)
+            {
+                CombineList();
+
+                if (OrderChecker(orderMaker.totalOrderList, gameFlow.totalPlayerList))
+                {
+                    isProcessingOrder = true;
+                    pointsCustomer.PointCalculator();
+                    StartCoroutine(OrderFinished(true));
+                }
+                else
+                {
+                    isProcessingOrder = true;
+                    gameFlow.totalPoints -= 250;
+                    StartCoroutine(OrderFinished(false));
+                }
+            }
+        }
+
+        if (isInPuzzle)
+        {
+            if (puzzleScreenInstance == null)
+            {
+                PuzzleFinished();
+            }
+        }        
     }
 
     void GetPuzzleScreen()
@@ -127,7 +124,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
         }
         //Debug.Log("correct row: " + puzzleScreenInstance.GetComponent<PuzzleController>().correctRow[0]);
-        isInOrder = true;
+        isInPuzzle = true;
         puzzleController.PuzzleSpawner();
     }
 
@@ -142,7 +139,9 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         if (isPuzzleSolved)
             correctOrderSpawner.gameObject.SetActive(false);
 
-
+        isInPuzzle = false;
+        OrderManagerPuzzle.selectingOrders = true;
+        OrderManagerPuzzle.foodOnCounter = false; //should delete food graphics as well
         customerTimer.timerStarted = false;
 
 
@@ -152,9 +151,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
         Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);
-        isInOrder = false;
-        OrderManagerPuzzle.selectingOrders = true;
-        OrderManagerPuzzle.foodOnCounter = false; //should delete food graphics as well
+
         OrderManagerPuzzle.deletedOrder = orderID;
         OrderManagerPuzzle.isCustomerReadjusted = false;
 
@@ -175,12 +172,8 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         if (isPuzzleSolved)
             correctOrderSpawner.gameObject.SetActive(false);
 
-
-        customerTimer.timerStarted = false;
-        customerTimer.startTime = 0f;
-
-        yield return new WaitForSeconds(2f);
-
+        if (puzzleController != null)
+            Destroy(puzzleController.transform.root.gameObject);
 
         if (orderID == OrderManagerPuzzle.onOrder)
         {
@@ -188,13 +181,16 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             Debug.Log("should be kicked out of puzzle screen");
         }
 
+        customerTimer.ClockStopped();
+        
+
+        yield return new WaitForSeconds(2f);
+
         OrderManagerPuzzle.deletedOrder = orderID;
 
         Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
         Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);
 
-        if (puzzleController != null)
-            Destroy(puzzleController.transform.root.gameObject);
 
         OrderManagerPuzzle.isCustomerReadjusted = false;
 
@@ -205,14 +201,14 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
     void PuzzleFinished()
     {
-        if (!isInOrder) return;  // Prevent multiple calls if already processed
+        if (!isInPuzzle) return;  // Prevent multiple calls if already processed
         Debug.Log("when puzzle finished orderID: " + orderID);
         Debug.Log("when puzzle finished onOrder: " + OrderManagerPuzzle.onOrder);
         Debug.Log("PuzzleFinished called");
 
         correctOrderSpawner.InstantiateCorrectOrders();
 
-        isInOrder = false;
+        isInPuzzle = false;
         OrderManagerPuzzle.selectingOrders = true;
         OrderManagerPuzzle.onOrder = 0;
         isPuzzleSolved = true;
@@ -234,36 +230,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             for (int i = 0; i < foodLists.Count; i++)
                 gameFlow.totalPlayerList.Add(foodLists[i]);
     }
-    /*
-    private void IDReAdjuster() //nerede ve nasýl kullanýlýcaklarýný bul
-    {
-
-
-
-
-        Debug.Log("ID readjuster called");
-        Debug.Log("orderID before: " + orderID);
-        Debug.Log("deleted order: " + OrderManagerPuzzle.deletedOrder);
-        if (orderID > OrderManagerPuzzle.deletedOrder)
-        {
-            orderID--;
-            
-            Debug.Log("orderID after: " + orderID);
-            customerPositioner.PositionReAdjuster(); // bu kýsma kesinlikle daha iyi bir çözüm bulunmal
-        } 
-
-    }
-    
-    private void OnEnable()
-    {
-        OrderManagerPuzzle.OnCustomerDeleted += IDReAdjuster;
-    }
-
-    private void OnDisable()
-    {
-        OrderManagerPuzzle.OnCustomerDeleted -= IDReAdjuster;
-    }
-    */
+   
     bool OrderChecker(List<string> orderList, List<string> playerList) 
     {
         Debug.Log("Entered order checker");
