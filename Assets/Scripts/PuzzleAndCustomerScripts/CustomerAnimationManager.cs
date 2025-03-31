@@ -34,6 +34,6 @@ public class CustomerAnimationManager : MonoBehaviour
 
     void SetToPosition(float xPos, float yPos, float zPos)
     {
-        thoughtBubbleTransform.DOMove(new Vector3(xPos, yPos, zPos), 0.5f);
+        thoughtBubbleTransform.DOMove(new Vector3(xPos, yPos, zPos), 0.5f).SetEase(Ease.OutSine);
     }
 }

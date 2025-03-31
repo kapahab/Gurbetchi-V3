@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 164951298913162363, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3187382453971360148, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
       propertyPath: puzzleSelector
       value: 
@@ -55,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 4976822491016401430, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
       propertyPath: puzzleScreen
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535635783871477350, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8774814308243274718, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
       propertyPath: m_Name

@@ -5,22 +5,10 @@ public class CustomerPuzzleCallerDestroyer : MonoBehaviour
 {
     [SerializeField] CustomerManager customerManager;
 
-    PuzzleControllerV2 puzzleController;
-    CorrectOrderSpawner correctOrderSpawner;
-
-    [SerializeField] GameObject puzzleScreenPrefab;
-    [SerializeField] GameObject germanText;
-    GameObject puzzleScreenInstance;
-    [SerializeField] OrderMaker orderMaker;
-    [SerializeField] CustomerTimer customerTimer;
-    List<int> correctRow = new List<int> { };
-    List<int> currentRow = new List<int> { };
-    List<int> correctEnteredRow = new List<int> { };
-    [SerializeField] int totalColumns = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        orderMaker.MakeOrder();
+        
     }
 
     // Update is called once per frame
@@ -28,10 +16,10 @@ public class CustomerPuzzleCallerDestroyer : MonoBehaviour
     {
         
     }
-
+    
     public void GetPuzzleScreen()
-    {
-        germanText.gameObject.SetActive(false);
+    {/*
+        customerManager.germanText.gameObject.SetActive(false);
         //customerAnimationManager.PlayCustomerAnimation(); //test
         puzzleScreenInstance = Instantiate(puzzleScreenPrefab);
         puzzleController = puzzleScreenInstance.GetComponentInChildren<PuzzleControllerV2>();
@@ -50,11 +38,11 @@ public class CustomerPuzzleCallerDestroyer : MonoBehaviour
         }
         //Debug.Log("correct row: " + puzzleScreenInstance.GetComponent<PuzzleController>().correctRow[0]);
         customerManager.isInPuzzle = true;
-        puzzleController.PuzzleSpawner();
+        puzzleController.PuzzleSpawner();*/
     }
 
     public void PuzzleFinished()
-    {
+    {/*
         if (!customerManager.isInPuzzle) return;  // Prevent multiple calls if already processed
         Debug.Log("when puzzle finished orderID: " + customerManager.orderID);
         Debug.Log("when puzzle finished onOrder: " + OrderManagerPuzzle.onOrder);
@@ -65,6 +53,6 @@ public class CustomerPuzzleCallerDestroyer : MonoBehaviour
         customerManager.isInPuzzle = false;
         OrderManagerPuzzle.selectingOrders = true;
         OrderManagerPuzzle.onOrder = 0;
-        customerManager.isPuzzleSolved = true;
+        customerManager.isPuzzleSolved = true;*/
     }
 }

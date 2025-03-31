@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -6007857137893288414, guid: b79cd93e0a2cf4848aafe300bd201796, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -256,7 +256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000095367, y: 6.1}
+  m_AnchoredPosition: {x: -0.00000029503, y: 4.77}
   m_SizeDelta: {x: 8.724, y: 2.181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4971768990777488979
@@ -434,7 +434,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -6423838561796911570, guid: f194cec25c1a4d24da53e9e07fdab3e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -543,7 +543,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -6007857137893288414, guid: b79cd93e0a2cf4848aafe300bd201796, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -630,7 +630,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8331365961590393856, guid: f194cec25c1a4d24da53e9e07fdab3e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -827,7 +827,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6450875001527910417, guid: f194cec25c1a4d24da53e9e07fdab3e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -855,6 +855,8 @@ GameObject:
   - component: {fileID: 1841079078098011606}
   - component: {fileID: 1399770408929819743}
   - component: {fileID: 5827741471856210731}
+  - component: {fileID: 2396563924633470403}
+  - component: {fileID: 3906492531219866222}
   m_Layer: 0
   m_Name: EasyOrder
   m_TagString: Untagged
@@ -924,7 +926,14 @@ MonoBehaviour:
   customerPositioner: {fileID: 6873440629864342470}
   pointsCustomer: {fileID: 1399770408929819743}
   customerAnimationManager: {fileID: 5827741471856210731}
+  customerOrderComperator: {fileID: 2396563924633470403}
+  customerPuzzleCallDestroy: {fileID: 0}
   customerSpriteRenderer: {fileID: 2429378678158328227}
+  deactivateAtEnd:
+  - {fileID: 2876807164035477152}
+  - {fileID: 2643756591075223718}
+  - {fileID: 1861400275764291835}
+  - {fileID: 767211156057254045}
   correctOrderCustomer: {fileID: 1951368024140705850, guid: 3160ae2c2e73ea14baf68c0022673217, type: 3}
   incorrectOrderCustomer: {fileID: 2890038892761893669, guid: 3160ae2c2e73ea14baf68c0022673217, type: 3}
 --- !u!114 &7549328014516978184
@@ -1019,6 +1028,31 @@ MonoBehaviour:
   animationNameOpen: puzzle_bubble_open
   animationNameClose: puzzle_bubble_close
   thoughtBubbleTransform: {fileID: 4617951446637083771}
+--- !u!114 &2396563924633470403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652784652126435511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64eb224bc6fdb9f4e8bf57b27529b0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3906492531219866222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652784652126435511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4529e57ffa0aef459e6d97b361e179a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerManager: {fileID: 1849158088284072953}
 --- !u!1 &6828517630831230425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1206,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &3130824339847898429
 MonoBehaviour:
