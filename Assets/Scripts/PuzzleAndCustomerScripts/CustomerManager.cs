@@ -29,7 +29,9 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
     [SerializeField]CustomerPositioner customerPositioner;
     [SerializeField]PointsCustomer pointsCustomer;
-
+    [SerializeField] CustomerAnimationManager customerAnimationManager;
+    [SerializeField] CustomerOrderComperator customerOrderComperator;
+    [SerializeField] CustomerPuzzleCallerDestroyer customerPuzzleCallDestroy;
 
     CorrectOrderSpawner correctOrderSpawner;
 
@@ -41,7 +43,6 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        orderMaker.MakeOrder();
         correctOrderSpawner = GetComponentInChildren<CorrectOrderSpawner>();
         //orderID = OrderManagerPuzzle.orderCount;
     }
@@ -73,15 +74,15 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
             {
                 //OnActivateOrder(); // burasý büyük ihtimalle buglý
                 Debug.Log("orderID on customer manager " + orderID);
-                GetPuzzleScreen();
+                customerPuzzleCallDestroy.GetPuzzleScreen();
                 Debug.Log("order being activated");
             }
 
             if (OrderManagerPuzzle.foodOnCounter & !isProcessingOrder)
             {
-                CombineList();
+                customerOrderComperator.CombineList();
 
-                if (OrderChecker(orderMaker.totalOrderList, gameFlow.totalPlayerList))
+                if (customerOrderComperator.OrderChecker(orderMaker.totalOrderList, gameFlow.totalPlayerList))
                 {
                     isProcessingOrder = true;
                     pointsCustomer.PointCalculator();
@@ -105,28 +106,29 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         }        
     }
 
-    void GetPuzzleScreen()
-    {
-        germanText.gameObject.SetActive(false);
-        puzzleScreenInstance = Instantiate(puzzleScreenPrefab);
-        puzzleController = puzzleScreenInstance.GetComponentInChildren<PuzzleControllerV2>();
-        if (puzzleController == null)
-            Debug.Log("puzzle controller is null");
+    //void GetPuzzleScreen()
+    //{
+    //    germanText.gameObject.SetActive(false);
+    //    customerAnimationManager.PlayCustomerAnimation(); //test
+    //    puzzleScreenInstance = Instantiate(puzzleScreenPrefab);
+    //    puzzleController = puzzleScreenInstance.GetComponentInChildren<PuzzleControllerV2>();
+    //    if (puzzleController == null)
+    //        Debug.Log("puzzle controller is null");
 
-        totalColumns = orderMaker.correctOrders.Count;
-        puzzleController.totalColumns = totalColumns;
-        puzzleController.rowTypeNumber = orderMaker.amountOfIngredients;
-        for (int i = 0; i < totalColumns; i++)
-        {
-            correctRow.Add(orderMaker.correctOrders[i]); // doðru sýralar ordermakerdan alýnýr
-            puzzleController.correctRow.Add(orderMaker.correctOrders[i]); // doðru sýralar puzzle controllera aktarýlýr
-            Debug.Log("correct row: " + correctRow[i]);
+    //    totalColumns = orderMaker.correctOrders.Count;
+    //    puzzleController.totalColumns = totalColumns;
+    //    puzzleController.rowTypeNumber = orderMaker.amountOfIngredients;
+    //    for (int i = 0; i < totalColumns; i++)
+    //    {
+    //        correctRow.Add(orderMaker.correctOrders[i]); // doðru sýralar ordermakerdan alýnýr
+    //        puzzleController.correctRow.Add(orderMaker.correctOrders[i]); // doðru sýralar puzzle controllera aktarýlýr
+    //        Debug.Log("correct row: " + correctRow[i]);
 
-        }
-        //Debug.Log("correct row: " + puzzleScreenInstance.GetComponent<PuzzleController>().correctRow[0]);
-        isInPuzzle = true;
-        puzzleController.PuzzleSpawner();
-    }
+    //    }
+    //    //Debug.Log("correct row: " + puzzleScreenInstance.GetComponent<PuzzleController>().correctRow[0]);
+    //    isInPuzzle = true;
+    //    puzzleController.PuzzleSpawner();
+    //}
 
 
     IEnumerator OrderFinished(bool isOrderTrue)
@@ -214,49 +216,49 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         isPuzzleSolved = true;
     }
 
-    void CombineList() 
-    {
-        ListCombiner(gameFlow.carbList);
-        ListCombiner(gameFlow.toppingList);
-        ListCombiner(gameFlow.spiceList);
-        ListCombiner(gameFlow.sauceList);
-        ListCombiner(gameFlow.donerList);
+    //void CombineList() 
+    //{
+    //    ListCombiner(gameFlow.carbList);
+    //    ListCombiner(gameFlow.toppingList);
+    //    ListCombiner(gameFlow.spiceList);
+    //    ListCombiner(gameFlow.sauceList);
+    //    ListCombiner(gameFlow.donerList);
         
-    }
+    //}
 
-    void ListCombiner(List<string> foodLists)
-    {
-        if (foodLists.Count > 0)
-            for (int i = 0; i < foodLists.Count; i++)
-                gameFlow.totalPlayerList.Add(foodLists[i]);
-    }
+    //void ListCombiner(List<string> foodLists)
+    //{
+    //    if (foodLists.Count > 0)
+    //        for (int i = 0; i < foodLists.Count; i++)
+    //            gameFlow.totalPlayerList.Add(foodLists[i]);
+    //}
    
-    bool OrderChecker(List<string> orderList, List<string> playerList) 
-    {
-        Debug.Log("Entered order checker");
-        if (orderList.Count != playerList.Count)
-        {
-            Debug.Log("liste sayýlarý farklý");
-            Debug.Log("order list count: " + orderList.Count);
-            Debug.Log("player list count: " + playerList.Count);
-            return false;
-        }
-        else
-        {
-            orderList.Sort();
-            playerList.Sort();
-            for (int i = 0; i < orderList.Count; i++)
-            {
-                if (orderList[i] != playerList[i])
-                {
-                    Debug.Log("Order is incorrect");
-                    return false;
+    //bool OrderChecker(List<string> orderList, List<string> playerList) 
+    //{
+    //    Debug.Log("Entered order checker");
+    //    if (orderList.Count != playerList.Count)
+    //    {
+    //        Debug.Log("liste sayýlarý farklý");
+    //        Debug.Log("order list count: " + orderList.Count);
+    //        Debug.Log("player list count: " + playerList.Count);
+    //        return false;
+    //    }
+    //    else
+    //    {
+    //        orderList.Sort();
+    //        playerList.Sort();
+    //        for (int i = 0; i < orderList.Count; i++)
+    //        {
+    //            if (orderList[i] != playerList[i])
+    //            {
+    //                Debug.Log("Order is incorrect");
+    //                return false;
 
-                }
-            }
-            Debug.Log("Order is correct");
-            return true;
-        }
-    }
+    //            }
+    //        }
+    //        Debug.Log("Order is correct");
+    //        return true;
+    //    }
+    //}
 
 }
