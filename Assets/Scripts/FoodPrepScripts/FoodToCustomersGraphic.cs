@@ -48,6 +48,7 @@ public class FoodToCustomersGraphic : MonoBehaviour
     void ShowFoodToCustomer(GameObject cloneObj, float xPos, float yPos)
     {
         GameObject copyClone = Instantiate(cloneObj, new Vector2(xPos, yPos), Quaternion.identity);
+        copyClone.GetComponent<SpriteRenderer>().sortingOrder = 6;
         copiedObjects.Add(copyClone);
     }
 

@@ -11,7 +11,7 @@ public class CustomerAnimationManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        startPosition = thoughtBubbleTransform.position;
+        startPosition = thoughtBubbleTransform.position; //bunun update edilmesi gerekiyo bir þekilde(yoksa puzzle kapandýgýnda düþünce balonu yanlýþ yere gidiyor) 
     }
 
     // Update is called once per frame

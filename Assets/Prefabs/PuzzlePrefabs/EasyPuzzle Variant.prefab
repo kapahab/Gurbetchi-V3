@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 164951298913162363, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
       propertyPath: m_SortingOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3187382453971360148, guid: c72fc6dabed55c942bc262980ce7db1f, type: 3}
       propertyPath: puzzleSelector

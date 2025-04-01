@@ -99,7 +99,7 @@ public class OrderManager : MonoBehaviour
 
         offsetMult = instantiatedObjects.Count - 1;
 
-        newOrder.transform.position = new Vector3(-36f + (xOffset * (offsetMult)), -0.75f, 0);
+        newOrder.transform.position = new Vector3(-33f + (xOffset * (offsetMult)), -0.75f, 0);
         Debug.Log("object instantiated");
         Debug.Log("customer spawned at x: " + (5 + xOffset * (offsetMult)));
 

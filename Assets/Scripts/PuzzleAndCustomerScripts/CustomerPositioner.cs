@@ -17,7 +17,7 @@ public class CustomerPositioner : MonoBehaviour
 
     public void PositionReAdjuster() //this runs after orderID is recalculated
     {
-        this.gameObject.transform.position = new Vector3(-27.5f + (5 * customerManager.orderID), -1.77f, 0);
+        this.gameObject.transform.position = new Vector3(-33f +(5 * customerManager.orderID), -0.75f, 0);
     }
 
 }
