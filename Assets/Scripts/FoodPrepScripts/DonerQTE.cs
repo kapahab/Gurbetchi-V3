@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DonerQTE : MonoBehaviour
@@ -10,6 +12,7 @@ public class DonerQTE : MonoBehaviour
     [SerializeField] FoodOnPlate foodOnPlate;
     private int DonerValue;
     public static bool donerCheck;
+    HashSet<int> usedIndexes = new HashSet<int>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,6 +72,7 @@ public class DonerQTE : MonoBehaviour
     void ResetDonerCounter()
     {
         DonerValue = 0;
+        usedIndexes.Clear();
     }
 
     void DonerMinigameExit()
@@ -106,7 +110,28 @@ public class DonerQTE : MonoBehaviour
         }
 
         gameFlow.donerList.Add(doner);
-        foodOnPlate.PutFoodOnPlate(donerCopy[donerIndex], gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
+        DonerInstantiator();
     }
 
+    void DonerInstantiator()
+    {
+        int index;
+        for (int i = 0; i < UnityEngine.Random.Range(2,3); i++)
+        {
+            if (usedIndexes.Count == donerCopy.Length)
+            {
+                usedIndexes.Clear(); // Reset the used indexes if all have been used
+                Debug.Log("All indexes have been used, resetting.");
+            }
+
+            do
+            {
+                index = UnityEngine.Random.Range(0, donerCopy.Length);
+            } while (usedIndexes.Contains(index)); // Ensure no duplicates
+
+            usedIndexes.Add(index);
+
+            foodOnPlate.PutFoodOnPlate(donerCopy[index], (gameFlow.xPosOfPlate + UnityEngine.Random.Range(-0.5f, 0.5f)), gameFlow.yPosOfPlate); //ortalý olacak þekilde düþün
+        }
+    }
 }

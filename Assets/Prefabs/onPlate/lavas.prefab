@@ -13,6 +13,18 @@ PrefabInstance:
       value: l
       objectReference: {fileID: 0}
     - target: {fileID: 293227305091024272, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 293227305091024272, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 293227305091024272, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 293227305091024272, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12
       objectReference: {fileID: 0}
@@ -54,8 +66,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1138020612167555872, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
       propertyPath: m_Name
-      value: lavas Variant
+      value: lavas
       objectReference: {fileID: 0}
+    - target: {fileID: 8720166645791526279, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1825930136861694527, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
     m_RemovedComponents:
     - {fileID: -3083934136510526122, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
     m_RemovedGameObjects: []

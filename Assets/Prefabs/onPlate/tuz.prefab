@@ -13,6 +13,18 @@ PrefabInstance:
       value: t
       objectReference: {fileID: 0}
     - target: {fileID: 123324274325342368, guid: 97f2d0637c1043949a73593926205546, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 123324274325342368, guid: 97f2d0637c1043949a73593926205546, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 123324274325342368, guid: 97f2d0637c1043949a73593926205546, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 123324274325342368, guid: 97f2d0637c1043949a73593926205546, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12
       objectReference: {fileID: 0}
@@ -54,8 +66,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5167028751089699432, guid: 97f2d0637c1043949a73593926205546, type: 3}
       propertyPath: m_Name
-      value: salt Variant
+      value: tuz
       objectReference: {fileID: 0}
+    - target: {fileID: 5424271702545374357, guid: 97f2d0637c1043949a73593926205546, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8679899136461339923, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
     m_RemovedComponents:
     - {fileID: -3542352101349997974, guid: 97f2d0637c1043949a73593926205546, type: 3}
     m_RemovedGameObjects: []

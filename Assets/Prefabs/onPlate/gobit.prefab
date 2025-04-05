@@ -13,6 +13,18 @@ PrefabInstance:
       value: g
       objectReference: {fileID: 0}
     - target: {fileID: 4201882634199558904, guid: ebb3ab7769bfcb542876b0c5b6e964db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201882634199558904, guid: ebb3ab7769bfcb542876b0c5b6e964db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201882634199558904, guid: ebb3ab7769bfcb542876b0c5b6e964db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201882634199558904, guid: ebb3ab7769bfcb542876b0c5b6e964db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12
       objectReference: {fileID: 0}
@@ -54,8 +66,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290584262450049945, guid: ebb3ab7769bfcb542876b0c5b6e964db, type: 3}
       propertyPath: m_Name
-      value: gobit Variant
+      value: gobit
       objectReference: {fileID: 0}
+    - target: {fileID: 8434771271750681931, guid: ebb3ab7769bfcb542876b0c5b6e964db, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4186353178260295131, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
     m_RemovedComponents:
     - {fileID: 3414394424978550177, guid: ebb3ab7769bfcb542876b0c5b6e964db, type: 3}
     m_RemovedGameObjects: []

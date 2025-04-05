@@ -14,7 +14,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 284683191627039866, guid: 727c8731e430db34a9309ca318835a0d, type: 3}
       propertyPath: m_Name
-      value: lettuce Variant
+      value: lahana
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328692473594002032, guid: 727c8731e430db34a9309ca318835a0d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328692473594002032, guid: 727c8731e430db34a9309ca318835a0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328692473594002032, guid: 727c8731e430db34a9309ca318835a0d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4328692473594002032, guid: 727c8731e430db34a9309ca318835a0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6214769368769004281, guid: 727c8731e430db34a9309ca318835a0d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3763927750483255334, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
     m_RemovedComponents:
     - {fileID: -6001781053010743854, guid: 727c8731e430db34a9309ca318835a0d, type: 3}
     m_RemovedGameObjects: []

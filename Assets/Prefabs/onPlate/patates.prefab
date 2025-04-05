@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2089008836773623063, guid: a22c05be6460a724ea256ddfe6093d7a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089008836773623063, guid: a22c05be6460a724ea256ddfe6093d7a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089008836773623063, guid: a22c05be6460a724ea256ddfe6093d7a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089008836773623063, guid: a22c05be6460a724ea256ddfe6093d7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12
       objectReference: {fileID: 0}
@@ -50,8 +62,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5864706119954250939, guid: a22c05be6460a724ea256ddfe6093d7a, type: 3}
       propertyPath: m_Name
-      value: ffries Variant
+      value: patates
       objectReference: {fileID: 0}
+    - target: {fileID: 6727272411447523049, guid: a22c05be6460a724ea256ddfe6093d7a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8409168242103325846, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
     - target: {fileID: 7214680313711990979, guid: a22c05be6460a724ea256ddfe6093d7a, type: 3}
       propertyPath: keyStroke
       value: p

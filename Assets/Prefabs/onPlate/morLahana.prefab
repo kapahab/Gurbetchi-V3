@@ -8,9 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 533513250992629230, guid: 959c4040b866d3a468cf17b8a50ff362, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4793210700774499740, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
     - target: {fileID: 5114038309640556436, guid: 959c4040b866d3a468cf17b8a50ff362, type: 3}
       propertyPath: m_Name
-      value: plettuce Variant
+      value: morLahana
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816826306067003421, guid: 959c4040b866d3a468cf17b8a50ff362, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816826306067003421, guid: 959c4040b866d3a468cf17b8a50ff362, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816826306067003421, guid: 959c4040b866d3a468cf17b8a50ff362, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6816826306067003421, guid: 959c4040b866d3a468cf17b8a50ff362, type: 3}
       propertyPath: m_LocalPosition.x

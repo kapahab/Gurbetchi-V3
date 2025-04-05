@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5462619534262587745, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462619534262587745, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462619534262587745, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462619534262587745, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.02
       objectReference: {fileID: 0}
@@ -50,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9126320067362920394, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
       propertyPath: m_Name
-      value: doner Variant
+      value: doner onplate Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}

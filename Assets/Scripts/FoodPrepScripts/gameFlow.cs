@@ -16,7 +16,7 @@ public class gameFlow : MonoBehaviour
     [SerializeField] private List<string> allKeyBindings = new List<string>();
     public static List<string> allKeyBindingsUsed;
     public static float xPosOfPlate = 0f;
-    public static float yPosOfPlate = -3.25f;
+    public static float yPosOfPlate = -2.35f;
     public static int gameDifficulty = 2;
     public static bool gameStart = true;
     

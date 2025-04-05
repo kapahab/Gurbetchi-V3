@@ -12167,7 +12167,7 @@ PrefabInstance:
       objectReference: {fileID: 1137654640}
     - target: {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
       propertyPath: donerCopy.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
       propertyPath: 'donerCopy.Array.data[0]'
@@ -12181,6 +12181,18 @@ PrefabInstance:
       propertyPath: 'donerCopy.Array.data[2]'
       value: 
       objectReference: {fileID: 8845631325845045661, guid: 340108ce113a01b4f97e69d4f9a381e3, type: 3}
+    - target: {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
+      propertyPath: 'donerCopy.Array.data[3]'
+      value: 
+      objectReference: {fileID: 733634660579769479, guid: 63e389e3827145b4994de4074048f372, type: 3}
+    - target: {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
+      propertyPath: 'donerCopy.Array.data[4]'
+      value: 
+      objectReference: {fileID: 4389735029010282760, guid: a5249dc9a721c874f9686fee84a84d91, type: 3}
+    - target: {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
+      propertyPath: 'donerCopy.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1147461748328511641, guid: 0f9ad1990e2733644aaaad785522ea3d, type: 3}
     - target: {fileID: 5462619534262587745, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
       propertyPath: m_LocalScale.x
       value: 4

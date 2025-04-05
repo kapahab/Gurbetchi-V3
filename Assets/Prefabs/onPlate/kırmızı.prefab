@@ -8,9 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 757993638530744393, guid: 4257410392778604797d79d4956ce571, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2778214131899090957, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
     - target: {fileID: 1314305435182518084, guid: 4257410392778604797d79d4956ce571, type: 3}
       propertyPath: m_Name
-      value: rsauce Variant
+      value: "k\u0131rm\u0131z\u0131"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223067794362067790, guid: 4257410392778604797d79d4956ce571, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223067794362067790, guid: 4257410392778604797d79d4956ce571, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223067794362067790, guid: 4257410392778604797d79d4956ce571, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2223067794362067790, guid: 4257410392778604797d79d4956ce571, type: 3}
       propertyPath: m_LocalPosition.x

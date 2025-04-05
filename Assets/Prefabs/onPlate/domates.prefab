@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: keyStroke
       value: o
       objectReference: {fileID: 0}
+    - target: {fileID: 5912201775130576683, guid: 132ed22c427e4e1459c2c3a082495f20, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5218823391695824717, guid: d257f6decdc254b449183dca2ae06bd4, type: 3}
+    - target: {fileID: 7584755122759101574, guid: 132ed22c427e4e1459c2c3a082495f20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584755122759101574, guid: 132ed22c427e4e1459c2c3a082495f20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584755122759101574, guid: 132ed22c427e4e1459c2c3a082495f20, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7584755122759101574, guid: 132ed22c427e4e1459c2c3a082495f20, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12
@@ -54,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8863965341504866165, guid: 132ed22c427e4e1459c2c3a082495f20, type: 3}
       propertyPath: m_Name
-      value: tomato Variant
+      value: domates
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1865158761624079258, guid: 132ed22c427e4e1459c2c3a082495f20, type: 3}
