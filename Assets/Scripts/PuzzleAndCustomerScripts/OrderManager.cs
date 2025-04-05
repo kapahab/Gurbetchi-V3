@@ -150,6 +150,7 @@ public class OrderManager : MonoBehaviour
             {
                 customerManager[i].orderID--;
                 customerManager[i].GetComponent<CustomerPositioner>().PositionReAdjuster();
+                customerManager[i].GetComponent<CustomerAnimationManager>().UpdateOpenPuzzlePosition();
             }
 
         }
