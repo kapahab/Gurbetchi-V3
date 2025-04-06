@@ -163,7 +163,7 @@ public class PuzzleControllerV2 : MonoBehaviour
             OnCheckColumn();
             Debug.Log("checking column");
 
-            if (isColumnLocked[currentColumn])
+            if (isColumnLocked[currentColumn] && currentColumn != totalColumns-1)
             {
                 OnPuzzleRight();
                 currentColumn++;
