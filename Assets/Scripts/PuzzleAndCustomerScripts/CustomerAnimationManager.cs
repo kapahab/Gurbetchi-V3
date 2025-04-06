@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEditor.Search;
 
 public class CustomerAnimationManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CustomerAnimationManager : MonoBehaviour
     Vector3 startPosition;
     Vector3 localEndPosition = new Vector3(0,0,0);
     Vector3 openPuzzlePosition;
+    bool isPuzzleOpen = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,16 +27,25 @@ public class CustomerAnimationManager : MonoBehaviour
 
     public void PlayCustomerAnimation()
     {
-        SetToPosition(-30f, 0, 0);
-        openPuzzlePosition = thoughtBubbleTransform.localPosition;
+        openPuzzlePosition = new Vector3(-30f, 0, 0); 
+
+        SetToPosition(openPuzzlePosition.x, openPuzzlePosition.y, openPuzzlePosition.z);
         customerAnimator.Play(animationNameOpen);
+
+        isPuzzleOpen = true;
+
+        thoughtBubbleTransform.GetComponent<SpriteRenderer>().sortingOrder = 9; //bu muhabbet çok saçma þimdilik buraya koydum, çözülmüþ puzzlelarýn
+        //üstüne çýkabilmesi için gerekli
     }
 
     public void StopCustomerAnimation()
     {
-
         SetToPositionLocal(startPosition.x, startPosition.y, startPosition.z);
         customerAnimator.Play(animationNameClose);
+
+        isPuzzleOpen = false;
+
+        thoughtBubbleTransform.GetComponent<SpriteRenderer>().sortingOrder = 7;
     }
 
     void SetToPosition(float xPos, float yPos, float zPos)
@@ -55,9 +66,9 @@ public class CustomerAnimationManager : MonoBehaviour
 
     public void UpdateOpenPuzzlePosition()
     {
-        if (openPuzzlePosition == null) 
+        if (!isPuzzleOpen) 
             return;
-        thoughtBubbleTransform.localPosition = openPuzzlePosition;
+        thoughtBubbleTransform.position = openPuzzlePosition;
     }
 
     

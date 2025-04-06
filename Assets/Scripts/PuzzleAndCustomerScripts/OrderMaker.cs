@@ -44,11 +44,6 @@ public class OrderMaker : MonoBehaviour
 
         //aralarından rastgele seçilecek olan listeler, her kategoriden farklı miktarlarda alınabilsin diye ayrılmışlardır.
         //ileride bu listeyi daha ayarlanabilir yap ve bu classtan çıkar
-        orderCarbList = new List<string> { "ekmek", "gobit", "lavas" };
-        orderToppingList = new List<string> { "domates", "morLahana", "lahana", "sogan", "patates" };
-        orderSpiceList = new List<string> { "tuz", "pulbiber" };
-        orderSauceList = new List<string> { "kırmızı", "beyaz" };
-        orderDonerList = new List<string> { "az_doner", "orta_doner", "cok_doner" };
 
         Debug.Log("order lists initiliazed");
     }
@@ -63,11 +58,11 @@ public class OrderMaker : MonoBehaviour
     {
         totalOrderList.Clear();
         correctOrders.Clear();
-        GenericIngredientSelector(amountOfCarb = 1, orderCarbList, correctCarbIndex);
-        GenericIngredientSelector(amountOfTopping = SetDifficultyForTheDay(5), orderToppingList, correctToppingIndex);
-        GenericIngredientSelector(amountOfSpice = SetDifficultyForTheDay(2), orderSpiceList, correctSpiceIndex);
-        GenericIngredientSelector(amountOfSauce = SetDifficultyForTheDay(2), orderSauceList, correctSauceIndex);
-        GenericIngredientSelector(amountOfDoner = 1, orderDonerList, correctDonerIndex);
+        GenericIngredientSelector(amountOfCarb = 1, gameFlow.allCarbList, correctCarbIndex);
+        GenericIngredientSelector(amountOfTopping = SetDifficultyForTheDay(5), gameFlow.allToppingList, correctToppingIndex);
+        GenericIngredientSelector(amountOfSpice = SetDifficultyForTheDay(2), gameFlow.allSpiceList, correctSpiceIndex);
+        GenericIngredientSelector(amountOfSauce = SetDifficultyForTheDay(2), gameFlow.allSauceList, correctSauceIndex);
+        GenericIngredientSelector(amountOfDoner = 1, gameFlow.allDonerList, correctDonerIndex);
         PuzzleListMaker();/*
         for (int i = 0; i < totalOrderList.Count; i++)
         {

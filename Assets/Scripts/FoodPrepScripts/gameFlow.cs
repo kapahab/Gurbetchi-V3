@@ -39,6 +39,13 @@ public class gameFlow : MonoBehaviour
     public static float dayRemainingTime = 120f;
 
     public static bool isGamePaused = false;
+
+
+    public static List<string> allCarbList = new List<string> { "ekmek", "gobit", "lavas" };
+    public static List<string> allToppingList = new List<string> { "domates", "morLahana", "lahana", "sogan", "patates", "tursu" };
+    public static List<string> allSpiceList = new List<string> { "tuz", "pulbiber" };
+    public static List<string> allSauceList = new List<string> { "kýrmýzý", "beyaz" };
+    public static List<string> allDonerList = new List<string> { "az_doner", "orta_doner", "cok_doner" };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -173,12 +173,15 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
             customerTimer.ClockStopped();
         }
-        
 
-        isInPuzzle = false;
-        OrderManagerPuzzle.selectingOrders = true;
-        OrderManagerPuzzle.foodOnCounter = false; //should delete food graphics as well
-        customerTimer.timerStarted = false;
+        if (!isOrderTimedOut)
+        {
+            isInPuzzle = false;
+            OrderManagerPuzzle.selectingOrders = true;
+            OrderManagerPuzzle.foodOnCounter = false; //should delete food graphics as well
+            customerTimer.timerStarted = false;
+        }
+
 
 
         yield return new WaitForSeconds(2f);

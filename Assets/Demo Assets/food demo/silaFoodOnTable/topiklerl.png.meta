@@ -126,7 +126,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 84
+        y: 34
         width: 56
         height: 25
       alignment: 0
@@ -147,10 +147,10 @@ TextureImporter:
       name: topiklerl_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 109
-        width: 52
-        height: 22
+        x: 54
+        y: 60
+        width: 50
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: topiklerl_2
       rect:
         serializedVersion: 2
-        x: 89
-        y: 81
+        x: 90
+        y: 32
         width: 56
-        height: 24
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,9 +191,9 @@ TextureImporter:
       name: topiklerl_3
       rect:
         serializedVersion: 2
-        x: 70
-        y: 49
-        width: 59
+        x: 71
+        y: 0
+        width: 57
         height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -214,11 +214,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 50
+        y: 0
         width: 67
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -227,6 +227,28 @@ TextureImporter:
       bones: []
       spriteID: 84d40a6a8cbd4ad47a6390b31fe8a5ea
       internalID: 268376554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topiklerl_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 58
+        width: 47
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9f35a4ef4bf2b4eac3a15c89ac47a0
+      internalID: -867003469
       vertices: []
       indices: 
       edges: []
@@ -250,6 +272,7 @@ TextureImporter:
       topiklerl_2: 825628888758405421
       topiklerl_3: 6478258110887789535
       topiklerl_4: 268376554
+      topiklerl_5: -867003469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
