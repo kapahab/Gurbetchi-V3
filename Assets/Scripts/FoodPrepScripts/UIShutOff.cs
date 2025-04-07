@@ -26,16 +26,4 @@ public class UIShutOff : MonoBehaviour
         foodNames.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        EventManager.OnScreenSwitchToCustomer += DisableFoodNames;
-        OrderManagerPuzzle.OnScreenSwitchToIngredients += EnableFoodNames;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.OnScreenSwitchToCustomer -= DisableFoodNames;
-        OrderManagerPuzzle.OnScreenSwitchToIngredients -= EnableFoodNames;
-
-    }
 }

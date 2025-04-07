@@ -55,7 +55,7 @@ public class DayManager : MonoBehaviour
 
         if (gameFlow.dayRemainingTime <= 0f && orderManager.isShopEmpty)
         {
-            gameFlow.dayRemainingTime = 120f;
+            gameFlow.dayRemainingTime = 90f;
             winLoseCondition.EndDayPointChecker();
             EndDay();
         }

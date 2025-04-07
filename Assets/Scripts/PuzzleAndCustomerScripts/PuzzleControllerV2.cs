@@ -77,10 +77,11 @@ public class PuzzleControllerV2 : MonoBehaviour
         for (int i = 0; i < totalColumns; i++)
         {
             StartCoroutine(DelayedStartYPos(i));
-            StartYPos(i);
+            //StartYPos(i);
             isColumnLocked.Add(false);
         }
 
+        StartCoroutine(KillHorizontal());
     }
 
     IEnumerator DelayedStartYPos(int i)
@@ -102,6 +103,12 @@ public class PuzzleControllerV2 : MonoBehaviour
         return (columnInfo[i].transform.childCount - 1) / 2;
     }
 
+
+    IEnumerator KillHorizontal()
+    {
+        yield return new WaitForEndOfFrame(); // Wait until UI updates
+        this.transform.GetComponent<HorizontalLayoutGroup>().enabled = false;
+    }
 
     // Update is called once per frame
     public void Update()
