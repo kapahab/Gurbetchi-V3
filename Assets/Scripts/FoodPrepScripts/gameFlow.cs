@@ -13,8 +13,16 @@ public class gameFlow : MonoBehaviour
     public static List<string> donerList = new List<string>();
     public static List<string> totalPlayerList = new List<string>();
     public static List<string> orderList;
+
     [SerializeField] private List<string> allKeyBindings = new List<string>();
+    [SerializeField] private List<string> carbKeyBindings = new List<string>();
+    [SerializeField] private List<string> toppingKeyBindings = new List<string>();
+    [SerializeField] private List<string> spiceKeyBindings = new List<string>();
+    [SerializeField] private List<string> sauceKeyBindings = new List<string>();
+
     public static List<string> allKeyBindingsUsed;
+    public static List<string> carbKeyBindingsUsed;
+
     public static float xPosOfPlate = 0f;
     public static float yPosOfPlate = -2.35f;
     public static int gameDifficulty = 2;
@@ -36,9 +44,11 @@ public class gameFlow : MonoBehaviour
 
     public static bool gameActive = false;
     public static int dayCount = 1;
-    public static float dayRemainingTime = 90f;
+    [SerializeField] float dayTime = 90f; // 90 seconds
+    public static float dayRemainingTime;
 
     public static bool isGamePaused = false;
+    public static bool isCarbOnTable = false;
 
 
     public static List<string> allCarbList = new List<string> { "ekmek", "gobit", "lavas" };
@@ -51,6 +61,8 @@ public class gameFlow : MonoBehaviour
     {
 
         allKeyBindingsUsed = new List<string>(allKeyBindings);
+        carbKeyBindingsUsed = new List<string>(carbKeyBindings);
+        dayRemainingTime = dayTime;
 
     }
 

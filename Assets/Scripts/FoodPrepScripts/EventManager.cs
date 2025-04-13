@@ -8,11 +8,16 @@ public class EventManager : MonoBehaviour
     public delegate void RegularInput();
     public static event RegularInput OnRegularInput;
 
+    public delegate void CarbInput();
+    public static event CarbInput OnCarbInput;
+
+    public delegate void ResetFoodMaking();
+    public static event ResetFoodMaking OnResetFoodMaking;
+
     public delegate void DonerEnter();
     public static event DonerEnter OnDonerEnter;
     private bool inDonerMinigame = false;
     ScrappyInputGraphics darkenOthers;
-
 
     public delegate void DonerExit();
     public static event DonerExit OnDonerExit;
@@ -25,7 +30,6 @@ public class EventManager : MonoBehaviour
 
     public delegate void ScreenSwitchToCustomer();
     public static event ScreenSwitchToCustomer OnScreenSwitchToCustomer;
-
 
     public delegate void FoodTrashed();
     public static event FoodTrashed OnFoodTrashed;
@@ -44,48 +48,6 @@ public class EventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameFlow.gameActive)
-        {
-            if (gameFlow.screenSwitch)
-            {
-                foreach (string keyName in gameFlow.allKeyBindingsUsed)
-                {
-                    if (Input.GetKeyDown(keyName) && !inDonerMinigame)
-                    {
-                        Debug.Log("Regular input");
-                        if (OnRegularInput != null)
-                            OnRegularInput();
-                    }
-                }
-
-                if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
-                {
-                    DonerChecker();
-                }
-
-                if (Input.GetKeyDown("x"))
-                {
-                    if (gameFlow.carbList.Count != 0 || gameFlow.toppingList.Count != 0 || gameFlow.sauceList.Count != 0 || gameFlow.spiceList.Count != 0 || gameFlow.donerList.Count != 0)
-                        OnFoodTrashed();
-                }
-
-
-
-                if (Input.GetKeyDown("space"))
-                {
-                    Debug.Log("Plate served");
-                    StartCoroutine(WaitAndSwitch());
-
-                }
-
-                if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    StartCoroutine(WaitAndSwitchScreen());
-                }
-            }
-        }
-
-
         if (Input.GetKeyDown("escape"))
         {
             if (!gameFlow.isGamePaused)
@@ -105,6 +67,76 @@ public class EventManager : MonoBehaviour
                 Debug.Log("Game resumed");
             }
         }
+
+        if (!gameFlow.gameActive)
+        {
+            return;
+        }
+        if (!gameFlow.screenSwitch)
+        {
+            return;
+        }
+
+        if (gameFlow.isCarbOnTable) // geri kalan yemek ürünlerine sadece ekmek masadaysa ulaþýlýr
+        {
+            foreach (string keyName in gameFlow.allKeyBindingsUsed)
+            {
+                if (Input.GetKeyDown(keyName) && !inDonerMinigame)
+                {
+                    Debug.Log("Regular input");
+                    if (OnRegularInput != null)
+                        OnRegularInput();
+                }
+            }
+
+            if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
+            {
+                DonerChecker();
+            }
+        }
+
+        if (!gameFlow.isCarbOnTable) // carb sadece tek bir tür konulur
+        {
+            foreach (string keyName in gameFlow.carbKeyBindingsUsed)
+            {
+                if (Input.GetKeyDown(keyName) && !inDonerMinigame)
+                {
+                    Debug.Log("Carb input");
+                    if (OnCarbInput != null)
+                        OnCarbInput();
+                    gameFlow.isCarbOnTable = true; // ekmek masaya konulduðunda true olur
+                }
+            }
+        }
+        
+
+
+       
+
+        if (Input.GetKeyDown("x"))
+        {
+            if (gameFlow.carbList.Count != 0 || gameFlow.toppingList.Count != 0 || gameFlow.sauceList.Count != 0 || gameFlow.spiceList.Count != 0 || gameFlow.donerList.Count != 0)
+            {
+                OnFoodTrashed();
+                OnResetFoodMaking();
+            }
+        }
+
+
+
+        if (Input.GetKeyDown("space"))
+        {
+            Debug.Log("Plate served");
+            StartCoroutine(WaitAndSwitch());
+            OnResetFoodMaking();
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            StartCoroutine(WaitAndSwitchScreen());
+        }
+
     }
 
     private void DonerChecker()
@@ -136,8 +168,8 @@ public class EventManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         OnScreenSwitchToCustomer();
-        Camera.main.transform.position = new Vector3(-30, 0, -10);
-        gameFlow.screenSwitch = false;
+        //Camera.main.transform.position = new Vector3(-30, 0, -10);
+        //gameFlow.screenSwitch = false;
         Debug.Log("Screen switched to customer");
     }
 }

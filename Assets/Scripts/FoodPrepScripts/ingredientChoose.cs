@@ -28,11 +28,14 @@ public class ingredientChoose : MonoBehaviour
     void OnEnable()
     {
         EventManager.OnRegularInput += ActivateRegularInput;
+        EventManager.OnCarbInput += ActivateRegularInput;
+
     }
 
     void OnDisable()
     {
         EventManager.OnRegularInput -= ActivateRegularInput;
+        EventManager.OnCarbInput -= ActivateRegularInput;
     }
     void ActivateRegularInput()
     {

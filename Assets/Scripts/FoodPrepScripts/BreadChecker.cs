@@ -1,0 +1,61 @@
+using UnityEngine;
+
+public class BreadChecker : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    bool carbGraphicsActivated = true;
+    bool carbGraphicsNeedChange = false;
+    [SerializeField] GameObject[] nonCarbObjects;
+    [SerializeField] GameObject[] carbObjects;
+    void Start()
+    {
+        carbGraphicsActivated = true;
+        ShowCarb();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void ShowCarb()
+    {
+        ObjectColorChange(nonCarbObjects, 0.5f);
+        ObjectColorChange(carbObjects, 1f);
+    }
+    void HideCarb()
+    {
+        ObjectColorChange(nonCarbObjects, 1f);
+        ObjectColorChange(carbObjects, 0.5f);
+    }
+
+    void BreadCheckResetter()
+    {
+        gameFlow.isCarbOnTable = false;
+    }
+
+
+    private void OnEnable()
+    {
+        EventManager.OnCarbInput += HideCarb;
+        EventManager.OnResetFoodMaking += ShowCarb;
+        EventManager.OnResetFoodMaking += BreadCheckResetter;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnCarbInput -= HideCarb;
+        EventManager.OnResetFoodMaking -= ShowCarb;
+        EventManager.OnResetFoodMaking -= BreadCheckResetter;
+    }
+
+    public void ObjectColorChange(GameObject[] inputObjects, float colorValue)
+    {
+        for (int i = 0; i < inputObjects.Length; i++)
+        {
+            inputObjects[i].GetComponent<SpriteRenderer>().material.color = new Color(colorValue, colorValue, colorValue);
+        }
+    }
+}

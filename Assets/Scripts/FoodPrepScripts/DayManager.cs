@@ -9,6 +9,7 @@ public class DayManager : MonoBehaviour
 {
     bool dayStarted = false;
 
+    public float dayTickingDownTime;
 
     [SerializeField]OrderManager orderManager;
 
@@ -18,10 +19,12 @@ public class DayManager : MonoBehaviour
 
     WinLoseCondition winLoseCondition;
 
+    [SerializeField] CameraChangeController cameraChangeController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        dayTickingDownTime = gameFlow.dayRemainingTime;
         winLoseCondition = GetComponent<WinLoseCondition>();
         dayController = GetComponent<DayController>();
         DayTimeActivator(false);
@@ -42,20 +45,20 @@ public class DayManager : MonoBehaviour
             return;
         }
 
-        if (gameFlow.dayRemainingTime > 0f)
+        if (dayTickingDownTime > 0f)
         {
-            gameFlow.dayRemainingTime -= Time.deltaTime;
+            dayTickingDownTime -= Time.deltaTime;
             DayTimeUpdater();
         }
         else
         {
-            gameFlow.dayRemainingTime = 0f;
+            dayTickingDownTime = 0f;
             DayTimeUpdater();
         }
 
-        if (gameFlow.dayRemainingTime <= 0f && orderManager.isShopEmpty)
+        if (dayTickingDownTime <= 0f && orderManager.isShopEmpty)
         {
-            gameFlow.dayRemainingTime = 90f;
+            dayTickingDownTime = gameFlow.dayRemainingTime;
             winLoseCondition.EndDayPointChecker();
             EndDay();
         }
@@ -73,8 +76,8 @@ public class DayManager : MonoBehaviour
 
     void DayTimeUpdater()
     {
-        int minutes = Mathf.FloorToInt(gameFlow.dayRemainingTime / 60);
-        int seconds = Mathf.FloorToInt(gameFlow.dayRemainingTime % 60);
+        int minutes = Mathf.FloorToInt(dayTickingDownTime / 60);
+        int seconds = Mathf.FloorToInt(dayTickingDownTime % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
@@ -96,6 +99,8 @@ public class DayManager : MonoBehaviour
             dayController.EndDay();
             StartCoroutine(StartDayDelayer((dayController.fadeTime * 4) + (dayController.holdTime * 3)));
             orderManager.firstOrder = true;
+            gameFlow.isCarbOnTable = false;
+            cameraChangeController.CameraToFoodSpace();
         }
         else
         {

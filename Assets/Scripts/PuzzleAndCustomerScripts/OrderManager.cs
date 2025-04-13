@@ -9,6 +9,8 @@ public class OrderManager : MonoBehaviour
     [SerializeField] GameObject easyOrderPrefab;
     List<GameObject> instantiatedObjects = new List<GameObject>();
     public static List<CustomerManager> customerManager = new List<CustomerManager>();
+    [SerializeField] DayManager dayManager;
+
 
     float xOffset = 5f;
     int offsetMult; //should be controlled by ordercount
@@ -77,7 +79,7 @@ public class OrderManager : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
 
 
-            if (isOrderSystemActive && OrderManagerPuzzle.orderCount < 2 && gameFlow.dayRemainingTime > 0 && gameFlow.gameActive) // buraya day timer ekle ve day timer 60 olduðunda order generation durdur
+            if (isOrderSystemActive && OrderManagerPuzzle.orderCount < 2 && dayManager.dayTickingDownTime > 0 && gameFlow.gameActive) // buraya day timer ekle ve day timer 60 olduðunda order generation durdur
             {
                 firstOrder = false;
                 offsetMult = OrderManagerPuzzle.orderCount;

@@ -18,6 +18,8 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
     public delegate void FoodSent();
     public static event FoodSent OnFoodSent;
 
+
+
     public delegate void ScreenSwitchToIngredients();
     public static event ScreenSwitchToIngredients OnScreenSwitchToIngredients;
 
@@ -121,8 +123,8 @@ public class OrderManagerPuzzle : MonoBehaviour //order screen input manager and
     {
         yield return new WaitForSeconds(0.01f);
         OnScreenSwitchToIngredients();
-        Camera.main.transform.position = new Vector3(0, 0, -10);
-        gameFlow.screenSwitch = true;
+        //Camera.main.transform.position = new Vector3(0, 0, -10);
+        //gameFlow.screenSwitch = true;
     }
 
 }
