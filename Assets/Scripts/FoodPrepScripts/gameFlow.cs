@@ -16,6 +16,10 @@ public class gameFlow : MonoBehaviour
 
     [SerializeField] private List<string> allKeyBindings = new List<string>();
     [SerializeField] private List<string> carbKeyBindings = new List<string>();
+
+    [SerializeField] private List<string> allKeyBindingsAlt = new List<string>();
+    [SerializeField] private List<string> carbKeyBindingsAlt = new List<string>();
+
     [SerializeField] private List<string> toppingKeyBindings = new List<string>();
     [SerializeField] private List<string> spiceKeyBindings = new List<string>();
     [SerializeField] private List<string> sauceKeyBindings = new List<string>();
@@ -62,6 +66,8 @@ public class gameFlow : MonoBehaviour
 
         allKeyBindingsUsed = new List<string>(allKeyBindings);
         carbKeyBindingsUsed = new List<string>(carbKeyBindings);
+        //allKeyBindingsUsed = new List<string>(allKeyBindingsAlt);
+        //carbKeyBindingsUsed = new List<string>(carbKeyBindingsAlt);
         dayRemainingTime = dayTime;
 
     }

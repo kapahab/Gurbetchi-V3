@@ -259,6 +259,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: speechandthought_7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 91
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77416544f4c4e2549b82d073fbac3a12
+      internalID: -1186608938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechandthought_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 109
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ee246b71881d24c8da0c12f67fd03c
+      internalID: 665279303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechandthought_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 110
+        width: 2
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d84acf07cc25304d8ced4024caf4fee
+      internalID: -2019226189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -279,6 +345,10 @@ TextureImporter:
       speechandthought_3: 4817815667588573
       speechandthought_4: -8331365961590393856
       speechandthought_5: -6764080111740968897
+      speechandthought_6: -1147732686
+      speechandthought_7: -1186608938
+      speechandthought_8: 665279303
+      speechandthought_9: -2019226189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

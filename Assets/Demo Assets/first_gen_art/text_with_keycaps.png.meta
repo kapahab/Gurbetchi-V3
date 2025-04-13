@@ -334,9 +334,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 76
-        width: 39
-        height: 11
+        y: 75
+        width: 33
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,8 +487,8 @@ TextureImporter:
       name: text_with_keycaps_8
       rect:
         serializedVersion: 2
-        x: 99
-        y: 45
+        x: 90
+        y: 17
         width: 34
         height: 11
       alignment: 0
@@ -510,7 +510,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 99
-        y: 60
+        y: 47
         width: 49
         height: 11
       alignment: 0
@@ -531,10 +531,10 @@ TextureImporter:
       name: text_with_keycaps_10
       rect:
         serializedVersion: 2
-        x: 109
-        y: 73
-        width: 38
-        height: 12
+        x: 113
+        y: 60
+        width: 31
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,9 +554,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 111
-        y: 87
+        y: 83
         width: 36
-        height: 12
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -646,7 +646,7 @@ TextureImporter:
         width: 37
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
