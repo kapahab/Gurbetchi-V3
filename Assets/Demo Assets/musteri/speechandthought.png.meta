@@ -63,7 +63,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -137,7 +137,7 @@ TextureImporter:
         height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 21, y: 13, z: 12, w: 8}
       customData: 
       outline: []
       physicsShape: []
@@ -265,10 +265,10 @@ TextureImporter:
         serializedVersion: 2
         x: 4
         y: 91
-        width: 36
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 13
+        height: 10
+      alignment: 9
+      pivot: {x: 0.76015973, y: 0.66085434}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -290,7 +290,7 @@ TextureImporter:
         width: 1
         height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -312,7 +312,7 @@ TextureImporter:
         width: 2
         height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -321,6 +321,116 @@ TextureImporter:
       bones: []
       spriteID: 5d84acf07cc25304d8ced4024caf4fee
       internalID: -2019226189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechandthought_6
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 116
+        width: 2
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d074a8f5215cc59469e97c7a30a9b8b1
+      internalID: -1147732686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechandthought_10
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 116
+        width: 2
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee647a431ac501345994df67d0af7028
+      internalID: 1339439819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechandthought_11
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 97
+        width: 2
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10a2b5a170ffa2469ab7fe3025509d6
+      internalID: 1587806790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechandthought_12
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 132
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380d9a864a3bc1744ab0bd3ec3bb14fc
+      internalID: -947505125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechandthought_13
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 131
+        width: 44
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e070578f88bf06b48a2609708d2516c2
+      internalID: 1754552302
       vertices: []
       indices: 
       edges: []
@@ -341,6 +451,10 @@ TextureImporter:
     nameFileIdTable:
       speechandthought_0: 4738764308885924610
       speechandthought_1: -6450875001527910417
+      speechandthought_10: 1339439819
+      speechandthought_11: 1587806790
+      speechandthought_12: -947505125
+      speechandthought_13: 1754552302
       speechandthought_2: -6423838561796911570
       speechandthought_3: 4817815667588573
       speechandthought_4: -8331365961590393856

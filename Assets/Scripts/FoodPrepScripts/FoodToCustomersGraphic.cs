@@ -45,10 +45,10 @@ public class FoodToCustomersGraphic : MonoBehaviour
         FoodListComparetor(donerOnPuzzleScene, gameFlow.donerList);
     }
 
-    void ShowFoodToCustomer(GameObject cloneObj, float xPos, float yPos)
+    void ShowFoodToCustomer(GameObject cloneObj, float xPos, float yPos, int i)
     {
         GameObject copyClone = Instantiate(cloneObj, new Vector2(xPos, yPos), Quaternion.identity);
-        copyClone.GetComponent<SpriteRenderer>().sortingOrder = 6;
+        copyClone.GetComponent<SpriteRenderer>().sortingOrder = 6 + i;
         copiedObjects.Add(copyClone);
     }
 
@@ -58,7 +58,7 @@ public class FoodToCustomersGraphic : MonoBehaviour
         {
             if (staticFoodType.Contains(foodType[i].name))
             {
-                ShowFoodToCustomer(foodType[i], -30, -4);
+                ShowFoodToCustomer(foodType[i], -30, -4 , i);
             }
         }
 

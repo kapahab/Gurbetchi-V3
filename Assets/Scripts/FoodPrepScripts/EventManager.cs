@@ -118,7 +118,10 @@ public class EventManager : MonoBehaviour
             if (gameFlow.carbList.Count != 0 || gameFlow.toppingList.Count != 0 || gameFlow.sauceList.Count != 0 || gameFlow.spiceList.Count != 0 || gameFlow.donerList.Count != 0)
             {
                 OnFoodTrashed();
+                if (inDonerMinigame)
+                    DonerChecker();
                 OnResetFoodMaking();
+
             }
         }
 
@@ -128,8 +131,11 @@ public class EventManager : MonoBehaviour
         {
             Debug.Log("Plate served");
             StartCoroutine(WaitAndSwitch());
+            if (inDonerMinigame)
+                DonerChecker();
             OnResetFoodMaking();
 
+            
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))

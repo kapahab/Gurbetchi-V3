@@ -32,6 +32,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     [SerializeField] CustomerAnimationManager customerAnimationManager;
     [SerializeField] CustomerOrderComperator customerOrderComperator;
     [SerializeField] CustomerPuzzleCallerDestroyer customerPuzzleCallDestroy;
+    [SerializeField]SpeechBubbleControl speechBubbleControl;
 
     CorrectOrderSpawner correctOrderSpawner;
 
@@ -243,6 +244,10 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         Debug.Log("PuzzleFinished called");
         customerAnimationManager.StopCustomerAnimation(); //test
         correctOrderSpawner.InstantiateCorrectOrders();
+
+        speechBubbleControl.FixContentSizeFitter(); //bura çok saçma ve tekrar düþünülmeli
+        speechBubbleControl.AdjustAlpha();
+        speechBubbleControl.HideThoughtBubbles();
 
         isInPuzzle = false;
         OrderManagerPuzzle.selectingOrders = true;
