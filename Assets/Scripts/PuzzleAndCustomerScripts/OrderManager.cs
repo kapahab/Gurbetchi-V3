@@ -7,7 +7,7 @@ using UnityEngine;
 public class OrderManager : MonoBehaviour
 {
     [SerializeField] GameObject easyOrderPrefab;
-    List<GameObject> instantiatedObjects = new List<GameObject>();
+    public List<GameObject> instantiatedObjects = new List<GameObject>();
     public static List<CustomerManager> customerManager = new List<CustomerManager>();
     [SerializeField] DayManager dayManager;
 
@@ -29,6 +29,9 @@ public class OrderManager : MonoBehaviour
     private bool isOrderSystemActive = false; // Internal flag to manage coroutine state
 
     [SerializeField] Animator uiAnim;
+
+    public delegate void CustomerSpawned();
+    public static event CustomerSpawned OnCustomerSpawned;
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +90,7 @@ public class OrderManager : MonoBehaviour
                 OrderManagerPuzzle.orderCount = instantiatedObjects.Count - 1;
                 SetID();
                 uiAnim.Play("customer_ui", 0, 0);
+                OnCustomerSpawned();
             }
         }
     }
@@ -95,7 +99,7 @@ public class OrderManager : MonoBehaviour
 
     void SpawnOrder() //buradaki listeler silinen orderlarý desteklemesi için güncellenmeli
     {
-
+        
         GameObject newOrder = Instantiate(easyOrderPrefab);
         instantiatedObjects.Add(newOrder);
 
