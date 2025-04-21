@@ -5,18 +5,16 @@ public class CorrectOrderSpawnerRecipt : MonoBehaviour
 {
     [SerializeField] int index;
     ReciptManager reciptManager;
-    OrderMaker orderMaker;
     [SerializeField] GameObject[] correctCarb;
     [SerializeField] GameObject[] correctTopping;
     [SerializeField] GameObject[] correctSpice;
     [SerializeField] GameObject[] correctSauce;
     [SerializeField] GameObject[] correctDoner;
+    List<GameObject> instantiatedObjects = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        reciptManager = GetComponentInParent<ReciptManager>();
-        orderMaker = reciptManager.orderManager.instantiatedObjects[index].GetComponent<OrderMaker>();
-        InstantiateCorrectOrders();
+
     }
 
     // Update is called once per frame
@@ -26,7 +24,7 @@ public class CorrectOrderSpawnerRecipt : MonoBehaviour
     }
 
 
-    public void InstantiateCorrectOrders()
+    public void InstantiateCorrectOrders(OrderMaker orderMaker)
     {
         PuzzleResultInstantiator(correctCarb, orderMaker.correctCarbIndex);
         PuzzleResultInstantiator(correctTopping, orderMaker.correctToppingIndex);
@@ -39,8 +37,25 @@ public class CorrectOrderSpawnerRecipt : MonoBehaviour
     {
         for (int i = 0; i < indexList.Count; i++)
         {
-            Instantiate(toBeInstantiated[indexList[i]], this.transform);
+            GameObject clone = Instantiate(toBeInstantiated[indexList[i]], this.transform);
+            instantiatedObjects.Add(clone);
         }
-
     }
+
+    public void DestroyInstances()
+    {
+        foreach (GameObject copyClone in instantiatedObjects) //listedeki her copyClone için copyClone silinir, yani tabaktaki
+                                                        //her þey silinir
+        {
+            Destroy(copyClone);
+        }
+        instantiatedObjects.Clear();
+    }
+
+    public float CalculateDeltaY()
+    {
+        Debug.Log("Delta Y: " + this.transform.GetComponent<RectTransform>().sizeDelta.y);
+        return this.transform.GetComponent<RectTransform>().sizeDelta.y;
+    }
+
 }

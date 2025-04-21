@@ -10,7 +10,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     [SerializeField] GameObject puzzleScreenPrefab;
     public GameObject germanText;
     GameObject puzzleScreenInstance;
-    [SerializeField] OrderMaker orderMaker;
+    public OrderMaker orderMaker;
     [SerializeField] CustomerTimer customerTimer;
     List<int> correctRow = new List<int> {};
     List<int> currentRow = new List<int> {};

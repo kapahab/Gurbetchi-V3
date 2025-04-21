@@ -90,7 +90,7 @@ public class OrderManager : MonoBehaviour
                 OrderManagerPuzzle.orderCount = instantiatedObjects.Count - 1;
                 SetID();
                 uiAnim.Play("customer_ui", 0, 0);
-                OnCustomerSpawned();
+                OnCustomerSpawned?.Invoke(); // Notify subscribers that a new customer has been spawned
             }
         }
     }
