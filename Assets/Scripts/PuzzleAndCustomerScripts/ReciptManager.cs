@@ -82,8 +82,8 @@ public class ReciptManager : MonoBehaviour
         germanText.alpha = 1f;
         ownAlpha.alpha = 1f;
         customerManager = orderManager.instantiatedObjects[index].GetComponent<CustomerManager>();
-        Debug.Log("Recipt index: " + index);
-        Debug.Log("Recipt prefab: " + customerManager.orderID);//sorunu çözmek için log ekle
+        Debug.Log("Recipt customerManager: " + customerManager.orderID);//sorunu çözmek için log ekle
+        Debug.Log("puzzle is solved: " + customerManager.isPuzzleSolved);//sorunu çözmek için log ekle
 
         reciptActive = true;
         Debug.Log("Recipt active");
@@ -93,19 +93,12 @@ public class ReciptManager : MonoBehaviour
     {
         ownAlpha.alpha = 0f;
         reciptActive = false;
+        puzzleInitiated = false;
         Debug.Log("Recipt inactive");
     }
 
     void HideShowRecipt(float value)
     {
-        /*
-        tempColor.a = value;
-        image.color = tempColor;
-        if (!puzzleInitiated)
-            germanText.alpha = 1f;
-        else
-            germanText.alpha = 0f;
-        */
         ownAlpha.alpha = value;
     }
     void PuzzleSolved()
@@ -118,7 +111,6 @@ public class ReciptManager : MonoBehaviour
 
     IEnumerator WaitForSeconds()
     {
-        Debug.Log("WaitForSeconds");
         yield return new WaitForSeconds(0.1f);
         yOffsetDown = yPositionUp - correctOrderSpawnerRecipt.CalculateDeltaY();
     }
