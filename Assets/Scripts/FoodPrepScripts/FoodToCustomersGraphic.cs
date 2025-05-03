@@ -11,6 +11,11 @@ public class FoodToCustomersGraphic : MonoBehaviour
     [SerializeField] GameObject[] donerOnPuzzleScene;
     List<GameObject> copiedObjects = new List<GameObject>();
 
+    [SerializeField] GameObject completedEkmek;
+    [SerializeField] GameObject completedGobit;
+    [SerializeField] GameObject completedLavas;
+    [SerializeField] GameObject tepsi;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,11 +43,34 @@ public class FoodToCustomersGraphic : MonoBehaviour
 
     void FoodShowLogic()
     {
+        /*
         FoodListComparetor(carbOnPuzzleScene, gameFlow.carbList);
         FoodListComparetor(toppingOnPuzzleScene, gameFlow.toppingList);
         FoodListComparetor(spiceOnPuzzleScene, gameFlow.spiceList);
         FoodListComparetor(sauceOnPuzzleScene, gameFlow.sauceList);
         FoodListComparetor(donerOnPuzzleScene, gameFlow.donerList);
+        */
+        ShowFoodToCustomer(tepsi, -30, -4, 0);
+        string carbType = gameFlow.carbList[0]; 
+        switch (carbType)
+        {
+            case ("ekmek"):
+                ShowFoodToCustomer(completedEkmek, -30, -4, 1);
+                break;
+            case ("gobit"):
+                ShowFoodToCustomer(completedGobit, -30, -4, 1);
+                break;
+            case ("lavas"):
+                ShowFoodToCustomer(completedLavas, -30, -4, 1);
+                break;
+
+            default:
+                Debug.Log("No carb type found");
+                break;
+        }
+            
+
+
     }
 
     void ShowFoodToCustomer(GameObject cloneObj, float xPos, float yPos, int i)

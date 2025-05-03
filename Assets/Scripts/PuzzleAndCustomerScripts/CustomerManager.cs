@@ -186,6 +186,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
 
 
         yield return new WaitForSeconds(2f);
+        Debug.Log("OrderFinished yield run");
 
 
 
@@ -202,39 +203,6 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     }
 
 
-    //IEnumerator OrderTimedOut(bool isOrderTrue)
-    //{
-    //    if (isOrderTrue)
-    //        customerSpriteRenderer.sprite = correctOrderCustomer;
-    //    else
-    //        customerSpriteRenderer.sprite = incorrectOrderCustomer;
-    //    germanText.SetActive(false);
-    //    if (isPuzzleSolved)
-    //        correctOrderSpawner.gameObject.SetActive(false);
-
-    //    if (puzzleController != null)
-    //        Destroy(puzzleController.transform.root.gameObject);
-
-    //    if (orderID == OrderManagerPuzzle.onOrder)
-    //    {
-    //        OrderManagerPuzzle.selectingOrders = true;
-    //        Debug.Log("should be kicked out of puzzle screen");
-    //    }
-
-    //    customerTimer.ClockStopped();
-        
-
-    //    yield return new WaitForSeconds(2f);
-
-    //    OrderManagerPuzzle.deletedOrder = orderID;
-
-    //    Debug.Log("On order: " + OrderManagerPuzzle.onOrder);
-    //    Debug.Log("Order count: " + OrderManagerPuzzle.orderCount);
-
-    //    OrderManagerPuzzle.isCustomerReadjusted = false;
-
-    //    Destroy(this.gameObject);
-    //}
 
     void PuzzleFinished()
     {
@@ -254,50 +222,5 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         OrderManagerPuzzle.onOrder = 0;
         isPuzzleSolved = true;
     }
-
-    //void CombineList() 
-    //{
-    //    ListCombiner(gameFlow.carbList);
-    //    ListCombiner(gameFlow.toppingList);
-    //    ListCombiner(gameFlow.spiceList);
-    //    ListCombiner(gameFlow.sauceList);
-    //    ListCombiner(gameFlow.donerList);
-
-    //}
-
-    //void ListCombiner(List<string> foodLists)
-    //{
-    //    if (foodLists.Count > 0)
-    //        for (int i = 0; i < foodLists.Count; i++)
-    //            gameFlow.totalPlayerList.Add(foodLists[i]);
-    //}
-
-    //bool OrderChecker(List<string> orderList, List<string> playerList) 
-    //{
-    //    Debug.Log("Entered order checker");
-    //    if (orderList.Count != playerList.Count)
-    //    {
-    //        Debug.Log("liste sayýlarý farklý");
-    //        Debug.Log("order list count: " + orderList.Count);
-    //        Debug.Log("player list count: " + playerList.Count);
-    //        return false;
-    //    }
-    //    else
-    //    {
-    //        orderList.Sort();
-    //        playerList.Sort();
-    //        for (int i = 0; i < orderList.Count; i++)
-    //        {
-    //            if (orderList[i] != playerList[i])
-    //            {
-    //                Debug.Log("Order is incorrect");
-    //                return false;
-
-    //            }
-    //        }
-    //        Debug.Log("Order is correct");
-    //        return true;
-    //    }
-    //}
 
 }

@@ -5,16 +5,41 @@ using UnityEngine;
 
 public class TimerOnScreen : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] float remainingTime;
+    [SerializeField]float ingredientScreenPos;
+    [SerializeField] float customerScreenPos;
+    RectTransform rectTransform;
 
+    private void Start()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, ingredientScreenPos);
+    }
 
     void Update()
     {
-        remainingTime -= Time.deltaTime;
-        int minutes = Mathf.FloorToInt(remainingTime / 60);
-        int seconds = Mathf.FloorToInt(remainingTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        
+    }
+
+    void UpdateTimerPos()
+    {
+        if (gameFlow.screenSwitch)
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, ingredientScreenPos);
+        else
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, customerScreenPos);
+
+    }
+
+    private void OnEnable()
+    {
+        EventManager.OnScreenSwitchToCustomer += UpdateTimerPos;
+        OrderManagerPuzzle.OnScreenSwitchToIngredients += UpdateTimerPos;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnScreenSwitchToCustomer += UpdateTimerPos;
+        OrderManagerPuzzle.OnScreenSwitchToIngredients -= UpdateTimerPos;
+
     }
 }
 

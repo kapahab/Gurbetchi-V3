@@ -33,16 +33,6 @@ public class ReciptManager : MonoBehaviour
     {
         rectTransform = this.GetComponent<RectTransform>();
         ownAlpha.alpha = 0f;
-        //ordermanagerdan is puzzle solvedlarý çek
-        /*
-        //this.transform.GetComponent<HorizontalLayoutGroup>().enabled = false;
-        for (int i = 0; i< reciptPrefab.Length; i++)
-        {
-            img[i] = reciptPrefab[i].GetComponent<Image>();
-            Color tempColor = img[i].color;
-            tempColor.a = 0f;
-            img[i].color = tempColor;
-        }*/
     }
 
     // Update is called once per frame
@@ -112,7 +102,7 @@ public class ReciptManager : MonoBehaviour
     IEnumerator WaitForSeconds()
     {
         yield return new WaitForSeconds(0.1f);
-        yOffsetDown = yPositionUp - correctOrderSpawnerRecipt.CalculateDeltaY();
+        yOffsetDown = yPositionUp - 40 - correctOrderSpawnerRecipt.CalculateDeltaY();
     }
 
     void MoveReciptDown()
@@ -135,8 +125,35 @@ public class ReciptManager : MonoBehaviour
 
     void ReOrderRecipt()
     {
+        Debug.Log("Reorder recipt");
+        StartCoroutine(WaitAndSwitchOrders());
+        //if (!reciptActive)
+        //    return;
+        //if (orderManager.instantiatedObjects.Count > index)
+        //{
+        //    customerManager = orderManager.instantiatedObjects[index].GetComponent<CustomerManager>();
+        //    if (customerManager.isPuzzleSolved)
+        //    {
+        //        correctOrderSpawnerRecipt.InstantiateCorrectOrders(customerManager.orderMaker);
+        //        germanText.alpha = 0f;
+        //        puzzleInitiated = true;
+        //    }
+        //    else
+        //    {
+        //        correctOrderSpawnerRecipt.DestroyInstances();
+        //        germanText.alpha = 1f;
+        //        yOffsetDown = 30f;
+        //        puzzleInitiated = false;
+        //    }
+        //}
+    }
+
+
+    IEnumerator WaitAndSwitchOrders()
+    {
+        yield return new WaitForSeconds(0.01f);
         if (!reciptActive)
-            return;
+            yield break;
         if (orderManager.instantiatedObjects.Count > index)
         {
             customerManager = orderManager.instantiatedObjects[index].GetComponent<CustomerManager>();
@@ -155,6 +172,7 @@ public class ReciptManager : MonoBehaviour
             }
         }
     }
+
 
     private void OnEnable()
     {

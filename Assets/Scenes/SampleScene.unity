@@ -1741,6 +1741,7 @@ GameObject:
   - component: {fileID: 258185161}
   - component: {fileID: 258185163}
   - component: {fileID: 258185162}
+  - component: {fileID: 258185164}
   m_Layer: 5
   m_Name: DayTimer
   m_TagString: Untagged
@@ -1762,10 +1763,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1405800822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 348.44434, y: -43.54663}
-  m_SizeDelta: {x: 50.1643, y: 13.7871}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 338, y: -278.82}
+  m_SizeDelta: {x: 50.1643, y: 13.787109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258185162
 MonoBehaviour:
@@ -1866,6 +1867,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258185160}
   m_CullTransparentMesh: 1
+--- !u!114 &258185164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258185160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7ac22755892f1489447a38a7b13ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientScreenPos: -277
+  customerScreenPos: 430
 --- !u!1 &264131736 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4403279822418760890, guid: 070322fe41def8845b0ad6c96538b35a, type: 3}
@@ -3085,6 +3100,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 908968368}
     m_Modifications:
+    - target: {fileID: 3924457175433981547, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
+      propertyPath: tepsi
+      value: 
+      objectReference: {fileID: 1673628328472788489, guid: 60872e7aa42d13f4d912939f76d042d5, type: 3}
+    - target: {fileID: 3924457175433981547, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
+      propertyPath: completedEkmek
+      value: 
+      objectReference: {fileID: 2193858528355308403, guid: a90f751e3c3ed2146bbfbe602920b5ff, type: 3}
+    - target: {fileID: 3924457175433981547, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
+      propertyPath: completedGobit
+      value: 
+      objectReference: {fileID: 7268105520270489632, guid: e5bf72043559ba048b962ec07237d140, type: 3}
+    - target: {fileID: 3924457175433981547, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
+      propertyPath: completedLavas
+      value: 
+      objectReference: {fileID: 8416060485267310256, guid: caa40eec60f959a41832d2870a395022, type: 3}
     - target: {fileID: 4243522354551393658, guid: 7ecbce297261f834590b068a2ee62a0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
