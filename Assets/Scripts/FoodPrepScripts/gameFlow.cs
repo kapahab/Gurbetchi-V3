@@ -53,7 +53,7 @@ public class gameFlow : MonoBehaviour
 
     public static bool isGamePaused = false;
     public static bool isCarbOnTable = false;
-
+    public static bool isZoneSelected = false;
 
     public static List<string> allCarbList = new List<string> { "ekmek", "gobit", "lavas" };
     public static List<string> allToppingList = new List<string> { "domates", "morLahana", "lahana", "sogan", "patates", "tursu" };
