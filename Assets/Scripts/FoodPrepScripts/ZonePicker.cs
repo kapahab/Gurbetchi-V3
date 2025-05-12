@@ -5,7 +5,9 @@ public class ZonePicker : MonoBehaviour
 {
     [SerializeField] string keyStrokeZone;
     public bool isThisZoneActive = false;
+    public static ZonePicker currentActiveZone = null;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
 
@@ -14,39 +16,74 @@ public class ZonePicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnterZone();
-        ExitZone();
+        if (!gameFlow.gameActive) return;
+        if (!gameFlow.screenSwitch) return;
+
+
+
+        CheckZoneSwitch();
     }
 
-    void EnterZone()
+    void CheckZoneSwitch()
     {
-        if (gameFlow.isZoneSelected)
-            return;
-
         if (Input.GetKeyDown(keyStrokeZone))
         {
+            // If another zone is active, deactivate it
+            if (currentActiveZone != null && currentActiveZone != this)
+            {
+                currentActiveZone.DeactivateZone();
+            }
 
-            StartCoroutine(WaitForSeconds(true));
-            Debug.Log("Zone is selected");
+            // Toggle this zone: if already active, deactivate; otherwise activate
+            if (isThisZoneActive)
+            {
+                DeactivateZone();
+            }
+            else
+            {
+                ActivateZone();
+            }
         }
     }
 
-    void ExitZone()
+    void ActivateZone()
     {
-        if (!isThisZoneActive)
-            return;
-        if (Input.GetKeyDown(keyStrokeZone))
-        {
-
-            StartCoroutine(WaitForSeconds(true));
-            Debug.Log("Zone is deselected");
-        }
+        StartCoroutine(WaitAndSetZone(true));
+        currentActiveZone = this;
+        Debug.Log("Zone activated: " + keyStrokeZone);
     }
 
-    IEnumerator WaitForSeconds(bool trueOrFalse)
+    void DeactivateZone()
     {
-        yield return new WaitForSeconds(0.01f);
-        gameFlow.isZoneSelected = trueOrFalse;
-        isThisZoneActive = trueOrFalse;
+        StartCoroutine(WaitAndSetZone(false));
+        if (currentActiveZone == this)
+            currentActiveZone = null;
+        Debug.Log("Zone deactivated: " + keyStrokeZone);
     }
+
+    IEnumerator WaitAndSetZone(bool value)
+    {
+        yield return null;//new WaitForSeconds(0.01f);
+        gameFlow.isZoneSelected = value;
+        isThisZoneActive = value;
+    }
+
+    void DonerCompatabilty()
+    {
+        if (currentActiveZone == this)
+            DeactivateZone();
+    }
+
+    void OnEnable()
+    {
+        EventManager.OnDonerEnter += DonerCompatabilty;
+        
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnDonerEnter -= DonerCompatabilty;
+        
+    }
+
 }

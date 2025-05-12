@@ -263,10 +263,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b5c4b18f0eba4e817d9955f94d82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveIndex: 0
+  moveIndex: 10
   maxIndexTens: 10
   maxIndexOnes: 1
   inThisZone: 0
+  foodInZone:
+  - {fileID: 1398012571}
+  - {fileID: 783757586}
 --- !u!1 &26021388
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,10 +3513,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b5c4b18f0eba4e817d9955f94d82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveIndex: 0
+  moveIndex: 10
   maxIndexTens: 30
   maxIndexOnes: 1
   inThisZone: 0
+  foodInZone:
+  - {fileID: 155798995}
+  - {fileID: 5281397}
+  - {fileID: 1509696886}
+  - {fileID: 1398970234}
+  - {fileID: 1729488307}
+  - {fileID: 727602529}
+  - {fileID: 1084673387}
+  - {fileID: 2049727520}
+  - {fileID: 680354514}
 --- !u!1001 &455659471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5996,10 +6009,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b5c4b18f0eba4e817d9955f94d82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveIndex: 0
-  maxIndexTens: 20
+  moveIndex: 10
+  maxIndexTens: 30
   maxIndexOnes: 0
   inThisZone: 0
+  foodInZone:
+  - {fileID: 928057228}
+  - {fileID: 264131736}
+  - {fileID: 1218495409}
 --- !u!1 &716442595
 GameObject:
   m_ObjectHideFlags: 0
@@ -10307,7 +10324,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: 2758932287327245805, guid: 4c3c3510af8310340b30c0ed0a32fff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10394,7 +10411,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2310843018921863261, guid: 4808b3b32df437544b46ea64c2de6e52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13371,10 +13388,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b5c4b18f0eba4e817d9955f94d82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveIndex: 0
+  moveIndex: 10
   maxIndexTens: 10
   maxIndexOnes: 1
   inThisZone: 0
+  foodInZone:
+  - {fileID: 1014422620}
+  - {fileID: 1286540694}
 --- !u!1 &1795664808
 GameObject:
   m_ObjectHideFlags: 0
@@ -15508,7 +15528,7 @@ PrefabInstance:
       objectReference: {fileID: -3120381067760168897, guid: 2d4846ff7ff7498448199fb0140ab1e1, type: 3}
     - target: {fileID: 8720166645791526279, guid: b625f8ee2543a1243bbaa5d8a972e615, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15809,7 +15829,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 268376554, guid: 0b6ba899464bd544cbcef6d866457664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15864,7 +15884,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 6478258110887789535, guid: 0b6ba899464bd544cbcef6d866457664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15991,7 +16011,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2887263245689079882, guid: 0b6ba899464bd544cbcef6d866457664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16091,7 +16111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 215573699204185044, guid: 2d4846ff7ff7498448199fb0140ab1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16329,7 +16349,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7555817784337916472, guid: 2d4846ff7ff7498448199fb0140ab1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16384,7 +16404,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7120154684593327189, guid: 2d4846ff7ff7498448199fb0140ab1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16562,7 +16582,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 209713303866180241, guid: 2d4846ff7ff7498448199fb0140ab1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16804,7 +16824,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: -5901961664730492678, guid: 3feedb0f410abdc4c88a5e49091d3a93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16859,7 +16879,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 465167583862166459, guid: 0b6ba899464bd544cbcef6d866457664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16914,7 +16934,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -6658317855915399400, guid: 2d4846ff7ff7498448199fb0140ab1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16984,7 +17004,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 825628888758405421, guid: 0b6ba899464bd544cbcef6d866457664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17447,7 +17467,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 809647268512051051, guid: 2d4846ff7ff7498448199fb0140ab1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17475,6 +17495,10 @@ PrefabInstance:
       propertyPath: foodOnPlate
       value: 
       objectReference: {fileID: 1137654640}
+    - target: {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
+      propertyPath: darkenOthers
+      value: 
+      objectReference: {fileID: 1137654646}
     - target: {fileID: 5178347180669970921, guid: a836f0fafa2da894dbccaf68eaed09e9, type: 3}
       propertyPath: donerCopy.Array.size
       value: 6

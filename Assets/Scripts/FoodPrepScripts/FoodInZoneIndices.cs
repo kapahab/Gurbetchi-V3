@@ -5,7 +5,7 @@ public class FoodInZoneIndices : MonoBehaviour
     [SerializeField] int moveIndex;
     [SerializeField]ZoneManager zoneManager;
     [SerializeField] GameObject highlightedObj;
-    bool thisFoodSelected = true;
+    bool thisFoodSelected = false;
     [SerializeField] FoodOnPlate foodOnPlate;
 
     [SerializeField] string ingredientName;
@@ -22,7 +22,10 @@ public class FoodInZoneIndices : MonoBehaviour
     void Update()
     {
         if (!zoneManager.inThisZone)
+        {
+            DeactivateAll();
             return;
+        }
         Activate();
         Deactivate();
         AddFood();
@@ -31,17 +34,26 @@ public class FoodInZoneIndices : MonoBehaviour
 
     void Activate()
     {
-        Debug.Log("Move index: " + moveIndex);
         if (moveIndex == zoneManager.moveIndex)
+        {
             highlightedObj.SetActive(true);
+            thisFoodSelected = true;
+        } 
     }
 
     void Deactivate()
     {
         if (moveIndex != zoneManager.moveIndex)
+        {
             highlightedObj.SetActive(false);
+            thisFoodSelected = false;
+        }
     }
 
+    void DeactivateAll()
+    {
+        highlightedObj.SetActive(false);
+    }
 
     void AddFood()
     {

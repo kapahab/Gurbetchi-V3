@@ -11,7 +11,7 @@ public class BreadChecker : MonoBehaviour
     void Start()
     {
         carbGraphicsActivated = true;
-        ShowCarb();
+        //ShowCarb();
     }
 
     // Update is called once per frame
@@ -39,15 +39,11 @@ public class BreadChecker : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OnCarbInput += HideCarb;
-        EventManager.OnResetFoodMaking += ShowCarb;
         EventManager.OnResetFoodMaking += BreadCheckResetter;
     }
 
     private void OnDisable()
     {
-        EventManager.OnCarbInput -= HideCarb;
-        EventManager.OnResetFoodMaking -= ShowCarb;
         EventManager.OnResetFoodMaking -= BreadCheckResetter;
     }
 

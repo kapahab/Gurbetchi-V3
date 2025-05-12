@@ -17,7 +17,6 @@ public class EventManager : MonoBehaviour
     public delegate void DonerEnter();
     public static event DonerEnter OnDonerEnter;
     private bool inDonerMinigame = false;
-    ScrappyInputGraphics darkenOthers;
 
     public delegate void DonerExit();
     public static event DonerExit OnDonerExit;
@@ -41,13 +40,14 @@ public class EventManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        darkenOthers = GetComponent<ScrappyInputGraphics>();
         foodOnPlate = GetComponent<FoodOnPlate>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        DonerQTE.donerCheck = inDonerMinigame; 
+
         if (Input.GetKeyDown("escape"))
         {
             if (!gameFlow.isGamePaused)
@@ -77,41 +77,46 @@ public class EventManager : MonoBehaviour
             return;
         }
 
-        if (gameFlow.isCarbOnTable) // geri kalan yemek ürünlerine sadece ekmek masadaysa ulaþýlýr
+        if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
         {
-            foreach (string keyName in gameFlow.allKeyBindingsUsed)
-            {
-                if (Input.GetKeyDown(keyName) && !inDonerMinigame)
-                {
-                    Debug.Log("Regular input");
-                    if (OnRegularInput != null)
-                        OnRegularInput();
-                }
-            }
-
-            if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
-            {
-                DonerChecker();
-            }
+            DonerChecker();
         }
 
-        if (!gameFlow.isCarbOnTable) // carb sadece tek bir tür konulur
-        {
-            foreach (string keyName in gameFlow.carbKeyBindingsUsed)
-            {
-                if (Input.GetKeyDown(keyName) && !inDonerMinigame)
-                {
-                    Debug.Log("Carb input");
-                    if (OnCarbInput != null)
-                        OnCarbInput();
-                    gameFlow.isCarbOnTable = true; // ekmek masaya konulduðunda true olur
-                }
-            }
-        }
-        
+        //if (gameFlow.isCarbOnTable) // geri kalan yemek ürünlerine sadece ekmek masadaysa ulaþýlýr
+        //{
+        //    foreach (string keyName in gameFlow.allKeyBindingsUsed)
+        //    {
+        //        if (Input.GetKeyDown(keyName) && !inDonerMinigame)
+        //        {
+        //            Debug.Log("Regular input");
+        //            if (OnRegularInput != null)
+        //                OnRegularInput();
+        //        }
+        //    }
+
+        //    if (Input.GetKeyDown("d")) //doner enter ve exit ayný anda çalýþýyo
+        //    {
+        //        DonerChecker();
+        //    }
+        //}
+
+        //if (!gameFlow.isCarbOnTable) // carb sadece tek bir tür konulur
+        //{
+        //    foreach (string keyName in gameFlow.carbKeyBindingsUsed)
+        //    {
+        //        if (Input.GetKeyDown(keyName) && !inDonerMinigame)
+        //        {
+        //            Debug.Log("Carb input");
+        //            if (OnCarbInput != null)
+        //                OnCarbInput();
+        //            gameFlow.isCarbOnTable = true; // ekmek masaya konulduðunda true olur
+        //        }
+        //    }
+        //}
 
 
-       
+
+
 
         if (Input.GetKeyDown("x"))
         {
@@ -125,7 +130,8 @@ public class EventManager : MonoBehaviour
             }
         }
 
-
+        if (gameFlow.isZoneSelected)
+            return;
 
         if (Input.GetKeyDown("space"))
         {
@@ -151,14 +157,12 @@ public class EventManager : MonoBehaviour
         {
             Debug.Log("Doner exit");
             OnDonerExit();
-            darkenOthers.LightenObjects();
             inDonerMinigame = false;
         }
         else
         {
             Debug.Log("Doner enter");
             OnDonerEnter();
-            darkenOthers.DarkenObjects();
             inDonerMinigame = true;
         }
     }

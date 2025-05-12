@@ -13,6 +13,8 @@ public class DonerQTE : MonoBehaviour
     private int DonerValue;
     public static bool donerCheck;
     HashSet<int> usedIndexes = new HashSet<int>();
+    [SerializeField]ScrappyInputGraphics darkenOthers;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,6 +46,9 @@ public class DonerQTE : MonoBehaviour
                     DonerAdder(2);
                 }
             }
+
+            if(ZonePicker.currentActiveZone != null)
+                DonerMinigameExit();
         }
     }
 
@@ -66,6 +71,7 @@ public class DonerQTE : MonoBehaviour
     void DonerMinigameEnter()
     {
         donerCheck = true;
+        darkenOthers.DarkenObjects();
     }
 
 
@@ -86,6 +92,7 @@ public class DonerQTE : MonoBehaviour
             Debug.Log("Doner is done");
         }
         Debug.Log("plate value after doner is " + gameFlow.plateValue);
+        darkenOthers.LightenObjects();
         donerCheck = false;
     }
 
