@@ -130,8 +130,14 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        if (gameFlow.isZoneSelected)
+        if (ZonePicker.currentActiveZone != null)
+        {
+            if (inDonerMinigame)
+            {
+                DonerChecker();
+            }
             return;
+        }
 
         if (Input.GetKeyDown("space"))
         {

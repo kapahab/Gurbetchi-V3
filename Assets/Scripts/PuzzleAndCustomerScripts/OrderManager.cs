@@ -165,6 +165,16 @@ public class OrderManager : MonoBehaviour
 
     }
 
+    public bool IsCustomerAnimating(int index)
+    {
+        if (customerManager != null && customerManager.Count > index)
+        {
+            Debug.Log("customer manager count: " + customerManager.Count);
+            return customerManager[index].inEndAnimation;
+
+        }
+        else return false;
+    }
 
     public bool IsPuzzleSolved(int index)
     {

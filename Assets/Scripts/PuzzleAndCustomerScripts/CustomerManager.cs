@@ -42,6 +42,7 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
     [SerializeField] Sprite incorrectOrderCustomer;
 
     bool isProcessingOrder = false;
+    public bool inEndAnimation = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -184,7 +185,8 @@ public class CustomerManager : MonoBehaviour //bu script bir sürü þey yapýyo, ay
         }
 
 
-
+        inEndAnimation = true;
+        Debug.Log("In end animation: " + inEndAnimation);
         yield return new WaitForSeconds(2f);
         Debug.Log("OrderFinished yield run");
 
