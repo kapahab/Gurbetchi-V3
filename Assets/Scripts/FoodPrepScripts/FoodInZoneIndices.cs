@@ -1,8 +1,9 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FoodInZoneIndices : MonoBehaviour
 {
-    [SerializeField] int moveIndex;
+    public int moveIndex;
     [SerializeField]ZoneManager zoneManager;
     [SerializeField] GameObject highlightedObj;
     bool thisFoodSelected = false;
@@ -12,15 +13,24 @@ public class FoodInZoneIndices : MonoBehaviour
     [SerializeField] string ingredientListType;
     public GameObject cloneObj;
 
+    public bool isIngredientAdded = false;
+    SpriteRenderer[] renderers;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         highlightedObj.SetActive(false);
+        renderers = GetComponentsInChildren<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (!gameFlow.gameActive) return;
+        if (!gameFlow.screenSwitch) return;
+
         if (!zoneManager.inThisZone)
         {
             DeactivateAll();
@@ -29,6 +39,7 @@ public class FoodInZoneIndices : MonoBehaviour
         Activate();
         Deactivate();
         AddFood();
+        Disable();
     }
 
 
@@ -71,8 +82,40 @@ public class FoodInZoneIndices : MonoBehaviour
             else if (ingredientListType == "sauceList")
                 gameFlow.sauceList.Add(ingredientName);
             Debug.Log("Ingredient " + ingredientName + " is chosen");
+            isIngredientAdded = true;
         }
-        
     }
 
+    void Disable()
+    {
+        if (!isIngredientAdded)
+            return;
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            renderer.color = new Color(0.5f, 0.5f, 0.5f);
+        }
+    }
+
+
+    void ReEnable()
+    {
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            renderer.color = new Color(1, 1, 1);
+        }
+        isIngredientAdded = true;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.OnResetFoodMaking += ReEnable;
+        EventManager.OnPlateServed += ReEnable;
+        EventManager.OnFoodTrashed += ReEnable;
+    }
+    private void OnDisable()
+    {
+        EventManager.OnResetFoodMaking -= ReEnable;
+        EventManager.OnPlateServed -= ReEnable;
+        EventManager.OnFoodTrashed -= ReEnable;
+    }
 }

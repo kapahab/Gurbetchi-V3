@@ -51,6 +51,8 @@ public class FoodToCustomersGraphic : MonoBehaviour
         FoodListComparetor(donerOnPuzzleScene, gameFlow.donerList);
         */
         ShowFoodToCustomer(tepsi, -30, -4, 0);
+        if (gameFlow.carbList.Count == 0)
+            return;
         string carbType = gameFlow.carbList[0]; 
         switch (carbType)
         {

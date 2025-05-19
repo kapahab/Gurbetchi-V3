@@ -6,6 +6,7 @@ public class ZonePicker : MonoBehaviour
     [SerializeField] string keyStrokeZone;
     public bool isThisZoneActive = false;
     public static ZonePicker currentActiveZone = null;
+    public bool isThisCarbZone;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -22,6 +23,22 @@ public class ZonePicker : MonoBehaviour
 
 
         CheckZoneSwitch();
+        CarbFunctions();
+    }
+
+    void CarbFunctions()
+    {
+        if (!isThisCarbZone)
+        {
+            if (!gameFlow.isCarbOnTable)
+            {
+                DeactivateZone();
+            }
+                return;
+        }
+        if (!gameFlow.isCarbOnTable)
+            return;
+        DeactivateZone();
     }
 
     void CheckZoneSwitch()
@@ -32,16 +49,19 @@ public class ZonePicker : MonoBehaviour
             if (currentActiveZone != null && currentActiveZone != this)
             {
                 currentActiveZone.DeactivateZone();
+                Debug.Log("Deactivated another zone: " );
             }
 
             // Toggle this zone: if already active, deactivate; otherwise activate
             if (isThisZoneActive)
             {
                 DeactivateZone();
+                Debug.Log("Zone deactivated: " + keyStrokeZone);
             }
             else
             {
                 ActivateZone();
+                Debug.Log("Zone activated: " + keyStrokeZone);
             }
         }
     }
@@ -50,7 +70,6 @@ public class ZonePicker : MonoBehaviour
     {
         StartCoroutine(WaitAndSetZone(true));
         currentActiveZone = this;
-        Debug.Log("Zone activated: " + keyStrokeZone);
     }
 
     void DeactivateZone()
@@ -58,7 +77,6 @@ public class ZonePicker : MonoBehaviour
         StartCoroutine(WaitAndSetZone(false));
         if (currentActiveZone == this)
             currentActiveZone = null;
-        Debug.Log("Zone deactivated: " + keyStrokeZone);
     }
 
     IEnumerator WaitAndSetZone(bool value)

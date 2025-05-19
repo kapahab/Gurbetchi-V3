@@ -6,18 +6,33 @@ public class BreadChecker : MonoBehaviour
 
     bool carbGraphicsActivated = true;
     bool carbGraphicsNeedChange = false;
+    bool lastCarbGraphicsState = false;
     [SerializeField] GameObject[] nonCarbObjects;
     [SerializeField] GameObject[] carbObjects;
     void Start()
     {
         carbGraphicsActivated = true;
-        //ShowCarb();
+        ShowCarb();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (gameFlow.isCarbOnTable == lastCarbGraphicsState)
+        {
+            lastCarbGraphicsState = gameFlow.isCarbOnTable;
+            return;
+        }
+
+        if (gameFlow.isCarbOnTable)
+            HideCarb();
+        else
+            ShowCarb();
+
+
+
+        lastCarbGraphicsState = gameFlow.isCarbOnTable;
     }
 
     void ShowCarb()

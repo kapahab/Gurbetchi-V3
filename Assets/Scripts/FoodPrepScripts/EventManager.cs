@@ -139,7 +139,7 @@ public class EventManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") & (gameFlow.carbList.Count != 0 || gameFlow.toppingList.Count != 0 || gameFlow.sauceList.Count != 0 || gameFlow.spiceList.Count != 0 || gameFlow.donerList.Count != 0))
         {
             Debug.Log("Plate served");
             StartCoroutine(WaitAndSwitch());

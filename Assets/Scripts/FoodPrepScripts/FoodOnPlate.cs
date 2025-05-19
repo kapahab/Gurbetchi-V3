@@ -29,7 +29,7 @@ public class FoodOnPlate : MonoBehaviour
 
     void ResetLayerOrder()
     {
-        layerOrder = 4;
+        layerOrder = 5;
     }
 
     private void OnEnable()
