@@ -70,6 +70,8 @@ public class FoodInZoneIndices : MonoBehaviour
     {
         if (!thisFoodSelected)
             return;
+        if (isIngredientAdded)
+            return;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             foodOnPlate.PutFoodOnPlate(cloneObj, gameFlow.xPosOfPlate, gameFlow.yPosOfPlate);
@@ -103,7 +105,7 @@ public class FoodInZoneIndices : MonoBehaviour
         {
             renderer.color = new Color(1, 1, 1);
         }
-        isIngredientAdded = true;
+        isIngredientAdded = false;
     }
 
     private void OnEnable()

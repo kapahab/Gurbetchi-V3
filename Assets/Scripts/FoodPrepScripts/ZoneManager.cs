@@ -14,6 +14,11 @@ public class ZoneManager : MonoBehaviour
     [SerializeField] GameObject[] foodInZone;
     List<FoodInZoneIndices> foodInZoneIndices = new List<FoodInZoneIndices>();
 
+    int moveUp = 10;
+    int moveDown = -10;
+    int moveLeft = -1;
+    int moveRight = 1;
+
     int previousMoveIndex = -1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,13 +60,13 @@ public class ZoneManager : MonoBehaviour
         previousMoveIndex = moveIndex;
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
-            moveIndex = GetMoveIndex(moveIndex - 10);
+            moveIndex = GetMoveIndex(moveIndex + moveDown, moveDown);
         if (Input.GetKeyDown(KeyCode.DownArrow))
-            moveIndex = GetMoveIndex(moveIndex + 10);
+            moveIndex = GetMoveIndex(moveIndex + moveUp, moveUp);
         if (Input.GetKeyDown(KeyCode.LeftArrow))
-            moveIndex = GetMoveIndex(moveIndex - 1);
+            moveIndex = GetMoveIndex(moveIndex + moveLeft, moveLeft);
         if (Input.GetKeyDown(KeyCode.RightArrow))
-            moveIndex = GetMoveIndex(moveIndex + 1);
+            moveIndex = GetMoveIndex(moveIndex + moveRight, moveRight);
     }
 
     void CheckForCarb()
@@ -72,7 +77,7 @@ public class ZoneManager : MonoBehaviour
             gameFlow.isCarbOnTable = true;
     }
 
-    int GetMoveIndex(int moveIndexToBe)
+    int GetMoveIndex(int moveIndexToBe, int direction)
     {
         int correctedMoveIndex = moveIndexToBe;
 
@@ -85,9 +90,9 @@ public class ZoneManager : MonoBehaviour
         if (moveIndexToBe / 10 < 1)
             correctedMoveIndex = (moveIndex % 10) + maxIndexTens;
 
-        int blockedIndex;
-        if (CheckIfFoodIsUsed(correctedMoveIndex, out blockedIndex))
-            return BlockedIngredientMove(foodInZoneIndices[blockedIndex]);
+        //int blockedIndex;
+        //if (CheckIfFoodIsUsed(correctedMoveIndex, out blockedIndex))
+        //    return BlockedIngredientMove(foodInZoneIndices[blockedIndex], direction);
 
         //for (int i = 0; i < foodInZoneIndices.Count; i++)
         //{
@@ -101,90 +106,115 @@ public class ZoneManager : MonoBehaviour
 
 
 
-    int BlockedIngredientMove(FoodInZoneIndices food)
-    {
-        int blockedIndex = food.moveIndex;
-        int resultTens;
-        int resultOnes;
-        int resultingIndex;
-        //do
-        //{
-        int blockedIndexTens = blockedIndex / 10;
-        int blockedIndexOnes = blockedIndex % 10;
+    //int BlockedIngredientMove(FoodInZoneIndices food, int direction)
+    //{
+    //    int blockedIndex = food.moveIndex;
+    //    int resultTens;
+    //    int resultOnes;
+    //    int resultingIndex;
+    //    //bool firstTryFailed = false;
+    //    //do
+    //    //{
+    //    //if (firstTryFailed)
+    //    //{
+    //    //    Debug.Log("first try failed");
+    //    //    blockedIndex = blockedIndex + direction;
+    //    //}
 
-        resultTens = blockedIndexTens;
-        resultOnes = blockedIndexOnes;
+    //    int blockedIndexTens = blockedIndex / 10;
+    //    int blockedIndexOnes = blockedIndex % 10;
 
-        if (moveIndex / 10 - blockedIndex / 10 == 0)//change in the ones
-        {
-            Debug.Log("change in ones");
-            if (blockedIndexOnes == maxIndexOnes) //if the blocked index is the last one
-            {
-                if (blockedIndexTens == maxIndexTens)
-                    resultOnes = 1;
-                else
-                {
-                    resultOnes = 1;
-                    resultTens = blockedIndexTens + 1;
-                }
-            }
-            else if (blockedIndexOnes == 1) //if the blocked index is the first one
-            {
-                if (blockedIndexTens == 1)
-                    resultOnes = 1;
-                else
-                {
-                    resultOnes = maxIndexOnes;
-                    resultTens = blockedIndexTens - 1;
-                }
-            }
-            else if ((moveIndex % 10) - blockedIndexOnes < 0) //if the move index is less than the blocked index
-                resultOnes = blockedIndexOnes + 1;
-            else
-                resultOnes = blockedIndexOnes - 1;
-        }
-        else
-        {
-            resultOnes = blockedIndexOnes;
-        }
+    //    resultTens = blockedIndexTens;
+    //    resultOnes = blockedIndexOnes;
+    //    int nextBlockedIndex;
 
-        if (moveIndex % 10 - blockedIndex % 10 == 0)//change in the tens
-        {
-            Debug.Log("change in tens");
-            if (blockedIndexTens == maxIndexTens / 10)
-            {
-                resultTens = 1;
-                Debug.Log("max index tens");
-            }
-            else if (blockedIndexTens == 1)
-            {
-                resultTens = maxIndexTens / 10;
-                Debug.Log("min index tens");
-            }
-            else if ((moveIndex / 10) - blockedIndexTens < 0)
-            {
-                resultTens = blockedIndexTens + 1;
-                Debug.Log("move index tens < blocked index tens");
-                Debug.Log(blockedIndexTens + "blocked index");
-                Debug.Log(maxIndexTens + "max tens");
-            }
-            else
-            {
-                resultTens = blockedIndexTens - 1;
-                Debug.Log("move index tens > blocked index tens");
-            }
-        }
-        else
-        {
-            resultTens = blockedIndexTens;
-        }
+    //    //if (CheckIfFoodIsUsed(blockedIndex + direction, out nextBlockedIndex))
+    //    //{
+    //    //    do
+    //    //    {
+    //    //        blockedIndex =+ direction;
+    //    //    } while (!CheckIfFoodIsUsed(blockedIndex + direction, out nextBlockedIndex) || blockedIndex != maxIndexTens);
 
-        resultingIndex = (resultTens * 10) + resultOnes;
-        //}
-        //while (CheckIfFoodIsUsed(resultingIndex, out blockedIndex));
+    //    //    if (blockedIndex != maxIndexTens)
+    //    //        return blockedIndex;
+    //    //    else
+    //    //    {
+                
+    //    //    }
 
-        return (resultTens * 10) + resultOnes;
-    }
+    //    //}
+
+    //    //if (moveIndex / 10 - blockedIndex / 10 == 0)//change in the ones
+    //    //{
+    //    //    Debug.Log("change in ones");
+    //    //    if (blockedIndexOnes == maxIndexOnes) //if the blocked index is the last one
+    //    //    {
+    //    //        if (blockedIndexTens == maxIndexTens)
+    //    //            resultOnes = 1;
+    //    //        else
+    //    //        {
+    //    //            resultOnes = 1;
+    //    //            resultTens = blockedIndexTens + 1;
+    //    //        }
+    //    //    }
+    //    //    else if (blockedIndexOnes == 1) //if the blocked index is the first one
+    //    //    {
+    //    //        if (blockedIndexTens == 1)
+    //    //            resultOnes = 1;
+    //    //        else
+    //    //        {
+    //    //            resultOnes = maxIndexOnes;
+    //    //            resultTens = blockedIndexTens - 1;
+    //    //        }
+    //    //    }
+    //    //    else if ((moveIndex % 10) - blockedIndexOnes < 0) //if the move index is less than the blocked index
+    //    //        resultOnes = blockedIndexOnes + 1;
+    //    //    else
+    //    //        resultOnes = blockedIndexOnes - 1;
+    //    //}
+    //    //else
+    //    //{
+    //    //    resultOnes = blockedIndexOnes;
+    //    //}
+
+    //    //if (moveIndex % 10 - blockedIndex % 10 == 0)//change in the tens
+    //    //{
+    //    //    Debug.Log("change in tens");
+    //    //    if (blockedIndexTens == maxIndexTens / 10)
+    //    //    {
+    //    //        resultTens = 1;
+    //    //        Debug.Log("max index tens");
+    //    //    }
+    //    //    else if (blockedIndexTens == 1)
+    //    //    {
+    //    //        resultTens = maxIndexTens / 10;
+    //    //        Debug.Log("min index tens");
+    //    //    }
+    //    //    else if ((moveIndex / 10) - blockedIndexTens < 0)
+    //    //    {
+    //    //        resultTens = blockedIndexTens + 1;
+    //    //        Debug.Log("move index tens < blocked index tens");
+    //    //        Debug.Log(blockedIndexTens + "blocked index");
+    //    //        Debug.Log(maxIndexTens + "max tens");
+    //    //    }
+    //    //    else
+    //    //    {
+    //    //        resultTens = blockedIndexTens - 1;
+    //    //        Debug.Log("move index tens > blocked index tens");
+    //    //    }
+    //    //}
+    //    //else
+    //    //{
+    //    //    resultTens = blockedIndexTens;
+    //    //}
+
+    //    resultingIndex = (resultTens * 10) + resultOnes;
+    //    //firstTryFailed = true;
+    //    //}
+    //    //while (CheckIfFoodIsUsed(resultingIndex, out blockedIndex));
+
+    //    return (resultTens * 10) + resultOnes;
+    //}
 
 
     bool CheckIfFoodIsUsed(int moveIndex, out int index)
